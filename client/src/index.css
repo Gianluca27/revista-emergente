@@ -1,0 +1,223 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    background-color: #0A0A0A;
+    color: #F5F0EB;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    background-color: #0A0A0A;
+  }
+}
+
+/* Textura de grano — efecto fanzine */
+.grain::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url('/grain.svg');
+  opacity: 0.04;
+}
+
+/* Glitch hover para logo y títulos grandes */
+.glitch {
+  position: relative;
+}
+
+.glitch:hover::before,
+.glitch:hover::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch:hover::before {
+  left: 2px;
+  color: #C0001A;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  animation: glitch-clip 0.3s ease forwards;
+}
+
+.glitch:hover::after {
+  left: -2px;
+  color: #F5F0EB;
+  clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+  animation: glitch-clip 0.3s ease forwards;
+}
+
+@keyframes glitch-clip {
+  0%   { transform: translateX(0); }
+  20%  { transform: translateX(-3px); }
+  40%  { transform: translateX(3px); }
+  60%  { transform: translateX(-2px); }
+  80%  { transform: translateX(2px); }
+  100% { transform: translateX(0); }
+}
+
+/* Marquee podcast banner */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-inner {
+  animation: marquee 40s linear infinite;
+  white-space: nowrap;
+}
+
+/* Hero glitch — auto-plays on state trigger (post letter animation) */
+@keyframes hero-glitch-before {
+  0%, 100% { transform: translateX(0); clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%); }
+  20%       { transform: translateX(-4px); }
+  40%       { transform: translateX(4px); }
+  60%       { transform: translateX(-3px); }
+  80%       { transform: translateX(3px); }
+}
+
+@keyframes hero-glitch-after {
+  0%, 100% { transform: translateX(0); clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%); }
+  20%       { transform: translateX(4px); }
+  40%       { transform: translateX(-4px); }
+  60%       { transform: translateX(3px); }
+  80%       { transform: translateX(-3px); }
+}
+
+.hero-glitch {
+  position: relative;
+}
+
+.hero-glitch::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  color: #C0001A;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: inherit;
+  line-height: inherit;
+  animation: hero-glitch-before 0.5s step-end forwards;
+  pointer-events: none;
+}
+
+.hero-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  color: #F5F0EB;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: inherit;
+  line-height: inherit;
+  animation: hero-glitch-after 0.5s step-end forwards;
+  pointer-events: none;
+}
+
+/* Cards viewport entry */
+.card-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 400ms ease, transform 400ms ease;
+}
+
+.card-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── prose-dark: rich-text body from TipTap editor ───────── */
+.prose-dark {
+  @apply font-mono text-sm leading-relaxed;
+  color: rgba(245, 240, 235, 0.9); /* blanco/90 */
+}
+
+.prose-dark p {
+  @apply mb-5;
+}
+
+.prose-dark h2 {
+  @apply font-display text-3xl sm:text-4xl text-rojo uppercase leading-none mt-10 mb-4;
+}
+
+.prose-dark h3 {
+  @apply font-display text-2xl sm:text-3xl text-rojo uppercase leading-none mt-8 mb-3;
+}
+
+.prose-dark strong {
+  @apply text-blanco font-bold;
+  font-family: inherit;
+}
+
+.prose-dark em {
+  @apply italic;
+  color: rgba(245, 240, 235, 0.75);
+}
+
+.prose-dark a {
+  @apply text-rojo underline-offset-2;
+  text-decoration: underline;
+  text-decoration-color: rgba(192, 0, 26, 0.5);
+  transition: text-decoration-color 150ms ease;
+}
+
+.prose-dark a:hover {
+  text-decoration-color: #C0001A;
+}
+
+.prose-dark ul {
+  @apply list-none pl-0 mb-5 space-y-2;
+}
+
+.prose-dark ul li {
+  @apply relative pl-5;
+}
+
+.prose-dark ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: #C0001A;
+}
+
+.prose-dark ol {
+  @apply list-decimal pl-6 mb-5 space-y-2;
+  color: rgba(245, 240, 235, 0.9);
+}
+
+.prose-dark ol li::marker {
+  @apply text-rojo;
+}
+
+.prose-dark blockquote {
+  @apply border-l-4 border-rojo pl-5 my-8 italic;
+  color: rgba(245, 240, 235, 0.7);
+}
+
+.prose-dark blockquote p {
+  @apply mb-0;
+}
+
+.prose-dark hr {
+  @apply border-none my-10;
+  height: 1px;
+  background-color: #3A3A3A;
+}
+
+.prose-dark img {
+  @apply w-full my-8 grayscale;
+  transition: filter 500ms ease;
+}
+
+.prose-dark img:hover {
+  @apply grayscale-0;
+}
