@@ -29,13 +29,13 @@ function ShowCard({ show }) {
           alt={show.title}
           className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500"
         />
-        <div className="absolute inset-0 bg-negro/60 group-hover:bg-negro/40 transition" />
+        <div className="absolute inset-0 bg-crema/60 group-hover:bg-crema/40 transition" />
         <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-rojo opacity-0 group-hover:opacity-100 transition" />
         <div className="absolute bottom-0 left-0 right-0 p-4">
-          <h2 className="font-display text-blanco uppercase text-xl group-hover:border-b-2 group-hover:border-rojo leading-tight pb-0.5 transition-all duration-200">
+          <h2 className="font-display text-negro uppercase text-xl group-hover:border-b-2 group-hover:border-rojo leading-tight pb-0.5 transition-all duration-200">
             {show.title}
           </h2>
-          <p className="font-ui text-xs text-gris-mid mt-1">
+          <p className="font-ui text-xs text-negro/50 mt-1">
             {show.venue}
             {show.venue && show.event_date && ' — '}
             {show.event_date && formatDate(show.event_date)}
@@ -64,9 +64,12 @@ export default function ShowsPage() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-negro text-blanco">
+    <div className="min-h-screen bg-crema text-negro">
       <header className="pt-24 pb-8 px-6">
-        <h1 className="font-display text-blanco uppercase text-6xl sm:text-8xl leading-none tracking-tight">
+        <h1
+          className="font-display text-negro uppercase text-6xl sm:text-8xl leading-none tracking-tight glitch"
+          data-text="SHOWS"
+        >
           SHOWS
         </h1>
         <div className="mt-3 h-0.5 w-16 bg-rojo" />
@@ -76,13 +79,13 @@ export default function ShowsPage() {
         {loading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-gris-mid">
             {Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="bg-negro">
+              <div key={i} className="bg-crema">
                 <ShowSkeleton />
               </div>
             ))}
           </div>
         ) : shows.length === 0 ? (
-          <p className="font-mono text-gris-mid text-sm mt-8">
+          <p className="font-mono text-negro/50 text-sm mt-8">
             No hay coberturas disponibles todavía.
           </p>
         ) : (
@@ -94,7 +97,7 @@ export default function ShowsPage() {
             viewport={{ once: true, margin: '-60px' }}
           >
             {shows.map((show) => (
-              <div key={show.id} className="bg-negro">
+              <div key={show.id} className="bg-crema">
                 <ShowCard show={show} />
               </div>
             ))}

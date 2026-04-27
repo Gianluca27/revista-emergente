@@ -18,8 +18,8 @@ function ToolbarButton({ onClick, active, title, children }) {
       className={[
         'px-2.5 py-1.5 font-mono text-[11px] uppercase tracking-widest transition-colors duration-100',
         active
-          ? 'bg-rojo text-blanco'
-          : 'text-gris-mid hover:text-blanco hover:bg-gris-mid/30',
+          ? 'bg-rojo text-crema'
+          : 'text-negro/50 hover:text-negro hover:bg-gris-mid/30',
       ].join(' ')}
     >
       {children}
@@ -53,7 +53,7 @@ export default function TipTapEditor({ value, onChange }) {
     onUpdate: ({ editor }) => onChange(editor.getHTML()),
     editorProps: {
       attributes: {
-        class: 'prose-editor focus:outline-none min-h-[320px] px-5 py-4 font-mono text-[13px] text-blanco leading-relaxed',
+        class: 'prose-editor focus:outline-none min-h-[320px] px-5 py-4 font-mono text-[13px] text-negro leading-relaxed',
       },
     },
   })
@@ -91,7 +91,7 @@ export default function TipTapEditor({ value, onChange }) {
   return (
     <div className="border border-gris-mid focus-within:border-rojo/60 transition-colors duration-200 bg-gris">
       {/* Toolbar */}
-      <div className="flex flex-wrap items-center gap-0.5 px-2 py-1.5 border-b border-gris-mid bg-negro/40">
+      <div className="flex flex-wrap items-center gap-0.5 px-2 py-1.5 border-b border-gris-mid bg-crema/40">
         <ToolbarButton
           onClick={() => editor.chain().focus().toggleBold().run()}
           active={editor.isActive('bold')}
@@ -141,7 +141,7 @@ export default function TipTapEditor({ value, onChange }) {
             title="Enlace"
           >↗</ToolbarButton>
           {showLinkInput && (
-            <div className="absolute top-full left-0 z-20 mt-1 flex items-center gap-1 bg-negro border border-gris-mid p-1.5 shadow-xl min-w-[240px]">
+            <div className="absolute top-full left-0 z-20 mt-1 flex items-center gap-1 bg-crema border border-gris-mid p-1.5 shadow-xl min-w-[240px]">
               <input
                 autoFocus
                 type="url"
@@ -149,17 +149,17 @@ export default function TipTapEditor({ value, onChange }) {
                 value={linkUrl}
                 onChange={e => setLinkUrl(e.target.value)}
                 onKeyDown={e => e.key === 'Enter' && applyLink()}
-                className="flex-1 bg-gris text-blanco font-mono text-[11px] px-2 py-1 border border-gris-mid focus:outline-none focus:border-rojo"
+                className="flex-1 bg-gris text-negro font-mono text-[11px] px-2 py-1 border border-gris-mid focus:outline-none focus:border-rojo"
               />
               <button
                 type="button"
                 onClick={applyLink}
-                className="font-ui text-[10px] uppercase tracking-widest px-2 py-1 bg-rojo text-blanco"
+                className="font-ui text-[10px] uppercase tracking-widest px-2 py-1 bg-rojo text-crema"
               >OK</button>
               <button
                 type="button"
                 onClick={() => { setShowLinkInput(false); editor.chain().focus().unsetLink().run() }}
-                className="font-mono text-[11px] text-gris-mid px-1.5 py-1 hover:text-blanco"
+                className="font-mono text-[11px] text-negro/50 px-1.5 py-1 hover:text-negro"
               >✕</button>
             </div>
           )}
@@ -169,7 +169,7 @@ export default function TipTapEditor({ value, onChange }) {
           title={uploading ? 'Subiendo…' : 'Insertar imagen'}
           className={[
             'px-2.5 py-1.5 font-mono text-[11px] uppercase tracking-widest cursor-pointer transition-colors duration-100',
-            uploading ? 'text-rojo cursor-wait' : 'text-gris-mid hover:text-blanco hover:bg-gris-mid/30',
+            uploading ? 'text-rojo cursor-wait' : 'text-negro/50 hover:text-negro hover:bg-gris-mid/30',
           ].join(' ')}
         >
           {uploading ? '…' : '⊞'}
@@ -187,18 +187,18 @@ export default function TipTapEditor({ value, onChange }) {
       <EditorContent editor={editor} />
 
       <style>{`
-        .prose-editor h2 { font-family: 'Anton', sans-serif; font-size: 1.6rem; color: #F5F0EB; margin: 1.2rem 0 0.5rem; letter-spacing: 0.05em; }
-        .prose-editor h3 { font-family: 'Anton', sans-serif; font-size: 1.2rem; color: #F5F0EB; margin: 1rem 0 0.4rem; }
-        .prose-editor p { margin: 0.6rem 0; }
-        .prose-editor strong { color: #F5F0EB; }
-        .prose-editor em { color: #C0001A; font-style: italic; }
-        .prose-editor a { color: #C0001A; text-decoration: underline; text-underline-offset: 2px; }
-        .prose-editor blockquote { border-left: 2px solid #C0001A; padding-left: 1rem; margin: 1rem 0; color: #3A3A3A; }
+        .prose-editor h2 { font-family: 'Rubik Wet Paint', 'Bebas Neue', sans-serif; font-size: 1.6rem; color: #A8161B; margin: 1.2rem 0 0.5rem; letter-spacing: 0.05em; text-transform: uppercase; }
+        .prose-editor h3 { font-family: 'Permanent Marker', cursive; font-size: 1.2rem; color: #A8161B; margin: 1rem 0 0.4rem; }
+        .prose-editor p { margin: 0.6rem 0; color: #1A1A1A; }
+        .prose-editor strong { color: #1A1A1A; }
+        .prose-editor em { color: #A8161B; font-style: italic; }
+        .prose-editor a { color: #A8161B; text-decoration: underline; text-underline-offset: 2px; }
+        .prose-editor blockquote { border-left: 2px solid #A8161B; padding-left: 1rem; margin: 1rem 0; color: #6B6B6B; }
         .prose-editor ul { list-style: none; padding-left: 1rem; }
-        .prose-editor ul li::before { content: '—'; margin-right: 0.5rem; color: #C0001A; }
+        .prose-editor ul li::before { content: '—'; margin-right: 0.5rem; color: #A8161B; }
         .prose-editor ol { padding-left: 1.5rem; }
-        .prose-editor code { background: #1A1A1A; padding: 0.1rem 0.3rem; font-size: 0.85em; color: #C0001A; }
-        .prose-editor pre { background: #0A0A0A; border: 1px solid #3A3A3A; padding: 1rem; overflow-x: auto; margin: 1rem 0; }
+        .prose-editor code { background: #E8E0D5; padding: 0.1rem 0.3rem; font-size: 0.85em; color: #A8161B; }
+        .prose-editor pre { background: #E8E0D5; border: 1px solid #C9BFB1; padding: 1rem; overflow-x: auto; margin: 1rem 0; color: #1A1A1A; }
       `}</style>
     </div>
   )

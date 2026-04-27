@@ -39,15 +39,15 @@ export default function NuevaPublicacionPage() {
   return (
     <div className="px-6 py-8 max-w-3xl">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 mb-6 font-ui text-[10px] uppercase tracking-[0.25em] text-gris-mid">
-        <Link to="/admin/publicaciones" className="hover:text-blanco transition-colors">
+      <nav className="flex items-center gap-2 mb-6 font-ui text-[10px] uppercase tracking-[0.25em] text-negro/50">
+        <Link to="/admin/publicaciones" className="hover:text-negro transition-colors">
           Publicaciones
         </Link>
         <span>→</span>
-        <span className="text-blanco">Nueva</span>
+        <span className="text-negro">Nueva</span>
       </nav>
 
-      <h1 className="font-display text-5xl text-blanco tracking-wide leading-none mb-8">
+      <h1 className="font-display text-5xl text-negro tracking-wide leading-none mb-8">
         NUEVA PUBLICACIÓN
       </h1>
 

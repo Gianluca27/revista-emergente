@@ -1,8 +1,8 @@
 export default function Badge({ children, variant = 'rojo' }) {
   const variants = {
-    rojo: 'bg-rojo text-blanco',
+    rojo: 'bg-rojo text-crema',
     outline: 'border border-rojo text-rojo bg-transparent',
-    dark: 'bg-negro text-gris-mid border border-gris-mid',
+    dark: 'bg-crema text-negro/50 border border-gris-mid',
   }
 
   return (

@@ -91,14 +91,14 @@ export default function Lightbox({ images = [], initialIndex = 0, onClose = () =
       <button
         tabIndex={-1}
         aria-label="Cerrar lightbox"
-        className="absolute inset-0 bg-negro/95 cursor-default w-full h-full"
+        className="absolute inset-0 bg-crema/95 cursor-default w-full h-full"
         onClick={onClose}
       />
 
       {/* Close button */}
       <button
         onClick={onClose}
-        className="absolute top-4 right-5 z-10 font-display text-4xl text-blanco hover:text-rojo transition-colors duration-150 leading-none select-none"
+        className="absolute top-4 right-5 z-10 font-display text-4xl text-negro hover:text-rojo transition-colors duration-150 leading-none select-none"
         aria-label="Cerrar"
       >
         &times;
@@ -108,7 +108,7 @@ export default function Lightbox({ images = [], initialIndex = 0, onClose = () =
       {total > 1 && (
         <button
           onClick={goPrev}
-          className="absolute left-3 sm:left-6 z-10 font-display text-4xl sm:text-5xl text-blanco hover:text-rojo transition-colors duration-150 leading-none select-none px-2 py-4"
+          className="absolute left-3 sm:left-6 z-10 font-display text-4xl sm:text-5xl text-negro hover:text-rojo transition-colors duration-150 leading-none select-none px-2 py-4"
           aria-label="Imagen anterior"
         >
           &#8592;
@@ -119,7 +119,7 @@ export default function Lightbox({ images = [], initialIndex = 0, onClose = () =
       {total > 1 && (
         <button
           onClick={goNext}
-          className="absolute right-3 sm:right-6 z-10 font-display text-4xl sm:text-5xl text-blanco hover:text-rojo transition-colors duration-150 leading-none select-none px-2 py-4"
+          className="absolute right-3 sm:right-6 z-10 font-display text-4xl sm:text-5xl text-negro hover:text-rojo transition-colors duration-150 leading-none select-none px-2 py-4"
           aria-label="Imagen siguiente"
         >
           &#8594;
@@ -152,7 +152,7 @@ export default function Lightbox({ images = [], initialIndex = 0, onClose = () =
       {/* Counter */}
       {total > 1 && (
         <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-10 pointer-events-none">
-          <span className="font-ui text-xs tracking-[0.2em] text-gris-mid uppercase">
+          <span className="font-ui text-xs tracking-[0.2em] text-negro/50 uppercase">
             {current + 1} / {total}
           </span>
         </div>

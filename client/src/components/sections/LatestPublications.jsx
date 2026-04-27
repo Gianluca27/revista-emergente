@@ -27,20 +27,23 @@ export default function LatestPublications() {
   }, [])
 
   return (
-    <section className="px-6 sm:px-10 py-20 bg-negro">
+    <section className="px-6 sm:px-10 py-20 bg-crema">
       {/* Header */}
       <div className="flex items-end justify-between mb-10">
         <div>
           <p className="font-ui text-xs tracking-[0.25em] text-rojo uppercase mb-2">
             — Últimas publicaciones
           </p>
-          <h2 className="font-display text-5xl sm:text-6xl text-blanco uppercase leading-none">
+          <h2
+            className="font-display text-5xl sm:text-6xl text-negro uppercase leading-none glitch"
+            data-text="Entrevistas"
+          >
             Entrevistas
           </h2>
         </div>
         <Link
           to="/entrevistas"
-          className="hidden sm:inline-flex font-ui text-xs tracking-widest uppercase text-gris-mid hover:text-rojo transition-colors duration-200 pb-1 border-b border-gris-mid hover:border-rojo"
+          className="hidden sm:inline-flex font-ui text-xs tracking-widest uppercase text-negro/50 hover:text-rojo transition-colors duration-200 pb-1 border-b border-gris-mid hover:border-rojo"
         >
           Ver todas →
         </Link>
@@ -50,14 +53,14 @@ export default function LatestPublications() {
       {loading ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-gris-mid">
           {Array.from({ length: 6 }).map((_, i) => (
-            <div key={i} className="bg-negro">
+            <div key={i} className="bg-crema">
               <SkeletonCard />
             </div>
           ))}
         </div>
       ) : publications.length === 0 ? (
         <div className="py-20 text-center">
-          <p className="font-mono text-sm text-gris-mid">No hay publicaciones disponibles.</p>
+          <p className="font-mono text-sm text-negro/50">No hay publicaciones disponibles.</p>
         </div>
       ) : (
         <motion.div
@@ -68,7 +71,7 @@ export default function LatestPublications() {
           viewport={{ once: true, margin: '-80px' }}
         >
           {publications.map((pub) => (
-            <motion.div key={pub.id} variants={cardVariants} className="bg-negro">
+            <motion.div key={pub.id} variants={cardVariants} className="bg-crema">
               <PublicationCard
                 title={pub.title}
                 subtitle={pub.subtitle}
@@ -86,7 +89,7 @@ export default function LatestPublications() {
       <div className="mt-8 sm:hidden text-center">
         <Link
           to="/entrevistas"
-          className="font-ui text-xs tracking-widest uppercase text-gris-mid hover:text-rojo transition-colors duration-200"
+          className="font-ui text-xs tracking-widest uppercase text-negro/50 hover:text-rojo transition-colors duration-200"
         >
           Ver todas las entrevistas →
         </Link>

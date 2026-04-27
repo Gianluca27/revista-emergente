@@ -64,8 +64,8 @@ export default function GalleryUploader({ value = [], onChange, label = 'Galerí
   return (
     <div className="space-y-3">
       <div className="flex items-center justify-between">
-        <label className="block font-ui text-[10px] uppercase tracking-[0.25em] text-gris-mid">
-          {label} {value.length > 0 && <span className="text-blanco">({value.length})</span>}
+        <label className="block font-ui text-[10px] uppercase tracking-[0.25em] text-negro/50">
+          {label} {value.length > 0 && <span className="text-negro">({value.length})</span>}
         </label>
         <button
           type="button"
@@ -89,10 +89,10 @@ export default function GalleryUploader({ value = [], onChange, label = 'Galerí
       {value.length === 0 && !uploading && (
         <div
           onClick={() => inputRef.current?.click()}
-          className="border border-dashed border-gris-mid p-8 text-center cursor-pointer hover:border-blanco/40 transition-colors"
+          className="border border-dashed border-gris-mid p-8 text-center cursor-pointer hover:border-negro/40 transition-colors"
         >
-          <p className="font-mono text-3xl text-gris-mid mb-2">+</p>
-          <p className="font-ui text-[10px] text-gris-mid uppercase tracking-[0.25em]">
+          <p className="font-mono text-3xl text-negro/50 mb-2">+</p>
+          <p className="font-ui text-[10px] text-negro/50 uppercase tracking-[0.25em]">
             Subir varias imágenes · JPG PNG WebP · máx 5MB c/u
           </p>
         </div>
@@ -112,13 +112,13 @@ export default function GalleryUploader({ value = [], onChange, label = 'Galerí
               className="relative group border border-gris-mid overflow-hidden cursor-grab active:cursor-grabbing"
             >
               <img src={resolve(url)} alt="" className="w-full h-28 object-cover" />
-              <div className="absolute top-1 left-1 bg-negro/70 px-1.5 py-0.5 font-mono text-[9px] text-blanco">
+              <div className="absolute top-1 left-1 bg-crema/70 px-1.5 py-0.5 font-mono text-[9px] text-negro">
                 {idx + 1}
               </div>
               <button
                 type="button"
                 onClick={() => removeAt(idx)}
-                className="absolute top-1 right-1 bg-negro/70 hover:bg-rojo text-blanco font-mono text-[10px] w-5 h-5 flex items-center justify-center transition-colors"
+                className="absolute top-1 right-1 bg-negro/80 hover:bg-rojo text-crema font-mono text-[10px] w-5 h-5 flex items-center justify-center transition-colors"
                 aria-label="Quitar"
               >
                 ✕
@@ -157,7 +157,7 @@ export default function GalleryUploader({ value = [], onChange, label = 'Galerí
       </AnimatePresence>
 
       {value.length > 0 && (
-        <p className="font-mono text-[9px] text-gris-mid">
+        <p className="font-mono text-[9px] text-negro/50">
           Arrastrá para reordenar · click ✕ para quitar
         </p>
       )}

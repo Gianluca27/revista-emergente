@@ -43,19 +43,19 @@ export default function PodcastBanner() {
       <div className="px-6 sm:px-10 py-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
         {/* Left: episode info */}
         <div className="flex-1">
-          <p className="font-ui text-xs tracking-[0.25em] text-negro/50 uppercase mb-3">
+          <p className="font-ui text-xs tracking-[0.25em] text-negro/85 uppercase mb-3">
             Último episodio
           </p>
           {episode ? (
             <>
-              <p className="font-ui text-xs text-negro/60 uppercase tracking-widest mb-1">
+              <p className="font-ui text-xs text-negro/85 uppercase tracking-widest mb-1">
                 EP. {episode.episode_number}
               </p>
               <h3 className="font-display text-3xl sm:text-4xl text-negro uppercase leading-tight">
                 {episode.title}
               </h3>
               {episode.duration_min && (
-                <p className="font-mono text-xs text-negro/50 mt-2">
+                <p className="font-mono text-xs text-negro/85 mt-2">
                   {episode.duration_min} min
                 </p>
               )}
@@ -74,7 +74,7 @@ export default function PodcastBanner() {
               href={episode.youtube_url}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-3 font-ui text-sm tracking-widest uppercase bg-negro text-blanco px-6 py-3 hover:bg-negro/80 transition-colors duration-200"
+              className="inline-flex items-center gap-3 font-ui text-sm tracking-widest uppercase bg-crema text-negro px-6 py-3 hover:bg-crema/80 transition-colors duration-200"
             >
               Ver en YouTube →
             </a>
@@ -84,14 +84,14 @@ export default function PodcastBanner() {
               href={episode.spotify_url}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-3 font-ui text-xs tracking-widest uppercase text-negro border border-negro/30 px-6 py-3 hover:bg-negro/10 transition-colors duration-200"
+              className="inline-flex items-center gap-3 font-ui text-xs tracking-widest uppercase text-negro border border-negro/30 px-6 py-3 hover:bg-crema/10 transition-colors duration-200"
             >
               Escuchar en Spotify
             </a>
           ) : null}
           <Link
             to="/podcast"
-            className="font-ui text-xs tracking-widest uppercase text-negro/60 hover:text-negro transition-colors duration-200"
+            className="font-ui text-xs tracking-widest uppercase text-negro/85 hover:text-negro transition-colors duration-200"
           >
             Ver todos los episodios →
           </Link>

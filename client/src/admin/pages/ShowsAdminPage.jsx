@@ -98,13 +98,13 @@ export default function ShowsAdminPage() {
 
       <div className="flex items-start justify-between mb-8 gap-4">
         <div>
-          <h1 className="font-display text-5xl text-blanco tracking-wide leading-none">SHOWS</h1>
-          <p className="font-mono text-[11px] text-gris-mid mt-1">{shows.length} coberturas</p>
+          <h1 className="font-display text-5xl text-negro tracking-wide leading-none">SHOWS</h1>
+          <p className="font-mono text-[11px] text-negro/50 mt-1">{shows.length} coberturas</p>
         </div>
         {!showForm && (
           <button
             onClick={() => { setCreating(true); setEditing(null); setError(null) }}
-            className="px-4 py-2.5 bg-rojo font-ui text-[11px] uppercase tracking-[0.25em] text-blanco hover:bg-red-800 transition-colors duration-150"
+            className="px-4 py-2.5 bg-rojo font-ui text-[11px] uppercase tracking-[0.25em] text-crema hover:bg-rojo-osc transition-colors duration-150"
           >
             + Cobertura
           </button>
@@ -119,7 +119,7 @@ export default function ShowsAdminPage() {
             exit={{ opacity: 0 }}
             className="border border-gris-mid px-4 py-3 mb-6"
           >
-            <p className="font-mono text-[11px] text-blanco">{flash}</p>
+            <p className="font-mono text-[11px] text-negro">{flash}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -137,12 +137,12 @@ export default function ShowsAdminPage() {
       {showForm ? (
         <div className="max-w-3xl">
           <div className="flex items-center justify-between mb-6">
-            <p className="font-ui text-[10px] uppercase tracking-[0.25em] text-gris-mid">
+            <p className="font-ui text-[10px] uppercase tracking-[0.25em] text-negro/50">
               {creating ? 'Nueva cobertura' : `Editando: ${editing.title}`}
             </p>
             <button
               onClick={() => { setEditing(null); setCreating(false); setError(null) }}
-              className="font-ui text-[10px] uppercase tracking-widest text-gris-mid hover:text-blanco transition-colors"
+              className="font-ui text-[10px] uppercase tracking-widest text-negro/50 hover:text-negro transition-colors"
             >
               ← Volver al listado
             </button>
@@ -162,12 +162,12 @@ export default function ShowsAdminPage() {
               <motion.span
                 animate={{ opacity: [0.15, 0.7, 0.15] }}
                 transition={{ duration: 1.6, repeat: Infinity }}
-                className="font-display text-5xl text-gris-mid tracking-widest"
+                className="font-display text-5xl text-negro/50 tracking-widest"
               >RE</motion.span>
             </div>
           ) : shows.length === 0 ? (
             <div className="py-16 text-center">
-              <p className="font-mono text-[12px] text-gris-mid">Sin coberturas</p>
+              <p className="font-mono text-[12px] text-negro/50">Sin coberturas</p>
             </div>
           ) : (
             <ul>
@@ -186,13 +186,13 @@ export default function ShowsAdminPage() {
                     {cover ? (
                       <img src={cover} alt="" className="w-16 h-16 object-cover border border-gris-mid shrink-0" />
                     ) : (
-                      <div className="w-16 h-16 border border-gris-mid bg-gris flex items-center justify-center font-mono text-[10px] text-gris-mid shrink-0">
+                      <div className="w-16 h-16 border border-gris-mid bg-gris flex items-center justify-center font-mono text-[10px] text-negro/50 shrink-0">
                         s/img
                       </div>
                     )}
                     <div className="flex-1 min-w-0">
-                      <p className="font-ui text-[12px] text-blanco truncate">{s.title}</p>
-                      <p className="font-mono text-[10px] text-gris-mid truncate">
+                      <p className="font-ui text-[12px] text-negro truncate">{s.title}</p>
+                      <p className="font-mono text-[10px] text-negro/50 truncate">
                         {s.venue ? `${s.venue} · ` : ''}{formatDate(s.event_date)}
                       </p>
                     </div>
@@ -205,7 +205,7 @@ export default function ShowsAdminPage() {
                     </span>
                     <button
                       onClick={() => openEdit(s)}
-                      className="font-ui text-[10px] uppercase tracking-widest text-gris-mid hover:text-blanco transition-colors shrink-0"
+                      className="font-ui text-[10px] uppercase tracking-widest text-negro/50 hover:text-negro transition-colors shrink-0"
                     >
                       Editar →
                     </button>

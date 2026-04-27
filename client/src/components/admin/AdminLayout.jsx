@@ -19,7 +19,7 @@ function navClass({ isActive }) {
     'font-ui text-xs uppercase tracking-[0.2em] transition-colors duration-150',
     isActive
       ? 'border-rojo text-rojo'
-      : 'border-transparent text-gris-mid hover:text-blanco hover:border-gris-mid',
+      : 'border-transparent text-negro/50 hover:text-negro hover:border-gris-mid',
   ].join(' ')
 }
 
@@ -36,14 +36,14 @@ export default function AdminLayout() {
   }
 
   return (
-    <div className="min-h-screen bg-negro flex">
+    <div className="min-h-screen bg-crema flex">
 
       {/* ── Desktop sidebar ─────────────────────────────────── */}
       <aside className="hidden lg:flex flex-col w-56 border-r border-gris-mid bg-gris fixed inset-y-0 left-0 z-30">
         <div className="px-6 py-7 border-b border-gris-mid">
           <NavLink to="/admin/dashboard">
-            <span className="font-display text-4xl text-rojo leading-none">RE</span>
-            <p className="font-ui text-[9px] text-gris-mid uppercase tracking-[0.4em] mt-0.5">Admin</p>
+            <span className="font-grunge text-4xl text-rojo leading-none">RE</span>
+            <p className="font-ui text-[9px] text-negro/50 uppercase tracking-[0.4em] mt-0.5">Admin</p>
           </NavLink>
         </div>
 
@@ -58,11 +58,11 @@ export default function AdminLayout() {
 
         <div className="px-5 py-5 border-t border-gris-mid">
           {user?.email && (
-            <p className="font-mono text-[9px] text-gris-mid mb-3 truncate">{user.email}</p>
+            <p className="font-mono text-[9px] text-negro/50 mb-3 truncate">{user.email}</p>
           )}
           <button
             onClick={handleLogout}
-            className="w-full text-left font-ui text-[10px] text-gris-mid uppercase tracking-[0.2em] px-3 py-2.5 border border-gris-mid hover:border-rojo hover:text-rojo transition-colors duration-200"
+            className="w-full text-left font-ui text-[10px] text-negro/50 uppercase tracking-[0.2em] px-3 py-2.5 border border-gris-mid hover:border-rojo hover:text-rojo transition-colors duration-200"
           >
             ↪ Cerrar sesión
           </button>
@@ -72,12 +72,12 @@ export default function AdminLayout() {
       {/* ── Mobile topbar ────────────────────────────────────── */}
       <header className="lg:hidden fixed inset-x-0 top-0 z-40 h-14 bg-gris border-b border-gris-mid flex items-center justify-between px-5">
         <NavLink to="/admin/dashboard">
-          <span className="font-display text-3xl text-rojo leading-none">RE</span>
+          <span className="font-grunge text-3xl text-rojo leading-none">RE</span>
         </NavLink>
         <button
           onClick={() => setDrawerOpen(true)}
           aria-label="Abrir menú"
-          className="font-ui text-[10px] text-gris-mid uppercase tracking-widest"
+          className="font-ui text-[10px] text-negro/50 uppercase tracking-widest"
         >
           ☰ Menú
         </button>
@@ -93,7 +93,7 @@ export default function AdminLayout() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="lg:hidden fixed inset-0 z-40 bg-negro/80 backdrop-blur-sm"
+              className="lg:hidden fixed inset-0 z-40 bg-crema/80 backdrop-blur-sm"
               onClick={() => setDrawerOpen(false)}
             />
             <motion.aside
@@ -105,11 +105,11 @@ export default function AdminLayout() {
               className="lg:hidden fixed inset-y-0 left-0 z-50 w-60 bg-gris border-r border-gris-mid flex flex-col"
             >
               <div className="px-6 py-6 border-b border-gris-mid flex items-center justify-between">
-                <span className="font-display text-3xl text-rojo">RE</span>
+                <span className="font-grunge text-3xl text-rojo">RE</span>
                 <button
                   onClick={() => setDrawerOpen(false)}
                   aria-label="Cerrar menú"
-                  className="font-mono text-xs text-gris-mid"
+                  className="font-mono text-xs text-negro/50"
                 >
                   ✕
                 </button>
@@ -131,11 +131,11 @@ export default function AdminLayout() {
 
               <div className="px-5 py-5 border-t border-gris-mid">
                 {user?.email && (
-                  <p className="font-mono text-[9px] text-gris-mid mb-3 truncate">{user.email}</p>
+                  <p className="font-mono text-[9px] text-negro/50 mb-3 truncate">{user.email}</p>
                 )}
                 <button
                   onClick={handleLogout}
-                  className="w-full text-left font-ui text-[10px] text-gris-mid uppercase tracking-[0.2em] px-3 py-2.5 border border-gris-mid"
+                  className="w-full text-left font-ui text-[10px] text-negro/50 uppercase tracking-[0.2em] px-3 py-2.5 border border-gris-mid"
                 >
                   ↪ Cerrar sesión
                 </button>

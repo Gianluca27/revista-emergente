@@ -18,7 +18,7 @@ const stagger = {
 
 export default function NotFoundPage() {
   return (
-    <div className="min-h-screen bg-negro flex items-center justify-center px-6 py-12 overflow-hidden relative">
+    <div className="min-h-screen bg-crema flex items-center justify-center px-6 py-12 overflow-hidden relative">
       {/* Background grain texture */}
       <div className="grain absolute inset-0 pointer-events-none opacity-30" />
 
@@ -46,7 +46,7 @@ export default function NotFoundPage() {
         >
           {/* Main heading */}
           <motion.h1
-            className="font-display text-4xl sm:text-6xl text-blanco uppercase leading-tight tracking-widest"
+            className="font-display text-4xl sm:text-6xl text-negro uppercase leading-tight tracking-widest"
             variants={fadeUp}
           >
             Página No Encontrada
@@ -54,7 +54,7 @@ export default function NotFoundPage() {
 
           {/* Description */}
           <motion.p
-            className="font-mono text-sm text-gris-mid max-w-md mx-auto"
+            className="font-mono text-sm text-negro/50 max-w-md mx-auto"
             variants={fadeUp}
           >
             Este contenido no existe o fue removido. El slug que buscas se desvaneció en el caos del under.
@@ -64,7 +64,7 @@ export default function NotFoundPage() {
           <motion.div variants={fadeUp} className="pt-4">
             <Link
               to="/"
-              className="inline-block font-ui text-xs uppercase tracking-widest px-6 py-3 border border-rojo text-rojo hover:bg-rojo hover:text-negro transition-colors duration-200"
+              className="inline-block font-ui text-xs uppercase tracking-widest px-6 py-3 border border-rojo text-rojo hover:bg-rojo hover:text-crema transition-colors duration-200"
             >
               Volver al Inicio
             </Link>

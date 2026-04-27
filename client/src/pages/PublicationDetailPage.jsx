@@ -26,7 +26,7 @@ const cardVariants = {
 /* ─── skeleton ───────────────────────────────────────────── */
 function Skeleton() {
   return (
-    <div className="min-h-screen bg-negro animate-pulse">
+    <div className="min-h-screen bg-crema animate-pulse">
       {/* cover skeleton */}
       <div className="w-full h-[60vh] bg-gris" />
       {/* header skeleton */}
@@ -56,12 +56,12 @@ function ErrorState() {
   return (
     <div className="min-h-[70vh] flex flex-col items-center justify-center px-6 text-center gap-6">
       <p className="font-display text-7xl text-rojo uppercase">404</p>
-      <p className="font-mono text-sm text-gris-mid">
+      <p className="font-mono text-sm text-negro/50">
         Esta entrevista no existe o ya no está disponible.
       </p>
       <Link
         to="/entrevistas"
-        className="font-ui text-xs uppercase tracking-widest px-5 py-2 border border-gris-mid text-blanco hover:border-rojo hover:text-rojo transition-colors duration-150"
+        className="font-ui text-xs uppercase tracking-widest px-5 py-2 border border-gris-mid text-negro hover:border-rojo hover:text-rojo transition-colors duration-150"
       >
         ← Volver a entrevistas
       </Link>
@@ -80,14 +80,14 @@ function CoverImage({ src, alt }) {
           className="w-full h-full object-cover"
         />
       ) : (
-        <div className="w-full h-full flex items-center justify-center bg-negro">
-          <span className="font-display text-[12rem] text-gris-mid leading-none select-none">
+        <div className="w-full h-full flex items-center justify-center bg-crema">
+          <span className="font-display text-[12rem] text-negro/50 leading-none select-none">
             R
           </span>
         </div>
       )}
       {/* dark gradient overlay at bottom */}
-      <div className="absolute inset-0 bg-gradient-to-t from-negro via-negro/30 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-crema via-crema/30 to-transparent" />
     </div>
   )
 }
@@ -108,7 +108,7 @@ function ArticleHeader({ publication }) {
       <motion.div variants={fadeUp} className="flex items-center gap-3 mb-3">
         {categoryName && <Badge>{categoryName}</Badge>}
         {publication.published_at && (
-          <span className="font-ui text-xs text-gris-mid uppercase tracking-widest">
+          <span className="font-ui text-xs text-negro/50 uppercase tracking-widest">
             {formatDate(publication.published_at)}
           </span>
         )}
@@ -117,7 +117,7 @@ function ArticleHeader({ publication }) {
       {/* title */}
       <motion.h1
         variants={fadeUp}
-        className="font-display text-5xl sm:text-7xl text-blanco uppercase leading-none"
+        className="font-display text-5xl sm:text-7xl text-negro uppercase leading-none"
       >
         {publication.title}
       </motion.h1>
@@ -126,7 +126,7 @@ function ArticleHeader({ publication }) {
       {publication.subtitle && (
         <motion.p
           variants={fadeUp}
-          className="font-mono text-sm text-gris-mid mt-3 leading-relaxed"
+          className="font-mono text-sm text-negro/50 mt-3 leading-relaxed"
         >
           {publication.subtitle}
         </motion.p>
@@ -176,13 +176,13 @@ function MasEntrevistas({ currentSlug }) {
   if (!loading && items.length === 0) return null
 
   return (
-    <section className="bg-negro border-t border-gris-mid px-6 sm:px-10 py-14">
+    <section className="bg-crema border-t border-gris-mid px-6 sm:px-10 py-14">
       {/* section heading */}
       <div className="mb-8">
         <p className="font-ui text-xs tracking-[0.25em] text-rojo uppercase mb-2">
           — Seguir leyendo
         </p>
-        <h2 className="font-display text-3xl sm:text-4xl text-blanco uppercase leading-none">
+        <h2 className="font-display text-3xl sm:text-4xl text-negro uppercase leading-none">
           Más entrevistas
         </h2>
         <div className="mt-2 h-[2px] w-16 bg-rojo" />
@@ -191,7 +191,7 @@ function MasEntrevistas({ currentSlug }) {
       {loading ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-gris-mid">
           {Array.from({ length: 3 }).map((_, i) => (
-            <div key={i} className="bg-negro animate-pulse">
+            <div key={i} className="bg-crema animate-pulse">
               <div className="aspect-[3/2] bg-gris" />
               <div className="p-4 space-y-2 border-t border-gris-mid">
                 <div className="h-3 bg-gris-mid rounded w-1/4" />
@@ -210,7 +210,7 @@ function MasEntrevistas({ currentSlug }) {
           viewport={{ once: true, margin: '-60px' }}
         >
           {items.map(pub => (
-            <motion.div key={pub.id} variants={cardVariants} className="bg-negro">
+            <motion.div key={pub.id} variants={cardVariants} className="bg-crema">
               <PublicationCard
                 title={pub.title}
                 subtitle={pub.subtitle}
@@ -265,7 +265,7 @@ export default function PublicationDetailPage() {
   if (error || !publication) return <ErrorState />
 
   return (
-    <div className="min-h-screen bg-negro">
+    <div className="min-h-screen bg-crema">
       {/* 1. Cover image */}
       <CoverImage src={publication.cover_image} alt={publication.title} />
 

@@ -26,7 +26,7 @@ const stagger = {
 function InputField({ label, name, type = 'text', required, placeholder, register, error }) {
   return (
     <motion.div variants={fadeUp} className="flex flex-col gap-1">
-      <label className="font-ui text-xs tracking-[0.2em] text-blanco/60 uppercase">
+      <label className="font-ui text-xs tracking-[0.2em] text-negro/60 uppercase">
         {label}
         {required && <span className="text-rojo ml-1">*</span>}
       </label>
@@ -34,7 +34,7 @@ function InputField({ label, name, type = 'text', required, placeholder, registe
         type={type}
         placeholder={placeholder}
         {...register(name)}
-        className={`bg-gris border ${error ? 'border-rojo' : 'border-gris-mid'} text-blanco font-mono text-sm px-4 py-3 placeholder:text-blanco/20 focus:outline-none focus:border-rojo transition-colors duration-200`}
+        className={`bg-gris border ${error ? 'border-rojo' : 'border-gris-mid'} text-negro font-mono text-sm px-4 py-3 placeholder:text-negro/20 focus:outline-none focus:border-rojo transition-colors duration-200`}
       />
       {error && (
         <p className="font-mono text-xs text-rojo">{error.message}</p>
@@ -46,7 +46,7 @@ function InputField({ label, name, type = 'text', required, placeholder, registe
 function TextareaField({ label, name, required, placeholder, register, error }) {
   return (
     <motion.div variants={fadeUp} className="flex flex-col gap-1">
-      <label className="font-ui text-xs tracking-[0.2em] text-blanco/60 uppercase">
+      <label className="font-ui text-xs tracking-[0.2em] text-negro/60 uppercase">
         {label}
         {required && <span className="text-rojo ml-1">*</span>}
       </label>
@@ -54,7 +54,7 @@ function TextareaField({ label, name, required, placeholder, register, error }) 
         rows={6}
         placeholder={placeholder}
         {...register(name)}
-        className={`bg-gris border ${error ? 'border-rojo' : 'border-gris-mid'} text-blanco font-mono text-sm px-4 py-3 placeholder:text-blanco/20 focus:outline-none focus:border-rojo transition-colors duration-200 resize-none`}
+        className={`bg-gris border ${error ? 'border-rojo' : 'border-gris-mid'} text-negro font-mono text-sm px-4 py-3 placeholder:text-negro/20 focus:outline-none focus:border-rojo transition-colors duration-200 resize-none`}
       />
       {error && (
         <p className="font-mono text-xs text-rojo">{error.message}</p>
@@ -74,10 +74,10 @@ function SuccessState() {
       <div className="inline-block mb-8">
         <span className="font-display text-9xl text-rojo leading-none">OK</span>
       </div>
-      <h2 className="font-display text-4xl sm:text-5xl text-blanco uppercase leading-tight mb-4">
+      <h2 className="font-display text-4xl sm:text-5xl text-negro uppercase leading-tight mb-4">
         MENSAJE ENVIADO
       </h2>
-      <p className="font-mono text-sm text-blanco/60 max-w-md mx-auto">
+      <p className="font-mono text-sm text-negro/60 max-w-md mx-auto">
         Te contactaremos a la brevedad. Gracias por escribirnos.
       </p>
     </motion.div>
@@ -106,7 +106,7 @@ export default function ContactoPage() {
   }
 
   return (
-    <div className="min-h-screen bg-negro">
+    <div className="min-h-screen bg-crema">
 
       {/* Hero */}
       <section className="relative pt-24 pb-12 px-6 overflow-hidden">
@@ -123,7 +123,7 @@ export default function ContactoPage() {
           </motion.p>
 
           <motion.h1
-            className="font-display text-7xl sm:text-9xl text-blanco uppercase leading-none"
+            className="font-display text-7xl sm:text-9xl text-negro uppercase leading-none"
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -162,7 +162,7 @@ export default function ContactoPage() {
             </motion.p>
 
             <motion.h2
-              className="font-display text-4xl sm:text-5xl text-blanco uppercase leading-tight mb-6"
+              className="font-display text-4xl sm:text-5xl text-negro uppercase leading-tight mb-6"
               variants={fadeUp}
             >
               QUEREMOS<br />ESCUCHARTE
@@ -176,7 +176,7 @@ export default function ContactoPage() {
               ].map((text, i) => (
                 <motion.p
                   key={i}
-                  className="font-mono text-sm text-blanco/60 leading-relaxed"
+                  className="font-mono text-sm text-negro/60 leading-relaxed"
                   variants={fadeUp}
                 >
                   {text}
@@ -186,7 +186,7 @@ export default function ContactoPage() {
 
             <motion.div className="mt-10 pt-10 border-t border-gris-mid space-y-3" variants={fadeUp}>
               <p className="font-ui text-xs tracking-[0.2em] text-rojo uppercase">También por redes</p>
-              <p className="font-mono text-sm text-blanco/60">
+              <p className="font-mono text-sm text-negro/60">
                 @revistaemergente en Instagram
               </p>
             </motion.div>
@@ -266,7 +266,7 @@ export default function ContactoPage() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-rojo text-blanco font-display text-2xl uppercase tracking-widest py-4 hover:bg-blanco hover:text-negro transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full bg-rojo text-crema font-display text-2xl uppercase tracking-widest py-4 hover:bg-negro hover:text-crema transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? 'ENVIANDO...' : 'ENVIAR'}
                     </button>

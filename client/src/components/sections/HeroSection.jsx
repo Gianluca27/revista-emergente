@@ -48,7 +48,7 @@ export default function HeroSection() {
   }
 
   return (
-    <section className="relative min-h-[calc(100vh-4rem)] flex flex-col overflow-hidden bg-negro">
+    <section className="relative min-h-[calc(100vh-4rem)] flex flex-col overflow-hidden bg-crema">
       {/* Top bar */}
       <motion.div
         className="flex items-center justify-between px-6 sm:px-10 pt-10 pb-4"
@@ -57,10 +57,10 @@ export default function HeroSection() {
         initial="hidden"
         animate="visible"
       >
-        <span className="font-ui text-xs tracking-[0.25em] text-gris-mid uppercase">
+        <span className="font-ui text-xs tracking-[0.25em] text-negro/50 uppercase">
           Revista Emergente
         </span>
-        <span className="font-ui text-xs tracking-[0.25em] text-gris-mid uppercase">
+        <span className="font-ui text-xs tracking-[0.25em] text-negro/50 uppercase">
           Cultura Independiente
         </span>
       </motion.div>
@@ -80,7 +80,7 @@ export default function HeroSection() {
             {letters.map((letter, i) => (
               <div key={i} className="overflow-hidden">
                 <motion.span
-                  className="block font-display text-[17vw] sm:text-[15vw] md:text-[14vw] text-blanco uppercase"
+                  className="block font-grunge text-[17vw] sm:text-[15vw] md:text-[14vw] text-rojo uppercase"
                   variants={letterVariants}
                 >
                   {letter}
@@ -111,7 +111,7 @@ export default function HeroSection() {
 
         {/* Tagline */}
         <motion.p
-          className="font-mono text-sm sm:text-base text-blanco/60 mt-10 max-w-md leading-relaxed"
+          className="font-mono text-sm sm:text-base text-negro/60 mt-10 max-w-md leading-relaxed"
           custom={1.2}
           variants={fadeUpVariants}
           initial="hidden"
@@ -131,14 +131,14 @@ export default function HeroSection() {
         >
           <Link
             to="/entrevistas"
-            className="inline-flex items-center gap-3 font-ui text-sm tracking-widest uppercase text-blanco border border-blanco/20 px-5 py-3 hover:bg-rojo hover:border-rojo transition-colors duration-200"
+            className="group inline-flex items-center gap-3 font-ui text-sm tracking-widest uppercase text-negro border border-negro/30 px-5 py-3 hover:bg-rojo hover:text-crema hover:border-rojo transition-colors duration-200"
           >
             Ver Entrevistas
-            <span className="text-rojo group-hover:text-blanco">→</span>
+            <span className="text-rojo group-hover:text-crema">→</span>
           </Link>
           <Link
             to="/podcast"
-            className="font-ui text-sm tracking-widest uppercase text-gris-mid hover:text-rojo transition-colors duration-200"
+            className="font-ui text-sm tracking-widest uppercase text-negro/50 hover:text-rojo transition-colors duration-200"
           >
             Podcast
           </Link>
@@ -153,7 +153,7 @@ export default function HeroSection() {
         initial="hidden"
         animate="visible"
       >
-        <span className="font-ui text-[10px] tracking-[0.3em] text-gris-mid uppercase">Scroll</span>
+        <span className="font-ui text-[10px] tracking-[0.3em] text-negro/50 uppercase">Scroll</span>
         <motion.div
           className="w-px h-8 bg-gris-mid origin-top"
           animate={{ scaleY: [0, 1, 0] }}

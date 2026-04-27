@@ -45,14 +45,14 @@ function ArtistCard({ artist }) {
         {/* Name */}
         <Link
           to={`/artistas/${artist.slug}`}
-          className="font-display text-3xl sm:text-4xl text-blanco uppercase leading-none hover:text-rojo transition-colors duration-200 inline-block"
+          className="font-display text-3xl sm:text-4xl text-negro uppercase leading-none hover:text-rojo transition-colors duration-200 inline-block"
         >
           {artist.name}
         </Link>
 
         {/* Bio */}
         {artist.bio && (
-          <p className="font-mono text-sm text-gris-mid leading-relaxed line-clamp-4">
+          <p className="font-mono text-sm text-negro/50 leading-relaxed line-clamp-4">
             {artist.bio}
           </p>
         )}
@@ -66,7 +66,7 @@ function ArtistCard({ artist }) {
                 href={artist[key]}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-ui text-xs tracking-widest uppercase text-gris-mid hover:text-rojo transition-colors duration-200 border-b border-gris-mid hover:border-rojo pb-px"
+                className="font-ui text-xs tracking-widest uppercase text-negro/50 hover:text-rojo transition-colors duration-200 border-b border-gris-mid hover:border-rojo pb-px"
               >
                 {label}
               </a>
@@ -84,14 +84,14 @@ export default function ArtistBlock({ artists }) {
   const isPlural = artists.length > 1
 
   return (
-    <section className="border-t border-gris-mid bg-negro px-6 sm:px-10 py-14">
+    <section className="border-t border-gris-mid bg-crema px-6 sm:px-10 py-14">
       {/* Section heading */}
       <div className="mb-8">
         <p className="font-ui text-xs tracking-[0.25em] text-rojo uppercase mb-2">
           — {isPlural ? 'Artistas' : 'Artista'}
         </p>
         <div className="relative inline-block">
-          <h2 className="font-display text-5xl sm:text-6xl text-blanco uppercase leading-none">
+          <h2 className="font-display text-5xl sm:text-6xl text-negro uppercase leading-none">
             {isPlural ? 'Artistas' : 'Artista'}
           </h2>
           {/* Red accent underline */}

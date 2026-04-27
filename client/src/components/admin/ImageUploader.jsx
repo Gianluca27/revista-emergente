@@ -57,7 +57,7 @@ export default function ImageUploader({ value, onChange, label = 'Imagen de port
 
   return (
     <div className="space-y-2">
-      <label className="block font-ui text-[10px] uppercase tracking-[0.25em] text-gris-mid">
+      <label className="block font-ui text-[10px] uppercase tracking-[0.25em] text-negro/50">
         {label}
       </label>
 
@@ -68,7 +68,7 @@ export default function ImageUploader({ value, onChange, label = 'Imagen de port
         onClick={() => !uploading && inputRef.current?.click()}
         className={[
           'relative border transition-colors duration-150 cursor-pointer overflow-hidden',
-          dragging ? 'border-rojo bg-rojo/5' : 'border-gris-mid hover:border-blanco/30',
+          dragging ? 'border-rojo bg-rojo/5' : 'border-gris-mid hover:border-negro/30',
           uploading ? 'cursor-wait' : '',
         ].join(' ')}
         style={{ minHeight: previewSrc ? 'auto' : '140px' }}
@@ -96,8 +96,8 @@ export default function ImageUploader({ value, onChange, label = 'Imagen de port
                 alt="Preview"
                 className="w-full object-cover max-h-52"
               />
-              <div className="absolute inset-0 bg-negro/70 opacity-0 group-hover:opacity-100 transition-opacity duration-150 flex items-center justify-center">
-                <span className="font-ui text-[10px] text-blanco uppercase tracking-[0.3em]">
+              <div className="absolute inset-0 bg-crema/70 opacity-0 group-hover:opacity-100 transition-opacity duration-150 flex items-center justify-center">
+                <span className="font-ui text-[10px] text-negro uppercase tracking-[0.3em]">
                   Cambiar imagen
                 </span>
               </div>
@@ -120,8 +120,8 @@ export default function ImageUploader({ value, onChange, label = 'Imagen de port
                 </>
               ) : (
                 <>
-                  <span className="font-mono text-3xl text-gris-mid">+</span>
-                  <span className="font-ui text-[10px] text-gris-mid uppercase tracking-[0.25em] text-center">
+                  <span className="font-mono text-3xl text-negro/50">+</span>
+                  <span className="font-ui text-[10px] text-negro/50 uppercase tracking-[0.25em] text-center">
                     {dragging ? 'Soltar aquí' : 'Arrastrá o hacé clic · JPG PNG WebP · máx 5MB'}
                   </span>
                 </>
@@ -131,7 +131,7 @@ export default function ImageUploader({ value, onChange, label = 'Imagen de port
         </AnimatePresence>
 
         {uploading && previewSrc && (
-          <div className="absolute inset-0 bg-negro/60 flex items-center justify-center">
+          <div className="absolute inset-0 bg-crema/60 flex items-center justify-center">
             <motion.span
               animate={{ opacity: [0.3, 1, 0.3] }}
               transition={{ duration: 1.2, repeat: Infinity }}
@@ -156,7 +156,7 @@ export default function ImageUploader({ value, onChange, label = 'Imagen de port
         <button
           type="button"
           onClick={e => { e.stopPropagation(); onChange('') }}
-          className="font-ui text-[9px] uppercase tracking-[0.2em] text-gris-mid hover:text-rojo transition-colors duration-150"
+          className="font-ui text-[9px] uppercase tracking-[0.2em] text-negro/50 hover:text-rojo transition-colors duration-150"
         >
           ✕ Quitar imagen
         </button>

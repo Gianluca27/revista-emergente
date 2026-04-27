@@ -24,7 +24,7 @@ const photoVariants = {
 /* ─── loading skeleton ───────────────────────────────────── */
 function Skeleton() {
   return (
-    <div className="min-h-screen bg-negro animate-pulse">
+    <div className="min-h-screen bg-crema animate-pulse">
       {/* cover skeleton */}
       <div className="w-full h-[50vh] bg-gris" />
       {/* header skeleton */}
@@ -41,7 +41,7 @@ function Skeleton() {
         <div className="h-8 bg-gris-mid rounded w-24 mb-6" />
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-px bg-gris-mid">
           {Array.from({ length: 8 }).map((_, i) => (
-            <div key={i} className="bg-negro aspect-square bg-gris" />
+            <div key={i} className="bg-crema aspect-square bg-gris" />
           ))}
         </div>
       </div>
@@ -54,12 +54,12 @@ function ErrorState() {
   return (
     <div className="min-h-[70vh] flex flex-col items-center justify-center px-6 text-center gap-6">
       <p className="font-display text-7xl text-rojo uppercase">404</p>
-      <p className="font-mono text-sm text-gris-mid">
+      <p className="font-mono text-sm text-negro/50">
         Este show no existe o ya no está disponible.
       </p>
       <Link
         to="/shows"
-        className="font-ui text-xs uppercase tracking-widest px-5 py-2 border border-gris-mid text-blanco hover:border-rojo hover:text-rojo transition-colors duration-150"
+        className="font-ui text-xs uppercase tracking-widest px-5 py-2 border border-gris-mid text-negro hover:border-rojo hover:text-rojo transition-colors duration-150"
       >
         ← Volver a shows
       </Link>
@@ -78,14 +78,14 @@ function CoverImage({ src, alt }) {
           className="w-full h-full object-cover"
         />
       ) : (
-        <div className="w-full h-full bg-negro flex items-center justify-center">
-          <span className="font-display text-[12rem] text-gris-mid leading-none select-none">
+        <div className="w-full h-full bg-crema flex items-center justify-center">
+          <span className="font-display text-[12rem] text-negro/50 leading-none select-none">
             R
           </span>
         </div>
       )}
       {/* dark gradient overlay at bottom */}
-      <div className="absolute inset-0 bg-gradient-to-t from-negro via-negro/30 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-crema via-crema/30 to-transparent" />
     </div>
   )
 }
@@ -100,7 +100,7 @@ function ShowHeader({ show }) {
       className="max-w-5xl mx-auto px-6 pt-10 pb-8"
     >
       {/* date + venue row */}
-      <motion.p variants={fadeUp} className="font-ui text-xs text-gris-mid uppercase tracking-widest mb-3">
+      <motion.p variants={fadeUp} className="font-ui text-xs text-negro/50 uppercase tracking-widest mb-3">
         {show.event_date && formatDate(show.event_date)}
         {show.event_date && show.venue && ' — '}
         {show.venue}
@@ -109,7 +109,7 @@ function ShowHeader({ show }) {
       {/* title */}
       <motion.h1
         variants={fadeUp}
-        className="font-display text-5xl sm:text-7xl text-blanco uppercase leading-none"
+        className="font-display text-5xl sm:text-7xl text-negro uppercase leading-none"
       >
         {show.title}
       </motion.h1>
@@ -121,7 +121,7 @@ function ShowHeader({ show }) {
       {show.description && (
         <motion.p
           variants={fadeUp}
-          className="font-mono text-sm text-blanco/70 mt-4 leading-relaxed max-w-2xl"
+          className="font-mono text-sm text-negro/70 mt-4 leading-relaxed max-w-2xl"
         >
           {show.description}
         </motion.p>
@@ -138,7 +138,7 @@ function Gallery({ images, onPhotoClick }) {
     <section className="max-w-5xl mx-auto px-6 pb-16">
       {/* section heading */}
       <div className="mb-6">
-        <h2 className="font-display text-3xl text-blanco uppercase leading-none">
+        <h2 className="font-display text-3xl text-negro uppercase leading-none">
           FOTOS
         </h2>
         <div className="mt-2 h-[2px] w-16 bg-rojo" />
@@ -215,7 +215,7 @@ export default function ShowDetailPage() {
   const gallery = Array.isArray(show.gallery) ? show.gallery : []
 
   return (
-    <div className="min-h-screen bg-negro text-blanco">
+    <div className="min-h-screen bg-crema text-negro">
       {/* 1. Cover image */}
       <CoverImage src={show.cover_image} alt={show.title} />
 

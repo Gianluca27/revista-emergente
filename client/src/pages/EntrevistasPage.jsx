@@ -7,7 +7,7 @@ import { getPublications, getCategories } from '../services/publications'
 
 const sectionVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.08 } },
+  visible: { transition: { staggerChildren: 0.1 } },
 }
 
 const cardVariants = {
@@ -70,17 +70,20 @@ export default function EntrevistasPage() {
   const gridKey = `${page}-${activeCategory?.id ?? 'all'}`
 
   return (
-    <div className="min-h-screen bg-negro">
+    <div className="min-h-screen bg-crema">
       {/* Page header */}
       <div className="pt-24 pb-8 px-6 border-b border-gris-mid">
         <p className="font-ui text-xs tracking-[0.25em] text-rojo uppercase mb-3">
           — Publicaciones
         </p>
-        <h1 className="font-display text-6xl sm:text-8xl text-blanco uppercase leading-none">
+        <h1
+          className="font-display text-6xl sm:text-8xl text-negro uppercase leading-none glitch"
+          data-text="Entrevistas"
+        >
           Entrevistas
         </h1>
         <div className="mt-4 h-[2px] w-16 bg-rojo" />
-        <p className="font-mono text-xs text-gris-mid mt-4">
+        <p className="font-mono text-xs text-negro/50 mt-4">
           Conversaciones con artistas, sellos y colectivos de la escena emergente.
         </p>
       </div>
@@ -99,14 +102,14 @@ export default function EntrevistasPage() {
         {loading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-gris-mid">
             {Array.from({ length: LIMIT }).map((_, i) => (
-              <div key={i} className="bg-negro">
+              <div key={i} className="bg-crema">
                 <SkeletonCard />
               </div>
             ))}
           </div>
         ) : publications.length === 0 ? (
           <div className="py-24 text-center">
-            <p className="font-mono text-sm text-gris-mid">
+            <p className="font-mono text-sm text-negro/50">
               No hay publicaciones en esta categoría todavía.
             </p>
           </div>
@@ -120,7 +123,7 @@ export default function EntrevistasPage() {
             viewport={{ once: true, margin: '-60px' }}
           >
             {publications.map(pub => (
-              <motion.div key={pub.id} variants={cardVariants} className="bg-negro">
+              <motion.div key={pub.id} variants={cardVariants} className="bg-crema">
                 <PublicationCard
                   title={pub.title}
                   subtitle={pub.subtitle}
@@ -141,17 +144,17 @@ export default function EntrevistasPage() {
           <button
             onClick={handlePrev}
             disabled={page <= 1}
-            className="font-ui text-xs uppercase tracking-widest px-5 py-2 border border-gris-mid text-blanco hover:border-rojo hover:text-rojo transition-colors duration-150 disabled:opacity-30 disabled:pointer-events-none"
+            className="font-ui text-xs uppercase tracking-widest px-5 py-2 border border-gris-mid text-negro hover:border-rojo hover:text-rojo transition-colors duration-150 disabled:opacity-30 disabled:pointer-events-none"
           >
             ← Anterior
           </button>
-          <span className="font-mono text-xs text-gris-mid">
+          <span className="font-mono text-xs text-negro/50">
             Página {pagination.page ?? page} de {pagination.totalPages}
           </span>
           <button
             onClick={handleNext}
             disabled={page >= pagination.totalPages}
-            className="font-ui text-xs uppercase tracking-widest px-5 py-2 border border-gris-mid text-blanco hover:border-rojo hover:text-rojo transition-colors duration-150 disabled:opacity-30 disabled:pointer-events-none"
+            className="font-ui text-xs uppercase tracking-widest px-5 py-2 border border-gris-mid text-negro hover:border-rojo hover:text-rojo transition-colors duration-150 disabled:opacity-30 disabled:pointer-events-none"
           >
             Siguiente →
           </button>

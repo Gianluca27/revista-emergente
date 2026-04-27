@@ -30,7 +30,7 @@ function slugify(text) {
 
 function FieldLabel({ children, required }) {
   return (
-    <label className="block font-ui text-[10px] uppercase tracking-[0.25em] text-gris-mid mb-1.5">
+    <label className="block font-ui text-[10px] uppercase tracking-[0.25em] text-negro/50 mb-1.5">
       {children}{required && <span className="text-rojo ml-0.5">*</span>}
     </label>
   )
@@ -42,7 +42,7 @@ function FieldError({ message }) {
   ) : null
 }
 
-const INPUT_CLS = 'w-full bg-negro text-blanco font-mono text-sm px-3 py-2.5 border border-gris-mid focus:outline-none focus:border-rojo/60 transition-colors duration-150 placeholder-gris-mid'
+const INPUT_CLS = 'w-full bg-crema text-negro font-mono text-sm px-3 py-2.5 border border-gris-mid focus:outline-none focus:border-rojo/60 transition-colors duration-150 placeholder-gris-mid'
 const INPUT_ERR = 'border-rojo'
 
 export default function PublicationEditor({ initialData, onSaveDraft, onPublish, onUnpublish, onDelete, saving, publishing }) {
@@ -121,12 +121,12 @@ export default function PublicationEditor({ initialData, onSaveDraft, onPublish,
             'inline-block font-ui text-[9px] uppercase tracking-[0.3em] px-2 py-1 border',
             isPublished
               ? 'border-rojo text-rojo bg-rojo/10'
-              : 'border-gris-mid text-gris-mid',
+              : 'border-gris-mid text-negro/50',
           ].join(' ')}>
             {isPublished ? 'Publicada' : 'Borrador'}
           </span>
           {initialData.published_at && (
-            <span className="font-mono text-[10px] text-gris-mid">
+            <span className="font-mono text-[10px] text-negro/50">
               {new Date(initialData.published_at).toLocaleDateString('es-AR', { day: '2-digit', month: 'long', year: 'numeric' })}
             </span>
           )}
@@ -148,7 +148,7 @@ export default function PublicationEditor({ initialData, onSaveDraft, onPublish,
       <div>
         <FieldLabel>Slug (URL)</FieldLabel>
         <div className="flex items-stretch gap-0">
-          <span className="flex items-center px-3 bg-gris border border-r-0 border-gris-mid font-mono text-[11px] text-gris-mid shrink-0">
+          <span className="flex items-center px-3 bg-gris border border-r-0 border-gris-mid font-mono text-[11px] text-negro/50 shrink-0">
             /entrevistas/
           </span>
           <input
@@ -213,7 +213,7 @@ export default function PublicationEditor({ initialData, onSaveDraft, onPublish,
       <div>
         <FieldLabel>Artistas</FieldLabel>
         {artists.length === 0 ? (
-          <p className="font-mono text-[11px] text-gris-mid">No hay artistas cargados</p>
+          <p className="font-mono text-[11px] text-negro/50">No hay artistas cargados</p>
         ) : (
           <div className="flex flex-wrap gap-2">
             {artists.map(a => {
@@ -227,7 +227,7 @@ export default function PublicationEditor({ initialData, onSaveDraft, onPublish,
                     'flex items-center gap-2 px-3 py-1.5 border font-ui text-[10px] uppercase tracking-[0.15em] transition-colors duration-150',
                     active
                       ? 'border-rojo text-rojo bg-rojo/10'
-                      : 'border-gris-mid text-gris-mid hover:border-blanco/40 hover:text-blanco',
+                      : 'border-gris-mid text-negro/50 hover:border-negro/40 hover:text-negro',
                   ].join(' ')}
                 >
                   {a.photo && (
@@ -264,7 +264,7 @@ export default function PublicationEditor({ initialData, onSaveDraft, onPublish,
           onClick={handleDraft}
           disabled={saving || publishing}
           whileTap={{ scale: 0.97 }}
-          className="px-5 py-2.5 border border-gris-mid font-ui text-[11px] uppercase tracking-[0.25em] text-gris-mid hover:border-blanco hover:text-blanco transition-colors duration-150 disabled:opacity-40"
+          className="px-5 py-2.5 border border-gris-mid font-ui text-[11px] uppercase tracking-[0.25em] text-negro/50 hover:border-negro hover:text-negro transition-colors duration-150 disabled:opacity-40"
         >
           {saving ? 'Guardando…' : 'Guardar borrador'}
         </motion.button>
@@ -274,9 +274,9 @@ export default function PublicationEditor({ initialData, onSaveDraft, onPublish,
             type="button"
             onClick={handlePublish}
             disabled={saving || publishing}
-            whileHover={{ backgroundColor: '#9a0015' }}
+            whileHover={{ backgroundColor: '#7A0F14' }}
             whileTap={{ scale: 0.97 }}
-            className="px-5 py-2.5 bg-rojo font-ui text-[11px] uppercase tracking-[0.25em] text-blanco transition-colors duration-200 disabled:opacity-40"
+            className="px-5 py-2.5 bg-rojo font-ui text-[11px] uppercase tracking-[0.25em] text-crema transition-colors duration-200 disabled:opacity-40"
           >
             {publishing ? 'Publicando…' : 'Publicar'}
           </motion.button>
@@ -300,7 +300,7 @@ export default function PublicationEditor({ initialData, onSaveDraft, onPublish,
                   key="del"
                   type="button"
                   onClick={() => setConfirmDelete(true)}
-                  className="font-ui text-[10px] uppercase tracking-[0.2em] text-gris-mid hover:text-rojo transition-colors duration-150"
+                  className="font-ui text-[10px] uppercase tracking-[0.2em] text-negro/50 hover:text-rojo transition-colors duration-150"
                 >
                   Eliminar
                 </motion.button>
@@ -316,12 +316,12 @@ export default function PublicationEditor({ initialData, onSaveDraft, onPublish,
                   <button
                     type="button"
                     onClick={onDelete}
-                    className="font-ui text-[10px] uppercase tracking-widest px-2.5 py-1 bg-rojo text-blanco"
+                    className="font-ui text-[10px] uppercase tracking-widest px-2.5 py-1 bg-rojo text-crema"
                   >Sí, eliminar</button>
                   <button
                     type="button"
                     onClick={() => setConfirmDelete(false)}
-                    className="font-mono text-[10px] text-gris-mid hover:text-blanco"
+                    className="font-mono text-[10px] text-negro/50 hover:text-negro"
                   >No</button>
                 </motion.div>
               )}

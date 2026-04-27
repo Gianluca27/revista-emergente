@@ -20,11 +20,11 @@ export default function ProtectedRoute() {
 
   if (status === 'checking') {
     return (
-      <div className="min-h-screen bg-negro flex items-center justify-center">
+      <div className="min-h-screen bg-crema flex items-center justify-center">
         <motion.p
           animate={{ opacity: [0.12, 0.7, 0.12] }}
           transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-          className="font-display text-8xl text-gris-mid tracking-widest select-none"
+          className="font-display text-8xl text-negro/50 tracking-widest select-none"
         >
           RE
         </motion.p>

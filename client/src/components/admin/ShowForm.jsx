@@ -15,12 +15,12 @@ const schema = z.object({
   status:      z.enum(['draft', 'published']),
 })
 
-const INPUT_CLS = 'w-full bg-negro text-blanco font-mono text-sm px-3 py-2.5 border border-gris-mid focus:outline-none focus:border-rojo/60 transition-colors duration-150 placeholder-gris-mid'
+const INPUT_CLS = 'w-full bg-crema text-negro font-mono text-sm px-3 py-2.5 border border-gris-mid focus:outline-none focus:border-rojo/60 transition-colors duration-150 placeholder-gris-mid'
 const INPUT_ERR = 'border-rojo'
 
 function FieldLabel({ children, required }) {
   return (
-    <label className="block font-ui text-[10px] uppercase tracking-[0.25em] text-gris-mid mb-1.5">
+    <label className="block font-ui text-[10px] uppercase tracking-[0.25em] text-negro/50 mb-1.5">
       {children}{required && <span className="text-rojo ml-0.5">*</span>}
     </label>
   )
@@ -68,7 +68,7 @@ export default function ShowForm({ initialData, onSubmit, onDelete, saving }) {
         <div className="flex items-center gap-3">
           <span className={[
             'inline-block font-ui text-[9px] uppercase tracking-[0.3em] px-2 py-1 border',
-            initialData.status === 'published' ? 'border-rojo text-rojo bg-rojo/10' : 'border-gris-mid text-gris-mid',
+            initialData.status === 'published' ? 'border-rojo text-rojo bg-rojo/10' : 'border-gris-mid text-negro/50',
           ].join(' ')}>
             {initialData.status === 'published' ? 'Publicado' : 'Borrador'}
           </span>
@@ -137,7 +137,7 @@ export default function ShowForm({ initialData, onSubmit, onDelete, saving }) {
           type="submit"
           disabled={saving}
           whileTap={{ scale: 0.97 }}
-          className="px-5 py-2.5 bg-rojo font-ui text-[11px] uppercase tracking-[0.25em] text-blanco hover:bg-red-800 transition-colors duration-150 disabled:opacity-40"
+          className="px-5 py-2.5 bg-rojo font-ui text-[11px] uppercase tracking-[0.25em] text-crema hover:bg-rojo-osc transition-colors duration-150 disabled:opacity-40"
         >
           {saving ? 'Guardando…' : initialData ? 'Actualizar' : 'Crear'}
         </motion.button>
@@ -150,7 +150,7 @@ export default function ShowForm({ initialData, onSubmit, onDelete, saving }) {
                   key="del"
                   type="button"
                   onClick={() => setConfirmDelete(true)}
-                  className="font-ui text-[10px] uppercase tracking-[0.2em] text-gris-mid hover:text-rojo transition-colors duration-150"
+                  className="font-ui text-[10px] uppercase tracking-[0.2em] text-negro/50 hover:text-rojo transition-colors duration-150"
                 >
                   Eliminar
                 </motion.button>
@@ -164,11 +164,11 @@ export default function ShowForm({ initialData, onSubmit, onDelete, saving }) {
                 >
                   <span className="font-mono text-[10px] text-rojo">¿Confirmar?</span>
                   <button type="button" onClick={onDelete}
-                    className="font-ui text-[10px] uppercase tracking-widest px-2.5 py-1 bg-rojo text-blanco">
+                    className="font-ui text-[10px] uppercase tracking-widest px-2.5 py-1 bg-rojo text-crema">
                     Sí, eliminar
                   </button>
                   <button type="button" onClick={() => setConfirmDelete(false)}
-                    className="font-mono text-[10px] text-gris-mid hover:text-blanco">
+                    className="font-mono text-[10px] text-negro/50 hover:text-negro">
                     No
                   </button>
                 </motion.div>

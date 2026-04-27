@@ -36,7 +36,7 @@ export default function ContactDrawer({ contact, onClose, onUpdateStatus, updati
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-negro/80 backdrop-blur-sm"
+            className="fixed inset-0 z-40 bg-crema/80 backdrop-blur-sm"
             onClick={onClose}
           />
           <motion.aside
@@ -50,16 +50,16 @@ export default function ContactDrawer({ contact, onClose, onUpdateStatus, updati
             {/* Header */}
             <div className="px-6 py-5 border-b border-gris-mid flex items-start justify-between gap-4">
               <div className="min-w-0">
-                <p className="font-ui text-[9px] uppercase tracking-[0.3em] text-gris-mid mb-1">Mensaje</p>
-                <h2 className="font-display text-3xl text-blanco tracking-wide leading-tight truncate">
+                <p className="font-ui text-[9px] uppercase tracking-[0.3em] text-negro/50 mb-1">Mensaje</p>
+                <h2 className="font-display text-3xl text-negro tracking-wide leading-tight truncate">
                   {contact.name}
                 </h2>
-                <p className="font-mono text-[11px] text-gris-mid mt-1 truncate">{contact.email}</p>
+                <p className="font-mono text-[11px] text-negro/50 mt-1 truncate">{contact.email}</p>
               </div>
               <button
                 onClick={onClose}
                 aria-label="Cerrar"
-                className="font-mono text-lg text-gris-mid hover:text-blanco shrink-0"
+                className="font-mono text-lg text-negro/50 hover:text-negro shrink-0"
               >
                 ✕
               </button>
@@ -70,12 +70,12 @@ export default function ContactDrawer({ contact, onClose, onUpdateStatus, updati
               <span className={[
                 'inline-block font-ui text-[9px] uppercase tracking-[0.3em] px-2 py-1 border',
                 contact.status === 'pending'   ? 'border-rojo text-rojo bg-rojo/10' :
-                contact.status === 'read'      ? 'border-blanco/40 text-blanco' :
-                                                  'border-gris-mid text-gris-mid',
+                contact.status === 'read'      ? 'border-negro/40 text-negro' :
+                                                  'border-gris-mid text-negro/50',
               ].join(' ')}>
                 {STATUS_LABELS[contact.status] ?? contact.status}
               </span>
-              <span className="font-mono text-[10px] text-gris-mid">
+              <span className="font-mono text-[10px] text-negro/50">
                 {formatFullDate(contact.created_at)}
               </span>
             </div>
@@ -85,21 +85,21 @@ export default function ContactDrawer({ contact, onClose, onUpdateStatus, updati
 
               {contact.project_name && (
                 <div>
-                  <p className="font-ui text-[9px] uppercase tracking-[0.3em] text-gris-mid mb-1">Proyecto</p>
-                  <p className="font-mono text-[12px] text-blanco">{contact.project_name}</p>
+                  <p className="font-ui text-[9px] uppercase tracking-[0.3em] text-negro/50 mb-1">Proyecto</p>
+                  <p className="font-mono text-[12px] text-negro">{contact.project_name}</p>
                 </div>
               )}
 
               {contact.instagram && (
                 <div>
-                  <p className="font-ui text-[9px] uppercase tracking-[0.3em] text-gris-mid mb-1">Instagram</p>
-                  <p className="font-mono text-[12px] text-blanco">{contact.instagram}</p>
+                  <p className="font-ui text-[9px] uppercase tracking-[0.3em] text-negro/50 mb-1">Instagram</p>
+                  <p className="font-mono text-[12px] text-negro">{contact.instagram}</p>
                 </div>
               )}
 
               <div>
-                <p className="font-ui text-[9px] uppercase tracking-[0.3em] text-gris-mid mb-2">Mensaje</p>
-                <p className="font-mono text-[12px] text-blanco whitespace-pre-wrap leading-relaxed border-l-2 border-rojo pl-4">
+                <p className="font-ui text-[9px] uppercase tracking-[0.3em] text-negro/50 mb-2">Mensaje</p>
+                <p className="font-mono text-[12px] text-negro whitespace-pre-wrap leading-relaxed border-l-2 border-rojo pl-4">
                   {contact.message}
                 </p>
               </div>
@@ -109,7 +109,7 @@ export default function ContactDrawer({ contact, onClose, onUpdateStatus, updati
             <div className="px-6 py-5 border-t border-gris-mid space-y-3">
               <a
                 href={mailtoLink}
-                className="block text-center px-4 py-3 bg-rojo font-ui text-[11px] uppercase tracking-[0.25em] text-blanco hover:bg-red-800 transition-colors duration-150"
+                className="block text-center px-4 py-3 bg-rojo font-ui text-[11px] uppercase tracking-[0.25em] text-crema hover:bg-rojo-osc transition-colors duration-150"
               >
                 ✉ Responder por email
               </a>
@@ -122,7 +122,7 @@ export default function ContactDrawer({ contact, onClose, onUpdateStatus, updati
                     'px-2 py-2 border font-ui text-[9px] uppercase tracking-[0.2em] transition-colors duration-150',
                     contact.status === 'pending'
                       ? 'border-rojo text-rojo bg-rojo/10 cursor-default'
-                      : 'border-gris-mid text-gris-mid hover:border-blanco/40 hover:text-blanco',
+                      : 'border-gris-mid text-negro/50 hover:border-negro/40 hover:text-negro',
                     updating ? 'opacity-40 cursor-wait' : '',
                   ].join(' ')}
                 >
@@ -134,8 +134,8 @@ export default function ContactDrawer({ contact, onClose, onUpdateStatus, updati
                   className={[
                     'px-2 py-2 border font-ui text-[9px] uppercase tracking-[0.2em] transition-colors duration-150',
                     contact.status === 'read'
-                      ? 'border-blanco text-blanco bg-blanco/10 cursor-default'
-                      : 'border-gris-mid text-gris-mid hover:border-blanco/40 hover:text-blanco',
+                      ? 'border-negro text-negro bg-crema/10 cursor-default'
+                      : 'border-gris-mid text-negro/50 hover:border-negro/40 hover:text-negro',
                     updating ? 'opacity-40 cursor-wait' : '',
                   ].join(' ')}
                 >
@@ -147,8 +147,8 @@ export default function ContactDrawer({ contact, onClose, onUpdateStatus, updati
                   className={[
                     'px-2 py-2 border font-ui text-[9px] uppercase tracking-[0.2em] transition-colors duration-150',
                     contact.status === 'archived'
-                      ? 'border-gris-mid text-gris-mid bg-gris-mid/20 cursor-default'
-                      : 'border-gris-mid text-gris-mid hover:border-blanco/40 hover:text-blanco',
+                      ? 'border-gris-mid text-negro/50 bg-gris-mid/20 cursor-default'
+                      : 'border-gris-mid text-negro/50 hover:border-negro/40 hover:text-negro',
                     updating ? 'opacity-40 cursor-wait' : '',
                   ].join(' ')}
                 >

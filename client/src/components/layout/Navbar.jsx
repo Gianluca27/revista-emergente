@@ -24,14 +24,14 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled || menuOpen
-          ? 'bg-negro/95 backdrop-blur-sm border-b border-gris-mid'
+          ? 'bg-crema/95 backdrop-blur-sm border-b border-negro/15'
           : 'bg-transparent'
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         <Link
           to="/"
-          className="font-display text-3xl text-blanco hover:text-rojo transition-colors duration-150 glitch"
+          className="font-grunge text-3xl text-rojo hover:text-negro transition-colors duration-150 glitch"
           data-text="EMERGENTE"
           onClick={() => setMenuOpen(false)}
         >
@@ -46,7 +46,7 @@ export default function Navbar() {
                 to={to}
                 className={({ isActive }) =>
                   `font-ui text-sm uppercase tracking-widest transition-colors duration-150 relative group ${
-                    isActive ? 'text-rojo' : 'text-blanco hover:text-rojo'
+                    isActive ? 'text-rojo' : 'text-negro hover:text-rojo'
                   }`
                 }
               >
@@ -72,17 +72,17 @@ export default function Navbar() {
           aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
         >
           <span
-            className={`block w-full h-0.5 bg-blanco origin-center transition-transform duration-200 ${
+            className={`block w-full h-0.5 bg-negro origin-center transition-transform duration-200 ${
               menuOpen ? 'rotate-45 translate-y-2' : ''
             }`}
           />
           <span
-            className={`block w-full h-0.5 bg-blanco transition-opacity duration-200 ${
+            className={`block w-full h-0.5 bg-negro transition-opacity duration-200 ${
               menuOpen ? 'opacity-0' : ''
             }`}
           />
           <span
-            className={`block w-full h-0.5 bg-blanco origin-center transition-transform duration-200 ${
+            className={`block w-full h-0.5 bg-negro origin-center transition-transform duration-200 ${
               menuOpen ? '-rotate-45 -translate-y-2' : ''
             }`}
           />
@@ -97,7 +97,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="md:hidden bg-negro border-b border-gris-mid overflow-hidden"
+            className="md:hidden bg-crema border-b border-negro/15 overflow-hidden"
           >
             <ul className="px-6 py-8 flex flex-col gap-6">
               {LINKS.map(({ to, label }, i) => (
@@ -112,7 +112,7 @@ export default function Navbar() {
                     onClick={() => setMenuOpen(false)}
                     className={({ isActive }) =>
                       `font-display text-4xl uppercase tracking-wide transition-colors duration-150 ${
-                        isActive ? 'text-rojo' : 'text-blanco hover:text-rojo'
+                        isActive ? 'text-rojo' : 'text-negro hover:text-rojo'
                       }`
                     }
                   >

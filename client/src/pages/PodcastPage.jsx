@@ -8,7 +8,7 @@ import { getPodcastEpisodes } from '../services/publications'
 
 const listVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.07 } },
+  visible: { transition: { staggerChildren: 0.1 } },
 }
 
 const rowVariants = {
@@ -52,11 +52,11 @@ function EpisodeRow({ episode }) {
 
       {/* Center: title + description */}
       <div className="flex-1 min-w-0">
-        <p className="font-display text-blanco uppercase text-xl sm:text-2xl leading-tight truncate">
+        <p className="font-display text-negro uppercase text-xl sm:text-2xl leading-tight truncate">
           {episode.title}
         </p>
         {episode.description && (
-          <p className="font-mono text-xs text-gris-mid mt-1 line-clamp-2 leading-relaxed">
+          <p className="font-mono text-xs text-negro/50 mt-1 line-clamp-2 leading-relaxed">
             {episode.description}
           </p>
         )}
@@ -65,7 +65,7 @@ function EpisodeRow({ episode }) {
       {/* Right: duration + links */}
       <div className="flex flex-col items-end gap-2 flex-shrink-0">
         {episode.duration_min != null && (
-          <span className="font-ui text-xs text-gris-mid whitespace-nowrap">
+          <span className="font-ui text-xs text-negro/50 whitespace-nowrap">
             {episode.duration_min} MIN
           </span>
         )}
@@ -75,7 +75,7 @@ function EpisodeRow({ episode }) {
               href={episode.youtube_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gris-mid hover:text-rojo transition-colors"
+              className="text-negro/50 hover:text-rojo transition-colors"
             >
               <span className="font-ui text-xs uppercase tracking-widest">YouTube</span>
             </a>
@@ -85,7 +85,7 @@ function EpisodeRow({ episode }) {
               href={episode.spotify_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gris-mid hover:text-rojo transition-colors"
+              className="text-negro/50 hover:text-rojo transition-colors"
             >
               <span className="font-ui text-xs uppercase tracking-widest">Spotify</span>
             </a>
@@ -111,10 +111,13 @@ export default function PodcastPage() {
   }, [])
 
   return (
-    <main className="min-h-screen bg-negro text-blanco">
+    <main className="min-h-screen bg-crema text-negro">
       {/* Page header */}
       <header className="pt-24 pb-8 px-6">
-        <h1 className="font-display text-blanco uppercase text-6xl sm:text-7xl leading-none tracking-tight">
+        <h1
+          className="font-display text-negro uppercase text-6xl sm:text-7xl leading-none tracking-tight glitch"
+          data-text="PODCAST"
+        >
           PODCAST
         </h1>
         <div className="mt-3 h-1 w-16 bg-rojo" />
@@ -129,14 +132,15 @@ export default function PodcastPage() {
             ))}
           </>
         ) : episodes.length === 0 ? (
-          <p className="font-mono text-gris-mid px-6 py-12 text-sm">
+          <p className="font-mono text-negro/50 px-6 py-12 text-sm">
             No hay episodios disponibles todavía.
           </p>
         ) : (
           <motion.div
             variants={listVariants}
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-60px' }}
           >
             {episodes.map(ep => (
               <EpisodeRow key={ep.id} episode={ep} />

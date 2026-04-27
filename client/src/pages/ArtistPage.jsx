@@ -32,7 +32,7 @@ const SOCIAL_LINKS = [
 /* ─── loading skeleton ───────────────────────────────────── */
 function Skeleton() {
   return (
-    <div className="min-h-screen bg-negro animate-pulse">
+    <div className="min-h-screen bg-crema animate-pulse">
       {/* header skeleton */}
       <div className="max-w-5xl mx-auto px-6 pt-24 pb-12">
         <div className="flex flex-col sm:flex-row gap-10">
@@ -57,7 +57,7 @@ function Skeleton() {
         <div className="h-8 bg-gris-mid rounded w-32 mb-6" />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-gris-mid">
           {Array.from({ length: 3 }).map((_, i) => (
-            <div key={i} className="bg-negro">
+            <div key={i} className="bg-crema">
               <SkeletonCard />
             </div>
           ))}
@@ -72,12 +72,12 @@ function ErrorState() {
   return (
     <div className="min-h-[70vh] flex flex-col items-center justify-center px-6 text-center gap-6">
       <p className="font-display text-7xl text-rojo uppercase">404</p>
-      <p className="font-mono text-sm text-gris-mid">
+      <p className="font-mono text-sm text-negro/50">
         Este artista no existe o ya no está disponible.
       </p>
       <Link
         to="/entrevistas"
-        className="font-ui text-xs uppercase tracking-widest px-5 py-2 border border-gris-mid text-blanco hover:border-rojo hover:text-rojo transition-colors duration-150"
+        className="font-ui text-xs uppercase tracking-widest px-5 py-2 border border-gris-mid text-negro hover:border-rojo hover:text-rojo transition-colors duration-150"
       >
         ← Volver a entrevistas
       </Link>
@@ -123,7 +123,7 @@ function ArtistHeader({ artist }) {
 
           <motion.h1
             variants={fadeUp}
-            className="font-display text-5xl sm:text-8xl text-blanco uppercase leading-none"
+            className="font-display text-5xl sm:text-8xl text-negro uppercase leading-none"
           >
             {artist.name}
           </motion.h1>
@@ -136,7 +136,7 @@ function ArtistHeader({ artist }) {
           {artist.bio && (
             <motion.p
               variants={fadeUp}
-              className="font-mono text-sm text-gris-mid mt-4 leading-relaxed max-w-2xl"
+              className="font-mono text-sm text-negro/50 mt-4 leading-relaxed max-w-2xl"
             >
               {artist.bio}
             </motion.p>
@@ -153,7 +153,7 @@ function ArtistHeader({ artist }) {
                   href={artist[key]}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-ui text-xs text-blanco hover:text-rojo border-b border-gris-mid hover:border-rojo pb-px transition-colors duration-150 uppercase tracking-widest"
+                  className="font-ui text-xs text-negro hover:text-rojo border-b border-gris-mid hover:border-rojo pb-px transition-colors duration-150 uppercase tracking-widest"
                 >
                   {label}
                 </a>
@@ -171,14 +171,14 @@ function PublicationsSection({ publications }) {
   return (
     <section className="max-w-5xl mx-auto px-6 py-12 pb-20">
       <div className="mb-8">
-        <h2 className="font-display text-3xl sm:text-4xl text-blanco uppercase leading-none">
+        <h2 className="font-display text-3xl sm:text-4xl text-negro uppercase leading-none">
           Entrevistas
         </h2>
         <div className="mt-2 h-[2px] w-16 bg-rojo" />
       </div>
 
       {publications.length === 0 ? (
-        <p className="font-mono text-sm text-gris-mid">
+        <p className="font-mono text-sm text-negro/50">
           No hay entrevistas disponibles todavía.
         </p>
       ) : (
@@ -190,7 +190,7 @@ function PublicationsSection({ publications }) {
           viewport={{ once: true, margin: '-60px' }}
         >
           {publications.map(pub => (
-            <motion.div key={pub.id} variants={cardVariants} className="bg-negro">
+            <motion.div key={pub.id} variants={cardVariants} className="bg-crema">
               <PublicationCard
                 title={pub.title}
                 subtitle={pub.subtitle}
@@ -244,7 +244,7 @@ export default function ArtistPage() {
   const publications = Array.isArray(artist.publications) ? artist.publications : []
 
   return (
-    <div className="min-h-screen bg-negro text-blanco">
+    <div className="min-h-screen bg-crema text-negro">
       <ArtistHeader artist={artist} />
       <PublicationsSection publications={publications} />
     </div>

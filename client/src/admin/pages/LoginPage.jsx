@@ -37,7 +37,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-negro flex overflow-hidden">
+    <div className="min-h-screen bg-crema flex overflow-hidden">
       {/* Left panel — branding */}
       <motion.div
         initial={{ x: -60, opacity: 0 }}
@@ -52,19 +52,19 @@ export default function LoginPage() {
         <div className="relative">
           <div className="absolute -left-3 top-6 w-0.5 h-24 bg-rojo" />
           <h1
-            className="font-display leading-none text-blanco select-none"
+            className="font-grunge leading-none text-rojo select-none"
             style={{ fontSize: 'clamp(6rem, 14vw, 13rem)' }}
           >
             RE
           </h1>
-          <p className="font-display text-[2.5rem] text-gris-mid leading-tight tracking-[0.15em] mt-1">
+          <p className="font-grunge text-[2.5rem] text-negro/70 leading-tight tracking-[0.05em] mt-1">
             VISTA<br />EMERGENTE
           </p>
         </div>
 
         <div className="space-y-1">
-          <p className="font-mono text-[11px] text-gris-mid">// acceso_restringido</p>
-          <p className="font-mono text-[11px] text-gris-mid">// solo_administración</p>
+          <p className="font-mono text-[11px] text-negro/50">// acceso_restringido</p>
+          <p className="font-mono text-[11px] text-negro/50">// solo_administración</p>
         </div>
       </motion.div>
 
@@ -77,7 +77,7 @@ export default function LoginPage() {
       >
         {/* Mobile logo */}
         <div className="lg:hidden mb-10">
-          <h1 className="font-display text-5xl text-blanco tracking-widest">EMERGENTE</h1>
+          <h1 className="font-grunge text-5xl text-rojo tracking-wide">EMERGENTE</h1>
           <div className="w-10 h-0.5 bg-rojo mt-2" />
         </div>
 
@@ -87,15 +87,15 @@ export default function LoginPage() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.28, duration: 0.4 }}
           >
-            <h2 className="font-display text-5xl text-blanco tracking-[0.1em] mb-1">ACCEDER</h2>
-            <p className="font-mono text-[11px] text-gris-mid mb-10 tracking-wide">
+            <h2 className="font-display text-5xl text-negro tracking-[0.1em] mb-1">ACCEDER</h2>
+            <p className="font-mono text-[11px] text-negro/50 mb-10 tracking-wide">
               Ingresá tus credenciales de administración
             </p>
           </motion.div>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
             <div>
-              <label className="block font-ui text-[11px] text-gris-mid uppercase tracking-[0.25em] mb-2">
+              <label className="block font-ui text-[11px] text-negro/50 uppercase tracking-[0.25em] mb-2">
                 Email
               </label>
               <input
@@ -103,7 +103,7 @@ export default function LoginPage() {
                 autoComplete="email"
                 {...register('email')}
                 className={[
-                  'w-full bg-gris text-blanco font-mono text-sm px-4 py-3',
+                  'w-full bg-gris text-negro font-mono text-sm px-4 py-3',
                   'border transition-colors duration-150 focus:outline-none placeholder-gris-mid',
                   errors.email ? 'border-rojo' : 'border-gris-mid focus:border-rojo',
                 ].join(' ')}
@@ -115,7 +115,7 @@ export default function LoginPage() {
             </div>
 
             <div>
-              <label className="block font-ui text-[11px] text-gris-mid uppercase tracking-[0.25em] mb-2">
+              <label className="block font-ui text-[11px] text-negro/50 uppercase tracking-[0.25em] mb-2">
                 Contraseña
               </label>
               <input
@@ -123,7 +123,7 @@ export default function LoginPage() {
                 autoComplete="current-password"
                 {...register('password')}
                 className={[
-                  'w-full bg-gris text-blanco font-mono text-sm px-4 py-3',
+                  'w-full bg-gris text-negro font-mono text-sm px-4 py-3',
                   'border transition-colors duration-150 focus:outline-none',
                   errors.password ? 'border-rojo' : 'border-gris-mid focus:border-rojo',
                 ].join(' ')}
@@ -146,9 +146,9 @@ export default function LoginPage() {
             <motion.button
               type="submit"
               disabled={isSubmitting}
-              whileHover={{ backgroundColor: '#9a0015' }}
+              whileHover={{ backgroundColor: '#7A0F14' }}
               whileTap={{ scale: 0.985 }}
-              className="w-full bg-rojo text-blanco font-ui text-sm uppercase tracking-[0.3em] py-4 mt-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
+              className="w-full bg-rojo text-crema font-ui text-sm uppercase tracking-[0.3em] py-4 mt-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
             >
               {isSubmitting ? 'Verificando...' : 'Ingresar'}
             </motion.button>

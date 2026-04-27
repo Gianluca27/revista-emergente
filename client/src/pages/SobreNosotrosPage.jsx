@@ -59,10 +59,10 @@ const manifesto = [
 
 export default function SobreNosotrosPage() {
   return (
-    <div className="min-h-screen bg-negro">
+    <div className="min-h-screen bg-crema">
 
       {/* Hero */}
-      <section className="relative pt-24 pb-12 px-6 overflow-hidden bg-negro">
+      <section className="relative pt-24 pb-12 px-6 overflow-hidden bg-crema">
         <div className="grain absolute inset-0 pointer-events-none opacity-30" />
         <div className="relative z-10 max-w-4xl">
           <motion.p
@@ -76,7 +76,7 @@ export default function SobreNosotrosPage() {
           </motion.p>
 
           <motion.h1
-            className="font-display text-7xl sm:text-9xl text-blanco uppercase leading-none"
+            className="font-display text-7xl sm:text-9xl text-negro uppercase leading-none"
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -99,7 +99,7 @@ export default function SobreNosotrosPage() {
       </section>
 
       {/* Manifiesto */}
-      <section className="bg-negro py-16 px-6 border-t border-gris-mid">
+      <section className="bg-crema py-16 px-6 border-t border-gris-mid">
         <div className="max-w-2xl">
           <motion.p
             className="font-ui text-xs tracking-[0.25em] text-rojo uppercase mb-8"
@@ -121,7 +121,7 @@ export default function SobreNosotrosPage() {
             {manifesto.map((paragraph, i) => (
               <motion.p
                 key={i}
-                className="font-mono text-sm text-blanco/80 leading-relaxed"
+                className="font-mono text-sm text-negro/80 leading-relaxed"
                 variants={fadeUp}
               >
                 {paragraph}
@@ -132,7 +132,7 @@ export default function SobreNosotrosPage() {
       </section>
 
       {/* ¿Qué es Emergente? */}
-      <section className="py-16 px-6" style={{ backgroundColor: '#1A1A1A' }}>
+      <section className="py-16 px-6 bg-papel border-t border-negro/10">
         <div className="max-w-5xl mx-auto">
           <motion.p
             className="font-ui text-xs tracking-[0.25em] text-rojo uppercase mb-10"
@@ -154,16 +154,16 @@ export default function SobreNosotrosPage() {
             {features.map((feature) => (
               <motion.div
                 key={feature.number}
-                className="bg-negro border border-gris-mid p-6 hover:border-rojo transition-colors duration-200 group"
+                className="bg-crema border border-gris-mid p-6 hover:border-rojo transition-colors duration-200 group"
                 variants={fadeUp}
               >
                 <span className="font-display text-5xl text-rojo leading-none block mb-4 group-hover:opacity-80 transition-opacity">
                   {feature.number}
                 </span>
-                <h3 className="font-display text-2xl text-blanco uppercase mb-3">
+                <h3 className="font-display text-2xl text-negro uppercase mb-3">
                   {feature.title}
                 </h3>
-                <p className="font-mono text-xs text-gris-mid leading-relaxed">
+                <p className="font-mono text-xs text-negro/50 leading-relaxed">
                   {feature.description}
                 </p>
               </motion.div>
@@ -173,7 +173,7 @@ export default function SobreNosotrosPage() {
       </section>
 
       {/* Equipo */}
-      <section className="bg-negro py-16 px-6">
+      <section className="bg-crema py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <motion.p
             className="font-ui text-xs tracking-[0.25em] text-rojo uppercase mb-10"
@@ -195,18 +195,18 @@ export default function SobreNosotrosPage() {
             {team.map((member) => (
               <motion.div
                 key={member.name}
-                className="bg-negro"
+                className="bg-crema"
                 variants={fadeUp}
               >
                 <div className="aspect-square w-full bg-gris" />
                 <div className="p-4">
-                  <h3 className="font-display text-xl text-blanco uppercase leading-tight mb-1">
+                  <h3 className="font-display text-xl text-negro uppercase leading-tight mb-1">
                     {member.name}
                   </h3>
                   <p className="font-ui text-xs text-rojo uppercase tracking-widest mb-3">
                     {member.role}
                   </p>
-                  <p className="font-mono text-xs text-gris-mid leading-relaxed">
+                  <p className="font-mono text-xs text-negro/50 leading-relaxed">
                     {member.bio}
                   </p>
                 </div>
@@ -217,7 +217,7 @@ export default function SobreNosotrosPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 px-6 text-center" style={{ backgroundColor: '#C0001A' }}>
+      <section className="py-16 px-6 text-center bg-rojo">
         <motion.div
           variants={stagger}
           initial="hidden"
@@ -241,7 +241,7 @@ export default function SobreNosotrosPage() {
           <motion.div variants={fadeUp}>
             <Link
               to="/contacto"
-              className="inline-block border-2 border-negro text-negro hover:bg-negro hover:text-blanco font-ui uppercase tracking-widest px-8 py-3 transition-colors duration-200"
+              className="inline-block border-2 border-negro text-negro hover:bg-negro hover:text-crema font-ui uppercase tracking-widest px-8 py-3 transition-colors duration-200"
             >
               Escribinos
             </Link>

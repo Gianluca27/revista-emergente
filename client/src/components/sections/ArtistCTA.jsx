@@ -18,7 +18,7 @@ export default function ArtistCTA() {
 
         {/* Fanzine-style oversized heading */}
         <div className="relative mb-8">
-          <h2 className="font-display text-[14vw] sm:text-[10vw] md:text-[8vw] leading-none uppercase text-blanco">
+          <h2 className="font-display text-[14vw] sm:text-[10vw] md:text-[8vw] leading-none uppercase text-negro">
             ¿Sos
           </h2>
           {/* Offset red word — breaks the grid */}
@@ -29,7 +29,7 @@ export default function ArtistCTA() {
 
         {/* Body text */}
         <div className="max-w-lg">
-          <p className="font-mono text-sm text-blanco/60 leading-relaxed mb-8">
+          <p className="font-mono text-sm text-negro/60 leading-relaxed mb-8">
             Si hacés música, diseño, arte o cultura independiente en Argentina,
             nos interesa conocer tu trabajo. Entrevistas, coberturas y reseñas.
           </p>
@@ -37,13 +37,13 @@ export default function ArtistCTA() {
           <div className="flex flex-wrap gap-4">
             <Link
               to="/contacto"
-              className="inline-flex items-center gap-3 font-ui text-sm tracking-widest uppercase bg-rojo text-blanco px-6 py-3 hover:bg-rojo/80 transition-colors duration-200"
+              className="inline-flex items-center gap-3 font-ui text-sm tracking-widest uppercase bg-rojo text-crema px-6 py-3 hover:bg-rojo/80 transition-colors duration-200"
             >
               Contactarnos →
             </Link>
             <Link
               to="/sobre-nosotros"
-              className="inline-flex items-center gap-3 font-ui text-sm tracking-widest uppercase text-blanco/50 border border-gris-mid px-6 py-3 hover:text-blanco hover:border-blanco/30 transition-colors duration-200"
+              className="inline-flex items-center gap-3 font-ui text-sm tracking-widest uppercase text-negro/50 border border-gris-mid px-6 py-3 hover:text-negro hover:border-negro/30 transition-colors duration-200"
             >
               Quiénes somos
             </Link>

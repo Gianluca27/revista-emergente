@@ -88,7 +88,7 @@ export default function EditarPublicacionPage() {
         <motion.span
           animate={{ opacity: [0.15, 0.7, 0.15] }}
           transition={{ duration: 1.6, repeat: Infinity }}
-          className="font-display text-5xl text-gris-mid tracking-widest"
+          className="font-display text-5xl text-negro/50 tracking-widest"
         >RE</motion.span>
       </div>
     )
@@ -97,7 +97,7 @@ export default function EditarPublicacionPage() {
   if (notFound || !pub) {
     return (
       <div className="px-6 py-8">
-        <p className="font-mono text-[12px] text-gris-mid">Publicación no encontrada.</p>
+        <p className="font-mono text-[12px] text-negro/50">Publicación no encontrada.</p>
         <Link to="/admin/publicaciones" className="font-ui text-[10px] uppercase tracking-widest text-rojo mt-3 block">
           ← Volver
         </Link>
@@ -108,16 +108,16 @@ export default function EditarPublicacionPage() {
   return (
     <div className="px-6 py-8 max-w-3xl">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 mb-6 font-ui text-[10px] uppercase tracking-[0.25em] text-gris-mid">
-        <Link to="/admin/publicaciones" className="hover:text-blanco transition-colors">
+      <nav className="flex items-center gap-2 mb-6 font-ui text-[10px] uppercase tracking-[0.25em] text-negro/50">
+        <Link to="/admin/publicaciones" className="hover:text-negro transition-colors">
           Publicaciones
         </Link>
         <span>→</span>
-        <span className="text-blanco truncate max-w-[200px]">{pub.title}</span>
+        <span className="text-negro truncate max-w-[200px]">{pub.title}</span>
       </nav>
 
       <div className="flex items-start justify-between mb-8 gap-4">
-        <h1 className="font-display text-4xl sm:text-5xl text-blanco tracking-wide leading-none">
+        <h1 className="font-display text-4xl sm:text-5xl text-negro tracking-wide leading-none">
           EDITAR
         </h1>
         {pub.status === 'published' && pub.slug && (
@@ -125,7 +125,7 @@ export default function EditarPublicacionPage() {
             href={`/entrevistas/${pub.slug}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-ui text-[10px] uppercase tracking-[0.2em] text-gris-mid hover:text-blanco transition-colors shrink-0"
+            className="font-ui text-[10px] uppercase tracking-[0.2em] text-negro/50 hover:text-negro transition-colors shrink-0"
           >
             Ver pública ↗
           </a>
@@ -149,7 +149,7 @@ export default function EditarPublicacionPage() {
           exit={{ opacity: 0 }}
           className="border border-gris-mid px-4 py-3 mb-6"
         >
-          <p className="font-mono text-[11px] text-blanco">{successMsg}</p>
+          <p className="font-mono text-[11px] text-negro">{successMsg}</p>
         </motion.div>
       )}
 
