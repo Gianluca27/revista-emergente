@@ -35,7 +35,7 @@ function ShowCard({ show }) {
           <h2 className="font-display text-negro uppercase text-xl group-hover:border-b-2 group-hover:border-rojo leading-tight pb-0.5 transition-all duration-200">
             {show.title}
           </h2>
-          <p className="font-ui text-xs text-negro/50 mt-1">
+          <p className="font-ui text-base text-negro/90 mt-1">
             {show.venue}
             {show.venue && show.event_date && ' — '}
             {show.event_date && formatDate(show.event_date)}
@@ -85,7 +85,7 @@ export default function ShowsPage() {
             ))}
           </div>
         ) : shows.length === 0 ? (
-          <p className="font-mono text-negro/50 text-sm mt-8">
+          <p className="font-mono text-negro/90 text-lg mt-8">
             No hay coberturas disponibles todavía.
           </p>
         ) : (

@@ -19,7 +19,7 @@ function navClass({ isActive }) {
     'font-ui text-xs uppercase tracking-[0.2em] transition-colors duration-150',
     isActive
       ? 'border-rojo text-rojo'
-      : 'border-transparent text-negro/50 hover:text-negro hover:border-gris-mid',
+      : 'border-transparent text-negro/90 hover:text-negro hover:border-gris-mid',
   ].join(' ')
 }
 
@@ -43,7 +43,7 @@ export default function AdminLayout() {
         <div className="px-6 py-7 border-b border-gris-mid">
           <NavLink to="/admin/dashboard">
             <span className="font-grunge text-4xl text-rojo leading-none">RE</span>
-            <p className="font-ui text-[9px] text-negro/50 uppercase tracking-[0.4em] mt-0.5">Admin</p>
+            <p className="font-ui text-[9px] text-negro/90 uppercase tracking-[0.4em] mt-0.5">Admin</p>
           </NavLink>
         </div>
 
@@ -58,11 +58,11 @@ export default function AdminLayout() {
 
         <div className="px-5 py-5 border-t border-gris-mid">
           {user?.email && (
-            <p className="font-mono text-[9px] text-negro/50 mb-3 truncate">{user.email}</p>
+            <p className="font-mono text-[9px] text-negro/90 mb-3 truncate">{user.email}</p>
           )}
           <button
             onClick={handleLogout}
-            className="w-full text-left font-ui text-[10px] text-negro/50 uppercase tracking-[0.2em] px-3 py-2.5 border border-gris-mid hover:border-rojo hover:text-rojo transition-colors duration-200"
+            className="w-full text-left font-ui text-[10px] text-negro/90 uppercase tracking-[0.2em] px-3 py-2.5 border border-gris-mid hover:border-rojo hover:text-rojo transition-colors duration-200"
           >
             ↪ Cerrar sesión
           </button>
@@ -77,7 +77,7 @@ export default function AdminLayout() {
         <button
           onClick={() => setDrawerOpen(true)}
           aria-label="Abrir menú"
-          className="font-ui text-[10px] text-negro/50 uppercase tracking-widest"
+          className="font-ui text-[10px] text-negro/90 uppercase tracking-widest"
         >
           ☰ Menú
         </button>
@@ -109,7 +109,7 @@ export default function AdminLayout() {
                 <button
                   onClick={() => setDrawerOpen(false)}
                   aria-label="Cerrar menú"
-                  className="font-mono text-xs text-negro/50"
+                  className="font-mono text-xs text-negro/90"
                 >
                   ✕
                 </button>
@@ -131,11 +131,11 @@ export default function AdminLayout() {
 
               <div className="px-5 py-5 border-t border-gris-mid">
                 {user?.email && (
-                  <p className="font-mono text-[9px] text-negro/50 mb-3 truncate">{user.email}</p>
+                  <p className="font-mono text-[9px] text-negro/90 mb-3 truncate">{user.email}</p>
                 )}
                 <button
                   onClick={handleLogout}
-                  className="w-full text-left font-ui text-[10px] text-negro/50 uppercase tracking-[0.2em] px-3 py-2.5 border border-gris-mid"
+                  className="w-full text-left font-ui text-[10px] text-negro/90 uppercase tracking-[0.2em] px-3 py-2.5 border border-gris-mid"
                 >
                   ↪ Cerrar sesión
                 </button>

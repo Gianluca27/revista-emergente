@@ -89,7 +89,7 @@ export default function ContactoAdminPage() {
       {/* Header */}
       <div className="mb-8">
         <h1 className="font-display text-5xl text-negro tracking-wide leading-none">MENSAJES</h1>
-        <p className="font-mono text-[11px] text-negro/50 mt-1">
+        <p className="font-mono text-[11px] text-negro/90 mt-1">
           {contacts.length} en vista
           {filter === 'all' && counts.pending > 0 && (
             <> · <span className="text-rojo">{counts.pending} sin leer</span></>
@@ -107,7 +107,7 @@ export default function ContactoAdminPage() {
               'px-3 py-1.5 font-ui text-[10px] uppercase tracking-[0.2em] border transition-colors duration-150',
               filter === f.key
                 ? 'border-rojo text-rojo bg-rojo/10'
-                : 'border-gris-mid text-negro/50 hover:border-negro/30 hover:text-negro',
+                : 'border-gris-mid text-negro/90 hover:border-negro/30 hover:text-negro',
             ].join(' ')}
           >
             {f.label}
@@ -132,12 +132,12 @@ export default function ContactoAdminPage() {
             <motion.span
               animate={{ opacity: [0.15, 0.7, 0.15] }}
               transition={{ duration: 1.6, repeat: Infinity }}
-              className="font-display text-5xl text-negro/50 tracking-widest"
+              className="font-display text-5xl text-negro/90 tracking-widest"
             >RE</motion.span>
           </div>
         ) : contacts.length === 0 ? (
           <div className="py-16 text-center">
-            <p className="font-mono text-[12px] text-negro/50">
+            <p className="font-mono text-[12px] text-negro/90">
               {filter === 'pending' ? 'Bandeja al día — no hay mensajes pendientes' : 'Sin mensajes'}
             </p>
           </div>
@@ -168,18 +168,18 @@ export default function ContactoAdminPage() {
                     <div className="flex items-baseline justify-between gap-3">
                       <p className={[
                         'font-ui text-[12px] truncate',
-                        c.status === 'pending' ? 'text-negro' : 'text-negro/50',
+                        c.status === 'pending' ? 'text-negro' : 'text-negro/90',
                       ].join(' ')}>
                         {c.name}
                         {c.project_name && (
-                          <span className="text-negro/50"> · {c.project_name}</span>
+                          <span className="text-negro/90"> · {c.project_name}</span>
                         )}
                       </p>
-                      <span className="font-mono text-[10px] text-negro/50 shrink-0">
+                      <span className="font-mono text-[10px] text-negro/90 shrink-0">
                         {formatRelative(c.created_at)}
                       </span>
                     </div>
-                    <p className="font-mono text-[11px] text-negro/50 truncate mt-0.5">
+                    <p className="font-mono text-[11px] text-negro/90 truncate mt-0.5">
                       {c.message}
                     </p>
                   </div>

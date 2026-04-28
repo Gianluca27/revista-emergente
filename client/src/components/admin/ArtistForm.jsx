@@ -22,7 +22,7 @@ const INPUT_ERR = 'border-rojo'
 
 function FieldLabel({ children, required }) {
   return (
-    <label className="block font-ui text-[10px] uppercase tracking-[0.25em] text-negro/50 mb-1.5">
+    <label className="block font-ui text-[10px] uppercase tracking-[0.25em] text-negro/90 mb-1.5">
       {children}{required && <span className="text-rojo ml-0.5">*</span>}
     </label>
   )
@@ -164,7 +164,7 @@ export default function ArtistForm({ initialData, onSubmit, onDelete, saving }) 
                   key="del"
                   type="button"
                   onClick={() => setConfirmDelete(true)}
-                  className="font-ui text-[10px] uppercase tracking-[0.2em] text-negro/50 hover:text-rojo transition-colors duration-150"
+                  className="font-ui text-[10px] uppercase tracking-[0.2em] text-negro/90 hover:text-rojo transition-colors duration-150"
                 >
                   Eliminar
                 </motion.button>
@@ -185,7 +185,7 @@ export default function ArtistForm({ initialData, onSubmit, onDelete, saving }) 
                   <button
                     type="button"
                     onClick={() => setConfirmDelete(false)}
-                    className="font-mono text-[10px] text-negro/50 hover:text-negro"
+                    className="font-mono text-[10px] text-negro/90 hover:text-negro"
                   >No</button>
                 </motion.div>
               )}

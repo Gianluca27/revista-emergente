@@ -18,7 +18,7 @@ export default function PublicationCard({ title, subtitle, category, coverImage,
           />
         ) : (
           <div className="w-full h-full bg-crema flex items-center justify-center">
-            <span className="font-display text-7xl text-negro/50">R</span>
+            <span className="font-display text-7xl text-negro/90">R</span>
           </div>
         )}
         <div className="absolute inset-0 bg-rojo opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
@@ -31,7 +31,7 @@ export default function PublicationCard({ title, subtitle, category, coverImage,
 
       <div className="p-4 border-t-2 border-transparent group-hover:border-rojo transition-colors duration-200">
         {date && (
-          <p className="font-ui text-xs text-negro/50 uppercase tracking-widest mb-1">
+          <p className="font-ui text-base text-negro/90 uppercase tracking-widest mb-1">
             {formatDate(date)}
           </p>
         )}
@@ -39,7 +39,7 @@ export default function PublicationCard({ title, subtitle, category, coverImage,
           {title}
         </h3>
         {subtitle && (
-          <p className="font-mono text-xs text-negro/50 mt-1 line-clamp-2">
+          <p className="font-mono text-base text-negro/90 mt-1 line-clamp-2">
             {subtitle}
           </p>
         )}

@@ -45,7 +45,7 @@ export default function Navbar() {
               <NavLink
                 to={to}
                 className={({ isActive }) =>
-                  `font-ui text-sm uppercase tracking-widest transition-colors duration-150 relative group ${
+                  `font-ui text-lg uppercase tracking-widest transition-colors duration-150 relative group ${
                     isActive ? 'text-rojo' : 'text-negro hover:text-rojo'
                   }`
                 }

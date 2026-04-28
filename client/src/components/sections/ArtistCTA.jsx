@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function ArtistCTA() {
   return (
@@ -7,12 +7,12 @@ export default function ArtistCTA() {
       className="relative overflow-hidden bg-gris border-t-2 border-rojo"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      viewport={{ once: true, margin: '-60px' }}
+      viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6 }}
     >
       <div className="px-6 sm:px-10 py-20 sm:py-28 relative z-10">
         {/* Label */}
-        <p className="font-ui text-xs tracking-[0.25em] text-rojo uppercase mb-6">
+        <p className="font-ui text-base tracking-[0.25em] text-rojo uppercase mb-6">
           — Trabajá con nosotras
         </p>
 
@@ -29,7 +29,7 @@ export default function ArtistCTA() {
 
         {/* Body text */}
         <div className="max-w-lg">
-          <p className="font-mono text-sm text-negro/60 leading-relaxed mb-8">
+          <p className="font-mono text-lg text-negro/90 leading-relaxed mb-8">
             Si hacés música, diseño, arte o cultura independiente en Argentina,
             nos interesa conocer tu trabajo. Entrevistas, coberturas y reseñas.
           </p>
@@ -37,13 +37,13 @@ export default function ArtistCTA() {
           <div className="flex flex-wrap gap-4">
             <Link
               to="/contacto"
-              className="inline-flex items-center gap-3 font-ui text-sm tracking-widest uppercase bg-rojo text-crema px-6 py-3 hover:bg-rojo/80 transition-colors duration-200"
+              className="inline-flex items-center gap-3 font-ui text-lg tracking-widest uppercase bg-rojo text-crema px-6 py-3 hover:bg-rojo/80 transition-colors duration-200"
             >
               Contactarnos →
             </Link>
             <Link
               to="/sobre-nosotros"
-              className="inline-flex items-center gap-3 font-ui text-sm tracking-widest uppercase text-negro/50 border border-gris-mid px-6 py-3 hover:text-negro hover:border-negro/30 transition-colors duration-200"
+              className="inline-flex items-center gap-3 font-ui text-lg tracking-widest uppercase text-negro/90 border border-gris-mid px-6 py-3 hover:text-negro hover:border-negro/30 transition-colors duration-200"
             >
               Quiénes somos
             </Link>
@@ -56,10 +56,10 @@ export default function ArtistCTA() {
         className="absolute right-0 top-0 bottom-0 flex items-center pr-6 sm:pr-10 pointer-events-none select-none"
         aria-hidden="true"
       >
-        <span className="font-display text-[30vw] sm:text-[22vw] leading-none text-negro/50 uppercase">
+        <span className="font-display text-[30vw] sm:text-[22vw] leading-none text-negro/90 uppercase">
           R
         </span>
       </div>
     </motion.section>
-  )
+  );
 }

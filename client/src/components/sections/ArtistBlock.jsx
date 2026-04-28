@@ -52,7 +52,7 @@ function ArtistCard({ artist }) {
 
         {/* Bio */}
         {artist.bio && (
-          <p className="font-mono text-sm text-negro/50 leading-relaxed line-clamp-4">
+          <p className="font-mono text-lg text-negro/90 leading-relaxed line-clamp-4">
             {artist.bio}
           </p>
         )}
@@ -66,7 +66,7 @@ function ArtistCard({ artist }) {
                 href={artist[key]}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-ui text-xs tracking-widest uppercase text-negro/50 hover:text-rojo transition-colors duration-200 border-b border-gris-mid hover:border-rojo pb-px"
+                className="font-ui text-base tracking-widest uppercase text-negro/90 hover:text-rojo transition-colors duration-200 border-b border-gris-mid hover:border-rojo pb-px"
               >
                 {label}
               </a>
@@ -87,7 +87,7 @@ export default function ArtistBlock({ artists }) {
     <section className="border-t border-gris-mid bg-crema px-6 sm:px-10 py-14">
       {/* Section heading */}
       <div className="mb-8">
-        <p className="font-ui text-xs tracking-[0.25em] text-rojo uppercase mb-2">
+        <p className="font-ui text-base tracking-[0.25em] text-rojo uppercase mb-2">
           — {isPlural ? 'Artistas' : 'Artista'}
         </p>
         <div className="relative inline-block">

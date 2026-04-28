@@ -54,12 +54,12 @@ function ErrorState() {
   return (
     <div className="min-h-[70vh] flex flex-col items-center justify-center px-6 text-center gap-6">
       <p className="font-display text-7xl text-rojo uppercase">404</p>
-      <p className="font-mono text-sm text-negro/50">
+      <p className="font-mono text-lg text-negro/90">
         Este show no existe o ya no está disponible.
       </p>
       <Link
         to="/shows"
-        className="font-ui text-xs uppercase tracking-widest px-5 py-2 border border-gris-mid text-negro hover:border-rojo hover:text-rojo transition-colors duration-150"
+        className="font-ui text-base uppercase tracking-widest px-5 py-2 border border-gris-mid text-negro hover:border-rojo hover:text-rojo transition-colors duration-150"
       >
         ← Volver a shows
       </Link>
@@ -79,7 +79,7 @@ function CoverImage({ src, alt }) {
         />
       ) : (
         <div className="w-full h-full bg-crema flex items-center justify-center">
-          <span className="font-display text-[12rem] text-negro/50 leading-none select-none">
+          <span className="font-display text-[12rem] text-negro/90 leading-none select-none">
             R
           </span>
         </div>
@@ -100,7 +100,7 @@ function ShowHeader({ show }) {
       className="max-w-5xl mx-auto px-6 pt-10 pb-8"
     >
       {/* date + venue row */}
-      <motion.p variants={fadeUp} className="font-ui text-xs text-negro/50 uppercase tracking-widest mb-3">
+      <motion.p variants={fadeUp} className="font-ui text-base text-negro/90 uppercase tracking-widest mb-3">
         {show.event_date && formatDate(show.event_date)}
         {show.event_date && show.venue && ' — '}
         {show.venue}
@@ -121,7 +121,7 @@ function ShowHeader({ show }) {
       {show.description && (
         <motion.p
           variants={fadeUp}
-          className="font-mono text-sm text-negro/70 mt-4 leading-relaxed max-w-2xl"
+          className="font-mono text-lg text-negro/70 mt-4 leading-relaxed max-w-2xl"
         >
           {show.description}
         </motion.p>

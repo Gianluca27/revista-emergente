@@ -12,7 +12,7 @@ function ArtistAvatar({ photo, name }) {
   return src ? (
     <img src={src} alt={name} className="w-12 h-12 object-cover rounded-full border border-gris-mid" />
   ) : (
-    <div className="w-12 h-12 flex items-center justify-center bg-gris border border-gris-mid font-display text-lg text-negro/50 rounded-full">
+    <div className="w-12 h-12 flex items-center justify-center bg-gris border border-gris-mid font-display text-lg text-negro/90 rounded-full">
       {name?.[0]?.toUpperCase() ?? '?'}
     </div>
   )
@@ -102,7 +102,7 @@ export default function ArtistasPage() {
       <div className="flex items-start justify-between mb-8 gap-4">
         <div>
           <h1 className="font-display text-5xl text-negro tracking-wide leading-none">ARTISTAS</h1>
-          <p className="font-mono text-[11px] text-negro/50 mt-1">{artists.length} cargados</p>
+          <p className="font-mono text-[11px] text-negro/90 mt-1">{artists.length} cargados</p>
         </div>
         {!showForm && (
           <button
@@ -141,12 +141,12 @@ export default function ArtistasPage() {
       {showForm ? (
         <div className="max-w-3xl">
           <div className="flex items-center justify-between mb-6">
-            <p className="font-ui text-[10px] uppercase tracking-[0.25em] text-negro/50">
+            <p className="font-ui text-[10px] uppercase tracking-[0.25em] text-negro/90">
               {creating ? 'Nuevo artista' : `Editando: ${editing.name}`}
             </p>
             <button
               onClick={() => { setEditing(null); setCreating(false); setError(null) }}
-              className="font-ui text-[10px] uppercase tracking-widest text-negro/50 hover:text-negro transition-colors"
+              className="font-ui text-[10px] uppercase tracking-widest text-negro/90 hover:text-negro transition-colors"
             >
               ← Volver al listado
             </button>
@@ -167,12 +167,12 @@ export default function ArtistasPage() {
               <motion.span
                 animate={{ opacity: [0.15, 0.7, 0.15] }}
                 transition={{ duration: 1.6, repeat: Infinity }}
-                className="font-display text-5xl text-negro/50 tracking-widest"
+                className="font-display text-5xl text-negro/90 tracking-widest"
               >RE</motion.span>
             </div>
           ) : artists.length === 0 ? (
             <div className="py-16 text-center">
-              <p className="font-mono text-[12px] text-negro/50 mb-3">Sin artistas cargados</p>
+              <p className="font-mono text-[12px] text-negro/90 mb-3">Sin artistas cargados</p>
               <button
                 onClick={() => setCreating(true)}
                 className="font-ui text-[10px] uppercase tracking-[0.25em] text-rojo hover:underline"
@@ -193,14 +193,14 @@ export default function ArtistasPage() {
                   <ArtistAvatar photo={a.photo} name={a.name} />
                   <div className="flex-1 min-w-0">
                     <p className="font-ui text-[12px] text-negro truncate">{a.name}</p>
-                    <p className="font-mono text-[10px] text-negro/50 truncate">/artistas/{a.slug}</p>
+                    <p className="font-mono text-[10px] text-negro/90 truncate">/artistas/{a.slug}</p>
                   </div>
                   {a.instagram_url && (
-                    <span className="hidden sm:inline font-mono text-[10px] text-negro/50">IG</span>
+                    <span className="hidden sm:inline font-mono text-[10px] text-negro/90">IG</span>
                   )}
                   <button
                     onClick={() => openEdit(a)}
-                    className="font-ui text-[10px] uppercase tracking-widest text-negro/50 hover:text-negro transition-colors"
+                    className="font-ui text-[10px] uppercase tracking-widest text-negro/90 hover:text-negro transition-colors"
                   >
                     Editar →
                   </button>

@@ -72,12 +72,12 @@ function ErrorState() {
   return (
     <div className="min-h-[70vh] flex flex-col items-center justify-center px-6 text-center gap-6">
       <p className="font-display text-7xl text-rojo uppercase">404</p>
-      <p className="font-mono text-sm text-negro/50">
+      <p className="font-mono text-lg text-negro/90">
         Este artista no existe o ya no está disponible.
       </p>
       <Link
         to="/entrevistas"
-        className="font-ui text-xs uppercase tracking-widest px-5 py-2 border border-gris-mid text-negro hover:border-rojo hover:text-rojo transition-colors duration-150"
+        className="font-ui text-base uppercase tracking-widest px-5 py-2 border border-gris-mid text-negro hover:border-rojo hover:text-rojo transition-colors duration-150"
       >
         ← Volver a entrevistas
       </Link>
@@ -116,7 +116,7 @@ function ArtistHeader({ artist }) {
         <div className="flex-1 min-w-0">
           <motion.p
             variants={fadeUp}
-            className="font-ui text-xs tracking-[0.25em] text-rojo uppercase mb-3"
+            className="font-ui text-base tracking-[0.25em] text-rojo uppercase mb-3"
           >
             Artista
           </motion.p>
@@ -136,7 +136,7 @@ function ArtistHeader({ artist }) {
           {artist.bio && (
             <motion.p
               variants={fadeUp}
-              className="font-mono text-sm text-negro/50 mt-4 leading-relaxed max-w-2xl"
+              className="font-mono text-lg text-negro/90 mt-4 leading-relaxed max-w-2xl"
             >
               {artist.bio}
             </motion.p>
@@ -153,7 +153,7 @@ function ArtistHeader({ artist }) {
                   href={artist[key]}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-ui text-xs text-negro hover:text-rojo border-b border-gris-mid hover:border-rojo pb-px transition-colors duration-150 uppercase tracking-widest"
+                  className="font-ui text-base text-negro hover:text-rojo border-b border-gris-mid hover:border-rojo pb-px transition-colors duration-150 uppercase tracking-widest"
                 >
                   {label}
                 </a>
@@ -178,7 +178,7 @@ function PublicationsSection({ publications }) {
       </div>
 
       {publications.length === 0 ? (
-        <p className="font-mono text-sm text-negro/50">
+        <p className="font-mono text-lg text-negro/90">
           No hay entrevistas disponibles todavía.
         </p>
       ) : (

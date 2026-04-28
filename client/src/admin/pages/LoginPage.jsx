@@ -63,8 +63,8 @@ export default function LoginPage() {
         </div>
 
         <div className="space-y-1">
-          <p className="font-mono text-[11px] text-negro/50">// acceso_restringido</p>
-          <p className="font-mono text-[11px] text-negro/50">// solo_administración</p>
+          <p className="font-mono text-[11px] text-negro/90">// acceso_restringido</p>
+          <p className="font-mono text-[11px] text-negro/90">// solo_administración</p>
         </div>
       </motion.div>
 
@@ -88,14 +88,14 @@ export default function LoginPage() {
             transition={{ delay: 0.28, duration: 0.4 }}
           >
             <h2 className="font-display text-5xl text-negro tracking-[0.1em] mb-1">ACCEDER</h2>
-            <p className="font-mono text-[11px] text-negro/50 mb-10 tracking-wide">
+            <p className="font-mono text-[11px] text-negro/90 mb-10 tracking-wide">
               Ingresá tus credenciales de administración
             </p>
           </motion.div>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
             <div>
-              <label className="block font-ui text-[11px] text-negro/50 uppercase tracking-[0.25em] mb-2">
+              <label className="block font-ui text-[11px] text-negro/90 uppercase tracking-[0.25em] mb-2">
                 Email
               </label>
               <input
@@ -115,7 +115,7 @@ export default function LoginPage() {
             </div>
 
             <div>
-              <label className="block font-ui text-[11px] text-negro/50 uppercase tracking-[0.25em] mb-2">
+              <label className="block font-ui text-[11px] text-negro/90 uppercase tracking-[0.25em] mb-2">
                 Contraseña
               </label>
               <input

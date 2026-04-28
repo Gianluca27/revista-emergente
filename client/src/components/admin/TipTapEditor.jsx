@@ -19,7 +19,7 @@ function ToolbarButton({ onClick, active, title, children }) {
         'px-2.5 py-1.5 font-mono text-[11px] uppercase tracking-widest transition-colors duration-100',
         active
           ? 'bg-rojo text-crema'
-          : 'text-negro/50 hover:text-negro hover:bg-gris-mid/30',
+          : 'text-negro/90 hover:text-negro hover:bg-gris-mid/30',
       ].join(' ')}
     >
       {children}
@@ -159,7 +159,7 @@ export default function TipTapEditor({ value, onChange }) {
               <button
                 type="button"
                 onClick={() => { setShowLinkInput(false); editor.chain().focus().unsetLink().run() }}
-                className="font-mono text-[11px] text-negro/50 px-1.5 py-1 hover:text-negro"
+                className="font-mono text-[11px] text-negro/90 px-1.5 py-1 hover:text-negro"
               >✕</button>
             </div>
           )}
@@ -169,7 +169,7 @@ export default function TipTapEditor({ value, onChange }) {
           title={uploading ? 'Subiendo…' : 'Insertar imagen'}
           className={[
             'px-2.5 py-1.5 font-mono text-[11px] uppercase tracking-widest cursor-pointer transition-colors duration-100',
-            uploading ? 'text-rojo cursor-wait' : 'text-negro/50 hover:text-negro hover:bg-gris-mid/30',
+            uploading ? 'text-rojo cursor-wait' : 'text-negro/90 hover:text-negro hover:bg-gris-mid/30',
           ].join(' ')}
         >
           {uploading ? '…' : '⊞'}

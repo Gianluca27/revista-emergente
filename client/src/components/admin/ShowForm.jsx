@@ -20,7 +20,7 @@ const INPUT_ERR = 'border-rojo'
 
 function FieldLabel({ children, required }) {
   return (
-    <label className="block font-ui text-[10px] uppercase tracking-[0.25em] text-negro/50 mb-1.5">
+    <label className="block font-ui text-[10px] uppercase tracking-[0.25em] text-negro/90 mb-1.5">
       {children}{required && <span className="text-rojo ml-0.5">*</span>}
     </label>
   )
@@ -68,7 +68,7 @@ export default function ShowForm({ initialData, onSubmit, onDelete, saving }) {
         <div className="flex items-center gap-3">
           <span className={[
             'inline-block font-ui text-[9px] uppercase tracking-[0.3em] px-2 py-1 border',
-            initialData.status === 'published' ? 'border-rojo text-rojo bg-rojo/10' : 'border-gris-mid text-negro/50',
+            initialData.status === 'published' ? 'border-rojo text-rojo bg-rojo/10' : 'border-gris-mid text-negro/90',
           ].join(' ')}>
             {initialData.status === 'published' ? 'Publicado' : 'Borrador'}
           </span>
@@ -150,7 +150,7 @@ export default function ShowForm({ initialData, onSubmit, onDelete, saving }) {
                   key="del"
                   type="button"
                   onClick={() => setConfirmDelete(true)}
-                  className="font-ui text-[10px] uppercase tracking-[0.2em] text-negro/50 hover:text-rojo transition-colors duration-150"
+                  className="font-ui text-[10px] uppercase tracking-[0.2em] text-negro/90 hover:text-rojo transition-colors duration-150"
                 >
                   Eliminar
                 </motion.button>
@@ -168,7 +168,7 @@ export default function ShowForm({ initialData, onSubmit, onDelete, saving }) {
                     Sí, eliminar
                   </button>
                   <button type="button" onClick={() => setConfirmDelete(false)}
-                    className="font-mono text-[10px] text-negro/50 hover:text-negro">
+                    className="font-mono text-[10px] text-negro/90 hover:text-negro">
                     No
                   </button>
                 </motion.div>

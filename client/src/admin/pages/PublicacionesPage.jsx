@@ -34,7 +34,7 @@ function ConfirmDialog({ title, onConfirm, onCancel }) {
         className="bg-gris border border-gris-mid p-6 max-w-sm w-full"
       >
         <h3 className="font-display text-2xl text-negro tracking-wide mb-2">CONFIRMAR</h3>
-        <p className="font-mono text-[12px] text-negro/50 mb-6 leading-relaxed">
+        <p className="font-mono text-[12px] text-negro/90 mb-6 leading-relaxed">
           ¿Eliminar <span className="text-negro">"{title}"</span>? Esta acción no se puede deshacer.
         </p>
         <div className="flex gap-3">
@@ -46,7 +46,7 @@ function ConfirmDialog({ title, onConfirm, onCancel }) {
           </button>
           <button
             onClick={onCancel}
-            className="px-4 py-2 border border-gris-mid font-ui text-[10px] uppercase tracking-[0.25em] text-negro/50 hover:text-negro hover:border-negro transition-colors"
+            className="px-4 py-2 border border-gris-mid font-ui text-[10px] uppercase tracking-[0.25em] text-negro/90 hover:text-negro hover:border-negro transition-colors"
           >
             Cancelar
           </button>
@@ -117,7 +117,7 @@ export default function PublicacionesPage() {
         <div>
           <h1 className="font-display text-5xl text-negro tracking-wide leading-none">PUBLICACIONES</h1>
           {pagination && (
-            <p className="font-mono text-[11px] text-negro/50 mt-1">
+            <p className="font-mono text-[11px] text-negro/90 mt-1">
               {pagination.total} en total
             </p>
           )}
@@ -140,7 +140,7 @@ export default function PublicacionesPage() {
               'px-3 py-1.5 font-ui text-[10px] uppercase tracking-[0.2em] border transition-colors duration-150',
               statusFilter === key
                 ? 'border-rojo text-rojo bg-rojo/10'
-                : 'border-gris-mid text-negro/50 hover:border-negro/30 hover:text-negro',
+                : 'border-gris-mid text-negro/90 hover:border-negro/30 hover:text-negro',
             ].join(' ')}
           >
             {label}
@@ -153,7 +153,7 @@ export default function PublicacionesPage() {
         {/* Header row */}
         <div className="hidden sm:grid grid-cols-[1fr_140px_100px_120px] gap-4 px-4 py-2 bg-crema/40 border-b border-gris-mid">
           {['Título', 'Categoría', 'Estado', 'Acciones'].map(h => (
-            <span key={h} className="font-ui text-[9px] uppercase tracking-[0.3em] text-negro/50">{h}</span>
+            <span key={h} className="font-ui text-[9px] uppercase tracking-[0.3em] text-negro/90">{h}</span>
           ))}
         </div>
 
@@ -162,12 +162,12 @@ export default function PublicacionesPage() {
             <motion.span
               animate={{ opacity: [0.15, 0.7, 0.15] }}
               transition={{ duration: 1.6, repeat: Infinity }}
-              className="font-display text-5xl text-negro/50 tracking-widest"
+              className="font-display text-5xl text-negro/90 tracking-widest"
             >RE</motion.span>
           </div>
         ) : pubs.length === 0 ? (
           <div className="py-16 text-center">
-            <p className="font-mono text-[12px] text-negro/50">Sin publicaciones</p>
+            <p className="font-mono text-[12px] text-negro/90">Sin publicaciones</p>
           </div>
         ) : (
           <ul>
@@ -185,12 +185,12 @@ export default function PublicacionesPage() {
                     {pub.title}
                   </p>
                   {pub.subtitle && (
-                    <p className="font-mono text-[10px] text-negro/50 truncate mt-0.5">{pub.subtitle}</p>
+                    <p className="font-mono text-[10px] text-negro/90 truncate mt-0.5">{pub.subtitle}</p>
                   )}
                 </div>
 
                 {/* Category */}
-                <span className="font-ui text-[10px] uppercase tracking-[0.15em] text-negro/50">
+                <span className="font-ui text-[10px] uppercase tracking-[0.15em] text-negro/90">
                   {pub.category?.name ?? '—'}
                 </span>
 
@@ -204,29 +204,29 @@ export default function PublicacionesPage() {
                 <div className="flex items-center gap-2">
                   <Link
                     to={`/admin/publicaciones/${pub.id}/editar`}
-                    className="font-ui text-[10px] uppercase tracking-widest text-negro/50 hover:text-negro transition-colors"
+                    className="font-ui text-[10px] uppercase tracking-widest text-negro/90 hover:text-negro transition-colors"
                   >
                     Editar
                   </Link>
-                  <span className="text-negro/50">·</span>
+                  <span className="text-negro/90">·</span>
                   <button
                     onClick={() => handleToggleStatus(pub)}
                     disabled={actionLoading === pub.id}
                     className={[
                       'font-ui text-[10px] uppercase tracking-widest transition-colors',
                       pub.status === 'published'
-                        ? 'text-negro/50 hover:text-negro'
+                        ? 'text-negro/90 hover:text-negro'
                         : 'text-rojo hover:text-red-400',
                       actionLoading === pub.id ? 'opacity-40 cursor-wait' : '',
                     ].join(' ')}
                   >
                     {actionLoading === pub.id ? '…' : pub.status === 'published' ? 'Despub.' : 'Publicar'}
                   </button>
-                  <span className="text-negro/50">·</span>
+                  <span className="text-negro/90">·</span>
                   <button
                     onClick={() => setToDelete(pub)}
                     disabled={actionLoading === pub.id}
-                    className="font-ui text-[10px] uppercase tracking-widest text-negro/50 hover:text-rojo transition-colors"
+                    className="font-ui text-[10px] uppercase tracking-widest text-negro/90 hover:text-rojo transition-colors"
                   >
                     ✕
                   </button>
@@ -243,15 +243,15 @@ export default function PublicacionesPage() {
           <button
             onClick={() => setPage(p => Math.max(1, p - 1))}
             disabled={page === 1}
-            className="font-ui text-[10px] uppercase tracking-widest text-negro/50 hover:text-negro disabled:opacity-30 transition-colors"
+            className="font-ui text-[10px] uppercase tracking-widest text-negro/90 hover:text-negro disabled:opacity-30 transition-colors"
           >← Anterior</button>
-          <span className="font-mono text-[11px] text-negro/50">
+          <span className="font-mono text-[11px] text-negro/90">
             {page} / {pagination.totalPages}
           </span>
           <button
             onClick={() => setPage(p => Math.min(pagination.totalPages, p + 1))}
             disabled={page === pagination.totalPages}
-            className="font-ui text-[10px] uppercase tracking-widest text-negro/50 hover:text-negro disabled:opacity-30 transition-colors"
+            className="font-ui text-[10px] uppercase tracking-widest text-negro/90 hover:text-negro disabled:opacity-30 transition-colors"
           >Siguiente →</button>
         </div>
       )}

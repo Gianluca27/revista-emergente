@@ -54,7 +54,7 @@ export default function NotFoundPage() {
 
           {/* Description */}
           <motion.p
-            className="font-mono text-sm text-negro/50 max-w-md mx-auto"
+            className="font-mono text-lg text-negro/90 max-w-md mx-auto"
             variants={fadeUp}
           >
             Este contenido no existe o fue removido. El slug que buscas se desvaneció en el caos del under.
@@ -64,7 +64,7 @@ export default function NotFoundPage() {
           <motion.div variants={fadeUp} className="pt-4">
             <Link
               to="/"
-              className="inline-block font-ui text-xs uppercase tracking-widest px-6 py-3 border border-rojo text-rojo hover:bg-rojo hover:text-crema transition-colors duration-200"
+              className="inline-block font-ui text-base uppercase tracking-widest px-6 py-3 border border-rojo text-rojo hover:bg-rojo hover:text-crema transition-colors duration-200"
             >
               Volver al Inicio
             </Link>

@@ -1,76 +1,75 @@
-import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-}
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 
 const stagger = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.12 } },
-}
+};
 
 const features = [
   {
-    number: '01',
-    title: 'ENTREVISTAS',
+    number: "01",
+    title: "ENTREVISTAS",
     description:
-      'Conversaciones largas con artistas independientes del rock, electrónica y folk argentino',
+      "Conversaciones largas con artistas independientes del rock, electrónica y folk argentino",
   },
   {
-    number: '02',
-    title: 'COBERTURAS',
+    number: "02",
+    title: "COBERTURAS",
     description:
-      'Documentación fotográfica y textual de shows en vivo en todo el país',
+      "Documentación fotográfica y textual de shows en vivo en todo el país",
   },
   {
-    number: '03',
-    title: 'PODCAST',
+    number: "03",
+    title: "PODCAST",
     description:
-      'Episodios semanales con artistas, productores y actores del under',
+      "Episodios semanales con artistas, productores y actores del under",
   },
-]
+];
 
 const team = [
   {
-    name: 'VALENTINA HERRERA',
-    role: 'Directora & Editora',
-    bio: 'Periodista musical con 8 años cubriendo el under porteño',
+    name: "VALENTINA HERRERA",
+    role: "Directora & Editora",
+    bio: "Periodista musical con 8 años cubriendo el under porteño",
   },
   {
-    name: 'LUCAS PEREYRA',
-    role: 'Fotografía',
-    bio: 'Documentando shows desde el fondo del pozo desde 2019',
+    name: "LUCAS PEREYRA",
+    role: "Fotografía",
+    bio: "Documentando shows desde el fondo del pozo desde 2019",
   },
   {
-    name: 'MAR DOMÍNGUEZ',
-    role: 'Podcast & Audio',
-    bio: 'Productora de audio, DJ, cronista del caos organizado',
+    name: "MAR DOMÍNGUEZ",
+    role: "Podcast & Audio",
+    bio: "Productora de audio, DJ, cronista del caos organizado",
   },
-]
+];
 
 const manifesto = [
-  'Emergente nació del hartazgo de ver a la música independiente argentina ignorada por los medios tradicionales.',
-  'No somos un medio de difusión. Somos un archivo vivo. Documentamos lo que sucede antes de que el mercado lo descubra, lo empaquete y lo venda de vuelta.',
-  'Entrevistamos artistas que llenan salones de 200 personas con la misma seriedad con que otros entrevistan estadios. Porque lo que importa no es el tamaño del escenario sino la verdad de lo que pasa arriba.',
-  'Si el sonido te importa, estás en el lugar correcto.',
-]
+  "Emergente nació del hartazgo de ver a la música independiente argentina ignorada por los medios tradicionales.",
+  "No somos un medio de difusión. Somos un archivo vivo. Documentamos lo que sucede antes de que el mercado lo descubra, lo empaquete y lo venda de vuelta.",
+  "Entrevistamos artistas que llenan salones de 200 personas con la misma seriedad con que otros entrevistan estadios. Porque lo que importa no es el tamaño del escenario sino la verdad de lo que pasa arriba.",
+  "Si el sonido te importa, estás en el lugar correcto.",
+];
 
 export default function SobreNosotrosPage() {
   return (
     <div className="min-h-screen bg-crema">
-
       {/* Hero */}
       <section className="relative pt-24 pb-12 px-6 overflow-hidden bg-crema">
         <div className="grain absolute inset-0 pointer-events-none opacity-30" />
         <div className="relative z-10 max-w-4xl">
           <motion.p
-            className="font-ui text-xs tracking-[0.25em] text-rojo uppercase mb-6"
+            className="font-ui text-base tracking-[0.25em] text-rojo uppercase mb-6"
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: true, margin: "-60px" }}
           >
             — Quiénes somos
           </motion.p>
@@ -80,7 +79,7 @@ export default function SobreNosotrosPage() {
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: true, margin: "-60px" }}
           >
             SOBRE
             <br />
@@ -91,9 +90,9 @@ export default function SobreNosotrosPage() {
             className="mt-6 h-[3px] bg-rojo origin-left"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
-            transition={{ duration: 0.7, ease: 'easeOut', delay: 0.2 }}
-            viewport={{ once: true, margin: '-60px' }}
-            style={{ width: '80px' }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
+            viewport={{ once: true, margin: "-60px" }}
+            style={{ width: "80px" }}
           />
         </div>
       </section>
@@ -102,11 +101,11 @@ export default function SobreNosotrosPage() {
       <section className="bg-crema py-16 px-6 border-t border-gris-mid">
         <div className="max-w-2xl">
           <motion.p
-            className="font-ui text-xs tracking-[0.25em] text-rojo uppercase mb-8"
+            className="font-ui text-base tracking-[0.25em] text-rojo uppercase mb-8"
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: true, margin: "-60px" }}
           >
             Manifiesto
           </motion.p>
@@ -116,12 +115,12 @@ export default function SobreNosotrosPage() {
             variants={stagger}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: true, margin: "-60px" }}
           >
             {manifesto.map((paragraph, i) => (
               <motion.p
                 key={i}
-                className="font-mono text-sm text-negro/80 leading-relaxed"
+                className="font-mono text-lg text-negro/90 leading-relaxed"
                 variants={fadeUp}
               >
                 {paragraph}
@@ -135,11 +134,11 @@ export default function SobreNosotrosPage() {
       <section className="py-16 px-6 bg-papel border-t border-negro/10">
         <div className="max-w-5xl mx-auto">
           <motion.p
-            className="font-ui text-xs tracking-[0.25em] text-rojo uppercase mb-10"
+            className="font-ui text-base tracking-[0.25em] text-rojo uppercase mb-10"
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: true, margin: "-60px" }}
           >
             ¿Qué es Emergente?
           </motion.p>
@@ -149,7 +148,7 @@ export default function SobreNosotrosPage() {
             variants={stagger}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: true, margin: "-60px" }}
           >
             {features.map((feature) => (
               <motion.div
@@ -163,7 +162,7 @@ export default function SobreNosotrosPage() {
                 <h3 className="font-display text-2xl text-negro uppercase mb-3">
                   {feature.title}
                 </h3>
-                <p className="font-mono text-xs text-negro/50 leading-relaxed">
+                <p className="font-mono text-base text-negro/90 leading-relaxed">
                   {feature.description}
                 </p>
               </motion.div>
@@ -176,11 +175,11 @@ export default function SobreNosotrosPage() {
       <section className="bg-crema py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <motion.p
-            className="font-ui text-xs tracking-[0.25em] text-rojo uppercase mb-10"
+            className="font-ui text-base tracking-[0.25em] text-rojo uppercase mb-10"
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: true, margin: "-60px" }}
           >
             El Equipo
           </motion.p>
@@ -190,7 +189,7 @@ export default function SobreNosotrosPage() {
             variants={stagger}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={{ once: true, margin: "-60px" }}
           >
             {team.map((member) => (
               <motion.div
@@ -203,10 +202,10 @@ export default function SobreNosotrosPage() {
                   <h3 className="font-display text-xl text-negro uppercase leading-tight mb-1">
                     {member.name}
                   </h3>
-                  <p className="font-ui text-xs text-rojo uppercase tracking-widest mb-3">
+                  <p className="font-ui text-base text-rojo uppercase tracking-widest mb-3">
                     {member.role}
                   </p>
-                  <p className="font-mono text-xs text-negro/50 leading-relaxed">
+                  <p className="font-mono text-base text-negro/90 leading-relaxed">
                     {member.bio}
                   </p>
                 </div>
@@ -222,7 +221,7 @@ export default function SobreNosotrosPage() {
           variants={stagger}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
+          viewport={{ once: true, margin: "-60px" }}
         >
           <motion.h2
             className="font-display text-5xl sm:text-6xl text-negro uppercase leading-none mb-4"
@@ -232,7 +231,7 @@ export default function SobreNosotrosPage() {
           </motion.h2>
 
           <motion.p
-            className="font-mono text-sm text-negro/80 mb-8"
+            className="font-mono text-lg text-negro/90 mb-8"
             variants={fadeUp}
           >
             Si querés aparecer en la revista, mandanos un mensaje.
@@ -248,7 +247,6 @@ export default function SobreNosotrosPage() {
           </motion.div>
         </motion.div>
       </section>
-
     </div>
-  )
+  );
 }

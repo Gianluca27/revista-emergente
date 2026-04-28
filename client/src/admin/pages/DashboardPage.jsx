@@ -18,7 +18,7 @@ function StatCard({ to, label, value, accent, hint, delay = 0 }) {
           accent ? 'border-rojo/60 hover:border-rojo' : 'border-gris-mid hover:border-negro/40',
         ].join(' ')}
       >
-        <p className="font-ui text-[9px] uppercase tracking-[0.3em] text-negro/50 mb-3">{label}</p>
+        <p className="font-ui text-[9px] uppercase tracking-[0.3em] text-negro/90 mb-3">{label}</p>
         <p className={[
           'font-display text-6xl leading-none tracking-wide',
           accent ? 'text-rojo' : 'text-negro',
@@ -26,7 +26,7 @@ function StatCard({ to, label, value, accent, hint, delay = 0 }) {
           {value === null ? '—' : value}
         </p>
         {hint && (
-          <p className="font-mono text-[10px] text-negro/50 mt-3">{hint}</p>
+          <p className="font-mono text-[10px] text-negro/90 mt-3">{hint}</p>
         )}
       </Link>
     </motion.div>
@@ -84,13 +84,13 @@ export default function DashboardPage() {
 
       {/* Header */}
       <div className="mb-10">
-        <p className="font-mono text-[11px] text-negro/50 mb-1">
+        <p className="font-mono text-[11px] text-negro/90 mb-1">
           {user?.email && <>Hola, <span className="text-negro">{user.email}</span></>}
         </p>
         <h1 className="font-display text-5xl sm:text-6xl text-negro tracking-wide leading-none">
           DASHBOARD
         </h1>
-        <p className="font-mono text-[11px] text-negro/50 mt-3 max-w-md">
+        <p className="font-mono text-[11px] text-negro/90 mt-3 max-w-md">
           Estado del sitio en un vistazo. Todo lo que necesitás está en el menú lateral.
         </p>
       </div>
@@ -169,7 +169,7 @@ export default function DashboardPage() {
 
       {/* Quick actions */}
       <div className="mt-12">
-        <p className="font-ui text-[10px] uppercase tracking-[0.3em] text-negro/50 mb-4">
+        <p className="font-ui text-[10px] uppercase tracking-[0.3em] text-negro/90 mb-4">
           Atajos
         </p>
         <div className="flex flex-wrap gap-3">
@@ -181,19 +181,19 @@ export default function DashboardPage() {
           </Link>
           <Link
             to="/admin/artistas"
-            className="px-4 py-2.5 border border-gris-mid font-ui text-[11px] uppercase tracking-[0.25em] text-negro/50 hover:border-negro hover:text-negro transition-colors duration-150"
+            className="px-4 py-2.5 border border-gris-mid font-ui text-[11px] uppercase tracking-[0.25em] text-negro/90 hover:border-negro hover:text-negro transition-colors duration-150"
           >
             + Cargar artista
           </Link>
           <Link
             to="/admin/podcast"
-            className="px-4 py-2.5 border border-gris-mid font-ui text-[11px] uppercase tracking-[0.25em] text-negro/50 hover:border-negro hover:text-negro transition-colors duration-150"
+            className="px-4 py-2.5 border border-gris-mid font-ui text-[11px] uppercase tracking-[0.25em] text-negro/90 hover:border-negro hover:text-negro transition-colors duration-150"
           >
             + Episodio
           </Link>
           <Link
             to="/admin/shows"
-            className="px-4 py-2.5 border border-gris-mid font-ui text-[11px] uppercase tracking-[0.25em] text-negro/50 hover:border-negro hover:text-negro transition-colors duration-150"
+            className="px-4 py-2.5 border border-gris-mid font-ui text-[11px] uppercase tracking-[0.25em] text-negro/90 hover:border-negro hover:text-negro transition-colors duration-150"
           >
             + Cobertura
           </Link>
@@ -203,7 +203,7 @@ export default function DashboardPage() {
       {/* Identity strip */}
       <div className="mt-12 pt-6 border-t border-gris-mid">
         <p className="font-display text-3xl text-rojo tracking-widest leading-none">REVISTA EMERGENTE</p>
-        <p className="font-mono text-[10px] text-negro/50 mt-2">
+        <p className="font-mono text-[10px] text-negro/90 mt-2">
           Punk · DIY · independiente — gestionando contenido desde {new Date().getFullYear()}.
         </p>
       </div>

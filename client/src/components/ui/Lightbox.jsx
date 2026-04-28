@@ -152,7 +152,7 @@ export default function Lightbox({ images = [], initialIndex = 0, onClose = () =
       {/* Counter */}
       {total > 1 && (
         <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-10 pointer-events-none">
-          <span className="font-ui text-xs tracking-[0.2em] text-negro/50 uppercase">
+          <span className="font-ui text-base tracking-[0.2em] text-negro/90 uppercase">
             {current + 1} / {total}
           </span>
         </div>

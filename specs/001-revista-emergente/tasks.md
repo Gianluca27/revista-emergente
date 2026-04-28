@@ -9,6 +9,7 @@ date: 2026-04-26
 
 **Input:** `plan.md`, `data-model.md`, `contracts/api-spec.md`  
 **Convenciones:**
+
 - `[P]` = puede correr en paralelo (archivos diferentes, sin dependencias)
 - `[USn]` = user story que implementa (ver `spec.md`)
 - Paths asumen estructura definida en `plan.md`
@@ -198,14 +199,14 @@ En paralelo una vez que Phase 11 está completa:
 
 ## Phase 13: Detalles visuales y pulido
 
-- [ ] T086 [P] Implementar cursor personalizado (desktop only) — div fixed que sigue mouse, crece en hover sobre links
-- [ ] T087 [P] Aplicar efecto glitch CSS en logo de Navbar y títulos de sección grandes
-- [ ] T088 [P] Verificar textura de grano en hero y secciones oscuras (SVG overlay, 3-5% opacidad)
-- [ ] T089 [P] Verificar animaciones de entrada al viewport en todas las cards (stagger 100ms)
-- [ ] T090 [P] Verificar marquee del banner podcast (40s loop, sin saltos)
-- [ ] T091 Verificar transiciones de página con AnimatePresence (fade 200ms)
-- [ ] T092 Audit mobile: navbar mobile menu, lightbox swipe, formulario contacto, cards
-- [ ] T093 Verificar contraste de texto (mínimo AA) en todas las combinaciones de colores usadas
+- [x] T086 [P] Implementar cursor personalizado (desktop only) — div fixed que sigue mouse, crece en hover sobre links
+- [x] T087 [P] Aplicar efecto glitch CSS en logo de Navbar y títulos de sección grandes
+- [x] T088 [P] Verificar textura de grano en hero y secciones oscuras (SVG overlay, 3-5% opacidad)
+- [x] T089 [P] Verificar animaciones de entrada al viewport en todas las cards (stagger 100ms)
+- [x] T090 [P] Verificar marquee del banner podcast (40s loop, sin saltos)
+- [x] T091 Verificar transiciones de página con AnimatePresence (fade 200ms)
+- [x] T092 Audit mobile: navbar mobile menu, lightbox swipe, formulario contacto, cards
+- [x] T093 Verificar contraste de texto (mínimo AA) en todas las combinaciones de colores usadas
 
 **Checkpoint:** Sitio con identidad visual completa. Animaciones sin jank.
 
@@ -231,31 +232,34 @@ En paralelo una vez que Phase 11 está completa:
 
 ## Dependencias entre fases
 
-| Fase | Depende de |
-|---|---|
-| Phase 3 (Backend publicaciones) | Phase 1 (Setup) |
-| Phase 4 (Backend resto) | Phase 1 (Setup) |
-| Phase 5 (Frontend base) | Phase 1 (Setup) |
-| Phase 6 (Home) | Phase 3 + Phase 5 |
-| Phase 7 (Listados) | Phase 3 + Phase 4 + Phase 5 |
-| Phase 8 (Detalle) | Phase 7 |
-| Phase 9 (Contacto) | Phase 4 (contacto endpoint) + Phase 5 |
-| Phase 10 (Admin login) | Phase 2 (Auth backend) + Phase 5 |
-| Phase 11 (Admin CRUD) | Phase 3 + Phase 10 |
-| Phase 12 (Admin resto) | Phase 4 + Phase 10 |
-| Phase 13 (Pulido) | Phase 12 (todo completo) |
-| Phase 14 (Deployment) | Phase 13 (todo listo) |
+| Fase                            | Depende de                            |
+| ------------------------------- | ------------------------------------- |
+| Phase 3 (Backend publicaciones) | Phase 1 (Setup)                       |
+| Phase 4 (Backend resto)         | Phase 1 (Setup)                       |
+| Phase 5 (Frontend base)         | Phase 1 (Setup)                       |
+| Phase 6 (Home)                  | Phase 3 + Phase 5                     |
+| Phase 7 (Listados)              | Phase 3 + Phase 4 + Phase 5           |
+| Phase 8 (Detalle)               | Phase 7                               |
+| Phase 9 (Contacto)              | Phase 4 (contacto endpoint) + Phase 5 |
+| Phase 10 (Admin login)          | Phase 2 (Auth backend) + Phase 5      |
+| Phase 11 (Admin CRUD)           | Phase 3 + Phase 10                    |
+| Phase 12 (Admin resto)          | Phase 4 + Phase 10                    |
+| Phase 13 (Pulido)               | Phase 12 (todo completo)              |
+| Phase 14 (Deployment)           | Phase 13 (todo listo)                 |
 
 ### Oportunidades de paralelismo
 
 Una vez completo Phase 1:
+
 - Phase 2, 3, 4 pueden empezar en paralelo (son todos backend independientes)
 - Phase 5 puede empezar en paralelo con el backend
 
 Una vez completo Phase 5:
+
 - Phase 6, 7, 9 pueden empezar en paralelo (páginas independientes)
 
 Una vez completo Phase 10:
+
 - Phase 11 y 12 pueden empezar en paralelo (admin sections independientes)
 
 ---

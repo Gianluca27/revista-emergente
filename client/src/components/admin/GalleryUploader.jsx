@@ -64,7 +64,7 @@ export default function GalleryUploader({ value = [], onChange, label = 'Galerí
   return (
     <div className="space-y-3">
       <div className="flex items-center justify-between">
-        <label className="block font-ui text-[10px] uppercase tracking-[0.25em] text-negro/50">
+        <label className="block font-ui text-[10px] uppercase tracking-[0.25em] text-negro/90">
           {label} {value.length > 0 && <span className="text-negro">({value.length})</span>}
         </label>
         <button
@@ -91,8 +91,8 @@ export default function GalleryUploader({ value = [], onChange, label = 'Galerí
           onClick={() => inputRef.current?.click()}
           className="border border-dashed border-gris-mid p-8 text-center cursor-pointer hover:border-negro/40 transition-colors"
         >
-          <p className="font-mono text-3xl text-negro/50 mb-2">+</p>
-          <p className="font-ui text-[10px] text-negro/50 uppercase tracking-[0.25em]">
+          <p className="font-mono text-3xl text-negro/90 mb-2">+</p>
+          <p className="font-ui text-[10px] text-negro/90 uppercase tracking-[0.25em]">
             Subir varias imágenes · JPG PNG WebP · máx 5MB c/u
           </p>
         </div>
@@ -157,7 +157,7 @@ export default function GalleryUploader({ value = [], onChange, label = 'Galerí
       </AnimatePresence>
 
       {value.length > 0 && (
-        <p className="font-mono text-[9px] text-negro/50">
+        <p className="font-mono text-[9px] text-negro/90">
           Arrastrá para reordenar · click ✕ para quitar
         </p>
       )}

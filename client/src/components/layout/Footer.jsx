@@ -23,13 +23,13 @@ export default function Footer() {
             <p className="font-grunge text-5xl text-rojo uppercase leading-none mb-3">
               EMERGENTE
             </p>
-            <p className="font-mono text-xs text-negro/50 leading-relaxed max-w-xs">
+            <p className="font-mono text-base text-negro/90 leading-relaxed max-w-xs">
               Cobertura independiente de la escena musical argentina. Entrevistas, shows y podcast desde adentro.
             </p>
           </div>
 
           <div>
-            <p className="font-ui text-xs uppercase tracking-widest text-negro/50 mb-4 border-b border-gris-mid pb-2">
+            <p className="font-ui text-base uppercase tracking-widest text-negro/90 mb-4 border-b border-gris-mid pb-2">
               Secciones
             </p>
             <ul className="space-y-2">
@@ -37,7 +37,7 @@ export default function Footer() {
                 <li key={to}>
                   <Link
                     to={to}
-                    className="font-ui text-sm text-negro hover:text-rojo transition-colors duration-150 uppercase tracking-wide"
+                    className="font-ui text-lg text-negro hover:text-rojo transition-colors duration-150 uppercase tracking-wide"
                   >
                     {label}
                   </Link>
@@ -47,7 +47,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="font-ui text-xs uppercase tracking-widest text-negro/50 mb-4 border-b border-gris-mid pb-2">
+            <p className="font-ui text-base uppercase tracking-widest text-negro/90 mb-4 border-b border-gris-mid pb-2">
               Redes
             </p>
             <ul className="space-y-2">
@@ -57,7 +57,7 @@ export default function Footer() {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-ui text-sm text-negro hover:text-rojo transition-colors duration-150 uppercase tracking-wide"
+                    className="font-ui text-lg text-negro hover:text-rojo transition-colors duration-150 uppercase tracking-wide"
                   >
                     {label}
                   </a>
@@ -68,10 +68,10 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gris-mid pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-          <p className="font-mono text-xs text-negro/50">
+          <p className="font-mono text-base text-negro/90">
             © {new Date().getFullYear()} Revista Emergente — Todos los derechos reservados
           </p>
-          <p className="font-mono text-xs text-negro/50 uppercase tracking-widest">
+          <p className="font-mono text-base text-negro/90 uppercase tracking-widest">
             revistaemergente.ar
           </p>
         </div>

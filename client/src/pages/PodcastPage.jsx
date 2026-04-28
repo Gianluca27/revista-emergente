@@ -56,7 +56,7 @@ function EpisodeRow({ episode }) {
           {episode.title}
         </p>
         {episode.description && (
-          <p className="font-mono text-xs text-negro/50 mt-1 line-clamp-2 leading-relaxed">
+          <p className="font-mono text-base text-negro/90 mt-1 line-clamp-2 leading-relaxed">
             {episode.description}
           </p>
         )}
@@ -65,7 +65,7 @@ function EpisodeRow({ episode }) {
       {/* Right: duration + links */}
       <div className="flex flex-col items-end gap-2 flex-shrink-0">
         {episode.duration_min != null && (
-          <span className="font-ui text-xs text-negro/50 whitespace-nowrap">
+          <span className="font-ui text-base text-negro/90 whitespace-nowrap">
             {episode.duration_min} MIN
           </span>
         )}
@@ -75,9 +75,9 @@ function EpisodeRow({ episode }) {
               href={episode.youtube_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-negro/50 hover:text-rojo transition-colors"
+              className="text-negro/90 hover:text-rojo transition-colors"
             >
-              <span className="font-ui text-xs uppercase tracking-widest">YouTube</span>
+              <span className="font-ui text-base uppercase tracking-widest">YouTube</span>
             </a>
           )}
           {episode.spotify_url && (
@@ -85,9 +85,9 @@ function EpisodeRow({ episode }) {
               href={episode.spotify_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-negro/50 hover:text-rojo transition-colors"
+              className="text-negro/90 hover:text-rojo transition-colors"
             >
-              <span className="font-ui text-xs uppercase tracking-widest">Spotify</span>
+              <span className="font-ui text-base uppercase tracking-widest">Spotify</span>
             </a>
           )}
         </div>
@@ -132,7 +132,7 @@ export default function PodcastPage() {
             ))}
           </>
         ) : episodes.length === 0 ? (
-          <p className="font-mono text-negro/50 px-6 py-12 text-sm">
+          <p className="font-mono text-negro/90 px-6 py-12 text-lg">
             No hay episodios disponibles todavía.
           </p>
         ) : (

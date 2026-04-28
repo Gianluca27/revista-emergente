@@ -20,7 +20,7 @@ function ShowCard({ show, large = false }) {
         />
       ) : (
         <div className="w-full h-full bg-crema flex items-center justify-center">
-          <span className="font-display text-negro/50 text-5xl">R</span>
+          <span className="font-display text-negro/90 text-5xl">R</span>
         </div>
       )}
 
@@ -30,7 +30,7 @@ function ShowCard({ show, large = false }) {
       {/* Title — slides up on hover */}
       <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
         {show.date && (
-          <p className="font-ui text-[10px] tracking-[0.25em] text-rojo uppercase mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+          <p className="font-ui text-[13.2px] tracking-[0.25em] text-rojo uppercase mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
             {show.date ? new Date(show.date).toLocaleDateString('es-AR', { year: 'numeric', month: 'short' }) : ''}
           </p>
         )}
@@ -38,7 +38,7 @@ function ShowCard({ show, large = false }) {
           {show.title}
         </h3>
         {show.venue && (
-          <p className="font-mono text-xs text-negro/50 mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200 delay-75">
+          <p className="font-mono text-base text-negro/90 mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200 delay-75">
             {show.venue}
           </p>
         )}
@@ -68,7 +68,7 @@ export default function RecentShows() {
       {/* Header */}
       <div className="flex items-end justify-between mb-10">
         <div>
-          <p className="font-ui text-xs tracking-[0.25em] text-rojo uppercase mb-2">
+          <p className="font-ui text-base tracking-[0.25em] text-rojo uppercase mb-2">
             — En vivo
           </p>
           <h2
@@ -80,7 +80,7 @@ export default function RecentShows() {
         </div>
         <Link
           to="/shows"
-          className="hidden sm:inline-flex font-ui text-xs tracking-widest uppercase text-negro/50 hover:text-rojo transition-colors duration-200 pb-1 border-b border-gris-mid hover:border-rojo"
+          className="hidden sm:inline-flex font-ui text-base tracking-widest uppercase text-negro/90 hover:text-rojo transition-colors duration-200 pb-1 border-b border-gris-mid hover:border-rojo"
         >
           Ver todas →
         </Link>
@@ -122,7 +122,7 @@ export default function RecentShows() {
       <div className="mt-8 sm:hidden text-center">
         <Link
           to="/shows"
-          className="font-ui text-xs tracking-widest uppercase text-negro/50 hover:text-rojo transition-colors duration-200"
+          className="font-ui text-base tracking-widest uppercase text-negro/90 hover:text-rojo transition-colors duration-200"
         >
           Ver todas las coberturas →
         </Link>

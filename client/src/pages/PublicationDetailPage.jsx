@@ -56,12 +56,12 @@ function ErrorState() {
   return (
     <div className="min-h-[70vh] flex flex-col items-center justify-center px-6 text-center gap-6">
       <p className="font-display text-7xl text-rojo uppercase">404</p>
-      <p className="font-mono text-sm text-negro/50">
+      <p className="font-mono text-lg text-negro/90">
         Esta entrevista no existe o ya no está disponible.
       </p>
       <Link
         to="/entrevistas"
-        className="font-ui text-xs uppercase tracking-widest px-5 py-2 border border-gris-mid text-negro hover:border-rojo hover:text-rojo transition-colors duration-150"
+        className="font-ui text-base uppercase tracking-widest px-5 py-2 border border-gris-mid text-negro hover:border-rojo hover:text-rojo transition-colors duration-150"
       >
         ← Volver a entrevistas
       </Link>
@@ -81,7 +81,7 @@ function CoverImage({ src, alt }) {
         />
       ) : (
         <div className="w-full h-full flex items-center justify-center bg-crema">
-          <span className="font-display text-[12rem] text-negro/50 leading-none select-none">
+          <span className="font-display text-[12rem] text-negro/90 leading-none select-none">
             R
           </span>
         </div>
@@ -108,7 +108,7 @@ function ArticleHeader({ publication }) {
       <motion.div variants={fadeUp} className="flex items-center gap-3 mb-3">
         {categoryName && <Badge>{categoryName}</Badge>}
         {publication.published_at && (
-          <span className="font-ui text-xs text-negro/50 uppercase tracking-widest">
+          <span className="font-ui text-base text-negro/90 uppercase tracking-widest">
             {formatDate(publication.published_at)}
           </span>
         )}
@@ -126,7 +126,7 @@ function ArticleHeader({ publication }) {
       {publication.subtitle && (
         <motion.p
           variants={fadeUp}
-          className="font-mono text-sm text-negro/50 mt-3 leading-relaxed"
+          className="font-mono text-lg text-negro/90 mt-3 leading-relaxed"
         >
           {publication.subtitle}
         </motion.p>
@@ -179,7 +179,7 @@ function MasEntrevistas({ currentSlug }) {
     <section className="bg-crema border-t border-gris-mid px-6 sm:px-10 py-14">
       {/* section heading */}
       <div className="mb-8">
-        <p className="font-ui text-xs tracking-[0.25em] text-rojo uppercase mb-2">
+        <p className="font-ui text-base tracking-[0.25em] text-rojo uppercase mb-2">
           — Seguir leyendo
         </p>
         <h2 className="font-display text-3xl sm:text-4xl text-negro uppercase leading-none">

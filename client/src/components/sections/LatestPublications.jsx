@@ -1,37 +1,39 @@
-import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import PublicationCard from '../ui/PublicationCard'
-import SkeletonCard from '../ui/SkeletonCard'
-import { getPublications } from '../../services/publications'
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import PublicationCard from "../ui/PublicationCard";
+import SkeletonCard from "../ui/SkeletonCard";
+import { getPublications } from "../../services/publications";
 
 const sectionVariants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.1 } },
-}
+};
 
 const cardVariants = {
   hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
-}
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
 
 export default function LatestPublications() {
-  const [publications, setPublications] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [publications, setPublications] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getPublications({ limit: 6 })
-      .then(data => setPublications(Array.isArray(data) ? data : data.publications ?? []))
+      .then((data) =>
+        setPublications(Array.isArray(data) ? data : (data.publications ?? [])),
+      )
       .catch(() => setPublications([]))
-      .finally(() => setLoading(false))
-  }, [])
+      .finally(() => setLoading(false));
+  }, []);
 
   return (
     <section className="px-6 sm:px-10 py-20 bg-crema">
       {/* Header */}
       <div className="flex items-end justify-between mb-10">
         <div>
-          <p className="font-ui text-xs tracking-[0.25em] text-rojo uppercase mb-2">
+          <p className="font-ui text-base tracking-[0.25em] text-rojo uppercase mb-2">
             — Últimas publicaciones
           </p>
           <h2
@@ -43,7 +45,7 @@ export default function LatestPublications() {
         </div>
         <Link
           to="/entrevistas"
-          className="hidden sm:inline-flex font-ui text-xs tracking-widest uppercase text-negro/50 hover:text-rojo transition-colors duration-200 pb-1 border-b border-gris-mid hover:border-rojo"
+          className="hidden sm:inline-flex font-ui text-xl font-bold tracking-widest uppercase text-negro/90 hover:text-rojo transition-colors duration-200 pb-1 border-b border-gris-mid hover:border-rojo"
         >
           Ver todas →
         </Link>
@@ -60,7 +62,9 @@ export default function LatestPublications() {
         </div>
       ) : publications.length === 0 ? (
         <div className="py-20 text-center">
-          <p className="font-mono text-sm text-negro/50">No hay publicaciones disponibles.</p>
+          <p className="font-mono text-lg text-negro/90">
+            No hay publicaciones disponibles.
+          </p>
         </div>
       ) : (
         <motion.div
@@ -68,10 +72,14 @@ export default function LatestPublications() {
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true, margin: "-80px" }}
         >
           {publications.map((pub) => (
-            <motion.div key={pub.id} variants={cardVariants} className="bg-crema">
+            <motion.div
+              key={pub.id}
+              variants={cardVariants}
+              className="bg-crema"
+            >
               <PublicationCard
                 title={pub.title}
                 subtitle={pub.subtitle}
@@ -89,11 +97,11 @@ export default function LatestPublications() {
       <div className="mt-8 sm:hidden text-center">
         <Link
           to="/entrevistas"
-          className="font-ui text-xs tracking-widest uppercase text-negro/50 hover:text-rojo transition-colors duration-200"
+          className="font-ui text-base tracking-widest uppercase text-negro/90 hover:text-rojo transition-colors duration-200"
         >
           Ver todas las entrevistas →
         </Link>
       </div>
     </section>
-  )
+  );
 }

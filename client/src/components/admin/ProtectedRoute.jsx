@@ -24,7 +24,7 @@ export default function ProtectedRoute() {
         <motion.p
           animate={{ opacity: [0.12, 0.7, 0.12] }}
           transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-          className="font-display text-8xl text-negro/50 tracking-widest select-none"
+          className="font-display text-8xl text-negro/90 tracking-widest select-none"
         >
           RE
         </motion.p>

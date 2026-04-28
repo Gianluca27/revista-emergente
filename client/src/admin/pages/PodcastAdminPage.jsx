@@ -86,7 +86,7 @@ export default function PodcastAdminPage() {
       <div className="flex items-start justify-between mb-8 gap-4">
         <div>
           <h1 className="font-display text-5xl text-negro tracking-wide leading-none">PODCAST</h1>
-          <p className="font-mono text-[11px] text-negro/50 mt-1">{episodes.length} episodios</p>
+          <p className="font-mono text-[11px] text-negro/90 mt-1">{episodes.length} episodios</p>
         </div>
         {!showForm && (
           <button
@@ -124,12 +124,12 @@ export default function PodcastAdminPage() {
       {showForm ? (
         <div className="max-w-3xl">
           <div className="flex items-center justify-between mb-6">
-            <p className="font-ui text-[10px] uppercase tracking-[0.25em] text-negro/50">
+            <p className="font-ui text-[10px] uppercase tracking-[0.25em] text-negro/90">
               {creating ? 'Nuevo episodio' : `Editando: ${editing.title}`}
             </p>
             <button
               onClick={() => { setEditing(null); setCreating(false); setError(null) }}
-              className="font-ui text-[10px] uppercase tracking-widest text-negro/50 hover:text-negro transition-colors"
+              className="font-ui text-[10px] uppercase tracking-widest text-negro/90 hover:text-negro transition-colors"
             >
               ← Volver al listado
             </button>
@@ -146,7 +146,7 @@ export default function PodcastAdminPage() {
         <div className="border border-gris-mid">
           <div className="hidden sm:grid grid-cols-[60px_1fr_100px_100px_100px] gap-4 px-4 py-2 bg-crema/40 border-b border-gris-mid">
             {['#', 'Título', 'Duración', 'Estado', ''].map(h => (
-              <span key={h} className="font-ui text-[9px] uppercase tracking-[0.3em] text-negro/50">{h}</span>
+              <span key={h} className="font-ui text-[9px] uppercase tracking-[0.3em] text-negro/90">{h}</span>
             ))}
           </div>
 
@@ -155,12 +155,12 @@ export default function PodcastAdminPage() {
               <motion.span
                 animate={{ opacity: [0.15, 0.7, 0.15] }}
                 transition={{ duration: 1.6, repeat: Infinity }}
-                className="font-display text-5xl text-negro/50 tracking-widest"
+                className="font-display text-5xl text-negro/90 tracking-widest"
               >RE</motion.span>
             </div>
           ) : episodes.length === 0 ? (
             <div className="py-16 text-center">
-              <p className="font-mono text-[12px] text-negro/50">Sin episodios</p>
+              <p className="font-mono text-[12px] text-negro/90">Sin episodios</p>
             </div>
           ) : (
             <ul>
@@ -176,7 +176,7 @@ export default function PodcastAdminPage() {
                     {ep.episode_number ? String(ep.episode_number).padStart(2, '0') : '—'}
                   </span>
                   <p className="font-ui text-[12px] text-negro truncate">{ep.title}</p>
-                  <span className="font-mono text-[10px] text-negro/50">
+                  <span className="font-mono text-[10px] text-negro/90">
                     {ep.duration_min ? `${ep.duration_min} min` : '—'}
                   </span>
                   <span className="flex items-center font-mono text-[10px]">
@@ -188,7 +188,7 @@ export default function PodcastAdminPage() {
                   </span>
                   <button
                     onClick={() => openEdit(ep)}
-                    className="font-ui text-[10px] uppercase tracking-widest text-negro/50 hover:text-negro transition-colors text-left"
+                    className="font-ui text-[10px] uppercase tracking-widest text-negro/90 hover:text-negro transition-colors text-left"
                   >
                     Editar →
                   </button>

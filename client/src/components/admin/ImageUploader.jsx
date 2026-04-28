@@ -57,7 +57,7 @@ export default function ImageUploader({ value, onChange, label = 'Imagen de port
 
   return (
     <div className="space-y-2">
-      <label className="block font-ui text-[10px] uppercase tracking-[0.25em] text-negro/50">
+      <label className="block font-ui text-[10px] uppercase tracking-[0.25em] text-negro/90">
         {label}
       </label>
 
@@ -120,8 +120,8 @@ export default function ImageUploader({ value, onChange, label = 'Imagen de port
                 </>
               ) : (
                 <>
-                  <span className="font-mono text-3xl text-negro/50">+</span>
-                  <span className="font-ui text-[10px] text-negro/50 uppercase tracking-[0.25em] text-center">
+                  <span className="font-mono text-3xl text-negro/90">+</span>
+                  <span className="font-ui text-[10px] text-negro/90 uppercase tracking-[0.25em] text-center">
                     {dragging ? 'Soltar aquí' : 'Arrastrá o hacé clic · JPG PNG WebP · máx 5MB'}
                   </span>
                 </>
@@ -156,7 +156,7 @@ export default function ImageUploader({ value, onChange, label = 'Imagen de port
         <button
           type="button"
           onClick={e => { e.stopPropagation(); onChange('') }}
-          className="font-ui text-[9px] uppercase tracking-[0.2em] text-negro/50 hover:text-rojo transition-colors duration-150"
+          className="font-ui text-[9px] uppercase tracking-[0.2em] text-negro/90 hover:text-rojo transition-colors duration-150"
         >
           ✕ Quitar imagen
         </button>
