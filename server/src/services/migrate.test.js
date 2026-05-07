@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-dotenv.config({ path: path.join(fileURLToPath(new URL('../../..', import.meta.url)), '.env') });
+dotenv.config({ path: path.join(fileURLToPath(new URL('../..', import.meta.url)), '.env') });
 
 const { Pool } = pg;
 let pool;
