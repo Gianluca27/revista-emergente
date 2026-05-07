@@ -15,11 +15,11 @@ export default {
         'gris-suave':'#C9BFB1',
       },
       fontFamily: {
-        display: ['"Permanent Marker"', '"Bebas Neue"', 'cursive'],
+        display: ['"Dirty Rock"', '"Permanent Marker"', '"Bebas Neue"', 'cursive'],
         titulo:  ['"Anton"', 'sans-serif'],
         mono:    ['"Space Mono"', 'monospace'],
         ui:      ['"Barlow Condensed"', 'sans-serif'],
-        grunge:  ['"Rubik Wet Paint"', '"Bebas Neue"', 'sans-serif'],
+        grunge:  ['"Dirty Rock"', '"Rubik Wet Paint"', '"Bebas Neue"', 'sans-serif'],
         marker:  ['"Permanent Marker"', 'cursive'],
       },
     },
