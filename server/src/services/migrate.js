@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 const DEFAULT_MIGRATIONS_DIR = path.join(
   path.dirname(fileURLToPath(import.meta.url)),
-  '../../',
+  '../..',
   'migrations'
 );
 

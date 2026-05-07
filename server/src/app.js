@@ -50,7 +50,7 @@ runMigrations(pool)
     });
   })
   .catch(err => {
-    console.error('[migrate] fatal:', err.message);
+    console.error('[migrate] fatal:', err);
     process.exit(1);
   });
 
