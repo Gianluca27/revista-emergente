@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-dotenv.config({ path: new URL('../../..', import.meta.url).pathname + '/.env' });
+dotenv.config({ path: path.join(fileURLToPath(new URL('../../..', import.meta.url)), '.env') });
 
 const { Pool } = pg;
 let pool;
@@ -64,6 +64,7 @@ test('creates schema_migrations table on first run', async () => {
   assert.ok(rows[0].tbl, 'schema_migrations table should exist');
 });
 
+// Reads state written by Test 1 — both tests share the same runMigrations invocation
 test('runs pending SQL files in filename order', async () => {
   const { rows } = await pool.query(
     'SELECT filename FROM schema_migrations ORDER BY filename'
@@ -80,7 +81,7 @@ test('runs pending SQL files in filename order', async () => {
 
 test('skips already-applied migrations on second run', async () => {
   // Should not throw even though tables already exist — because SQL is not re-run
-  await assert.doesNotReject(runMigrations(pool, FIXTURES_DIR));
+  await assert.doesNotReject(() => runMigrations(pool, FIXTURES_DIR));
 
   const { rows } = await pool.query('SELECT COUNT(*) FROM schema_migrations');
   assert.equal(rows[0].count, '2', 'still only 2 rows after second run');
