@@ -1,0 +1,1 @@
+CREATE TABLE _test_alpha (id SERIAL PRIMARY KEY);

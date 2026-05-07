@@ -1,0 +1,1 @@
+CREATE TABLE _test_beta (id SERIAL PRIMARY KEY);
