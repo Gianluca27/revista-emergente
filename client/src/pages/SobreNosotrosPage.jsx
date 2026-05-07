@@ -83,7 +83,7 @@ export default function SobreNosotrosPage() {
           >
             SOBRE
             <br />
-            NOSOTRAS
+            NOSOTROS
           </motion.h1>
 
           <motion.div
