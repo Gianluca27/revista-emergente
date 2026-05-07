@@ -5,4 +5,5 @@ INSERT INTO categories (slug, name) VALUES
   ('arte',    'Arte'),
   ('podcast', 'Podcast'),
   ('shows',   'Shows'),
-  ('sorteo',  'Sorteo');
+  ('sorteo',  'Sorteo')
+ON CONFLICT (slug) DO NOTHING;

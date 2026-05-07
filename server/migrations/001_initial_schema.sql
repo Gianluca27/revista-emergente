@@ -1,20 +1,20 @@
 -- Revista Emergente — Schema inicial
 -- PostgreSQL 15
 
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
   id          SERIAL PRIMARY KEY,
   email       VARCHAR(255) UNIQUE NOT NULL,
   password    VARCHAR(255) NOT NULL,
   created_at  TIMESTAMP DEFAULT NOW()
 );
 
-CREATE TABLE categories (
+CREATE TABLE IF NOT EXISTS categories (
   id    SERIAL PRIMARY KEY,
   slug  VARCHAR(100) UNIQUE NOT NULL,
   name  VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE publications (
+CREATE TABLE IF NOT EXISTS publications (
   id           SERIAL PRIMARY KEY,
   slug         VARCHAR(255) UNIQUE NOT NULL,
   title        VARCHAR(255) NOT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE publications (
   updated_at   TIMESTAMP DEFAULT NOW()
 );
 
-CREATE TABLE artists (
+CREATE TABLE IF NOT EXISTS artists (
   id             SERIAL PRIMARY KEY,
   name           VARCHAR(255) NOT NULL,
   slug           VARCHAR(255) UNIQUE NOT NULL,
@@ -41,13 +41,13 @@ CREATE TABLE artists (
   created_at     TIMESTAMP DEFAULT NOW()
 );
 
-CREATE TABLE publication_artists (
+CREATE TABLE IF NOT EXISTS publication_artists (
   publication_id INTEGER REFERENCES publications(id) ON DELETE CASCADE,
   artist_id      INTEGER REFERENCES artists(id) ON DELETE CASCADE,
   PRIMARY KEY (publication_id, artist_id)
 );
 
-CREATE TABLE podcast_episodes (
+CREATE TABLE IF NOT EXISTS podcast_episodes (
   id             SERIAL PRIMARY KEY,
   title          VARCHAR(255) NOT NULL,
   description    TEXT,
@@ -61,7 +61,7 @@ CREATE TABLE podcast_episodes (
   created_at     TIMESTAMP DEFAULT NOW()
 );
 
-CREATE TABLE shows (
+CREATE TABLE IF NOT EXISTS shows (
   id          SERIAL PRIMARY KEY,
   title       VARCHAR(255) NOT NULL,
   slug        VARCHAR(255) UNIQUE NOT NULL,
@@ -74,7 +74,7 @@ CREATE TABLE shows (
   created_at  TIMESTAMP DEFAULT NOW()
 );
 
-CREATE TABLE contact_requests (
+CREATE TABLE IF NOT EXISTS contact_requests (
   id           SERIAL PRIMARY KEY,
   name         VARCHAR(255) NOT NULL,
   email        VARCHAR(255) NOT NULL,
@@ -86,16 +86,16 @@ CREATE TABLE contact_requests (
 );
 
 -- Índices para queries frecuentes del sitio público
-CREATE INDEX idx_publications_status      ON publications(status);
-CREATE INDEX idx_publications_category    ON publications(category_id);
-CREATE INDEX idx_publications_slug        ON publications(slug);
-CREATE INDEX idx_publications_published_at ON publications(published_at DESC);
+CREATE INDEX IF NOT EXISTS idx_publications_status      ON publications(status);
+CREATE INDEX IF NOT EXISTS idx_publications_category    ON publications(category_id);
+CREATE INDEX IF NOT EXISTS idx_publications_slug        ON publications(slug);
+CREATE INDEX IF NOT EXISTS idx_publications_published_at ON publications(published_at DESC);
 
-CREATE INDEX idx_artists_slug   ON artists(slug);
-CREATE INDEX idx_shows_slug     ON shows(slug);
-CREATE INDEX idx_shows_status   ON shows(status);
+CREATE INDEX IF NOT EXISTS idx_artists_slug   ON artists(slug);
+CREATE INDEX IF NOT EXISTS idx_shows_slug     ON shows(slug);
+CREATE INDEX IF NOT EXISTS idx_shows_status   ON shows(status);
 
-CREATE INDEX idx_podcast_status ON podcast_episodes(status);
-CREATE INDEX idx_podcast_number ON podcast_episodes(episode_number DESC);
+CREATE INDEX IF NOT EXISTS idx_podcast_status ON podcast_episodes(status);
+CREATE INDEX IF NOT EXISTS idx_podcast_number ON podcast_episodes(episode_number DESC);
 
-CREATE INDEX idx_contact_status ON contact_requests(status);
+CREATE INDEX IF NOT EXISTS idx_contact_status ON contact_requests(status);
