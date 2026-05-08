@@ -73,13 +73,15 @@ function ErrorState() {
 /* ─── cover image ────────────────────────────────────────── */
 function CoverImage({ src, alt }) {
   return (
-    <div className="relative w-full h-[60vh] overflow-hidden bg-gris">
+    <div className="relative w-full h-[60vh] overflow-hidden bg-crema flex items-center justify-center">
       {src ? (
-        <img
-          src={src}
-          alt={alt}
-          className="w-full h-full object-cover"
-        />
+        <div className="max-w-3xl w-full h-full px-6 flex items-center justify-center">
+          <img
+            src={src}
+            alt={alt}
+            className="w-full max-h-full object-contain"
+          />
+        </div>
       ) : (
         <div className="w-full h-full flex items-center justify-center bg-crema">
           <span className="font-display text-[12rem] text-negro/90 leading-none select-none">
@@ -87,8 +89,8 @@ function CoverImage({ src, alt }) {
           </span>
         </div>
       )}
-      {/* dark gradient overlay at bottom */}
-      <div className="absolute inset-0 bg-gradient-to-t from-crema via-crema/30 to-transparent" />
+      {/* subtle bottom fade into page bg */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-crema to-transparent" />
     </div>
   )
 }
