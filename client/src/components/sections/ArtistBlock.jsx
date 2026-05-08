@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { resolveImageUrl } from '../../utils/imageUrl'
 
 const containerVariants = {
   hidden: {},
@@ -31,7 +32,7 @@ function ArtistCard({ artist }) {
         <div className="flex-shrink-0">
           <div className="w-24 h-24 sm:w-32 sm:h-32 overflow-hidden border border-gris-mid">
             <img
-              src={artist.photo}
+              src={resolveImageUrl(artist.photo)}
               alt={artist.name}
               loading="lazy"
               className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"

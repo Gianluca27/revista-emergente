@@ -5,6 +5,7 @@ import ArtistBlock from '../components/sections/ArtistBlock'
 import Badge from '../components/ui/Badge'
 import PublicationCard from '../components/ui/PublicationCard'
 import { formatDate } from '../utils/formatDate'
+import { resolveImageUrl } from '../utils/imageUrl'
 import { getPublicationBySlug, getPublications } from '../services/publications'
 
 /* ─── animation variants ─────────────────────────────────── */
@@ -267,7 +268,7 @@ export default function PublicationDetailPage() {
   return (
     <div className="min-h-screen bg-crema">
       {/* 1. Cover image */}
-      <CoverImage src={publication.cover_image} alt={publication.title} />
+      <CoverImage src={resolveImageUrl(publication.cover_image)} alt={publication.title} />
 
       {/* 2. Article header */}
       <ArticleHeader publication={publication} />

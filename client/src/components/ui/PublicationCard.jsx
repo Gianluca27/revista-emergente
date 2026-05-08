@@ -1,17 +1,19 @@
 import { Link } from 'react-router-dom'
 import { formatDate } from '../../utils/formatDate'
+import { resolveImageUrl } from '../../utils/imageUrl'
 import Badge from './Badge'
 
 export default function PublicationCard({ title, subtitle, category, coverImage, slug, date }) {
+  const imgSrc = resolveImageUrl(coverImage)
   return (
     <Link
       to={`/entrevistas/${slug}`}
       className="group block bg-gris border border-gris-mid overflow-hidden"
     >
       <div className="relative overflow-hidden aspect-[3/2]">
-        {coverImage ? (
+        {imgSrc ? (
           <img
-            src={coverImage}
+            src={imgSrc}
             alt={title}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 grayscale group-hover:grayscale-0"
             loading="lazy"

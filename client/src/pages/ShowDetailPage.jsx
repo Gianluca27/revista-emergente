@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { getShowBySlug } from '../services/publications'
 import { formatDate } from '../utils/formatDate'
+import { resolveImageUrl } from '../utils/imageUrl'
 import Lightbox from '../components/ui/Lightbox'
 
 /* ─── animation variants ─────────────────────────────────── */
@@ -212,12 +213,14 @@ export default function ShowDetailPage() {
   if (loading) return <Skeleton />
   if (error || !show) return <ErrorState />
 
-  const gallery = Array.isArray(show.gallery) ? show.gallery : []
+  const gallery = (Array.isArray(show.gallery) ? show.gallery : [])
+    .map(resolveImageUrl)
+    .filter(Boolean)
 
   return (
     <div className="min-h-screen bg-crema text-negro">
       {/* 1. Cover image */}
-      <CoverImage src={show.cover_image} alt={show.title} />
+      <CoverImage src={resolveImageUrl(show.cover_image)} alt={show.title} />
 
       {/* 2. Header section */}
       <ShowHeader show={show} />

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { getArtistBySlug } from '../services/publications'
 import PublicationCard from '../components/ui/PublicationCard'
 import SkeletonCard from '../components/ui/SkeletonCard'
+import { resolveImageUrl } from '../utils/imageUrl'
 
 /* ─── animation variants ─────────────────────────────────── */
 const fadeUp = {
@@ -104,7 +105,7 @@ function ArtistHeader({ artist }) {
             className="hidden sm:block flex-shrink-0"
           >
             <img
-              src={artist.photo}
+              src={resolveImageUrl(artist.photo)}
               alt={artist.name}
               className="w-56 h-56 object-cover grayscale"
               loading="lazy"

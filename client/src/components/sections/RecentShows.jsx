@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { getRecentShows } from '../../services/publications'
+import { resolveImageUrl } from '../../utils/imageUrl'
 
 function ShowCard({ show, large = false }) {
-  const image = show.cover_image || null
+  const image = resolveImageUrl(show.cover_image)
 
   return (
     <Link

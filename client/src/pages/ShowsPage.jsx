@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { getShows } from '../services/publications'
 import { formatDate } from '../utils/formatDate'
+import { resolveImageUrl } from '../utils/imageUrl'
 
 const containerVariants = {
   hidden: {},
@@ -25,7 +26,7 @@ function ShowCard({ show }) {
     <motion.div variants={itemVariants}>
       <Link to={`/shows/${show.slug}`} className="block relative aspect-[4/3] overflow-hidden group">
         <img
-          src={show.cover_image}
+          src={resolveImageUrl(show.cover_image)}
           alt={show.title}
           className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500"
         />
