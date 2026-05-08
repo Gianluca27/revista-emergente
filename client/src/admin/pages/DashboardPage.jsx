@@ -19,10 +19,13 @@ function StatCard({ to, label, value, accent, hint, delay = 0 }) {
         ].join(' ')}
       >
         <p className="font-ui text-[9px] uppercase tracking-[0.3em] text-negro/90 mb-3">{label}</p>
-        <p className={[
-          'font-display text-6xl leading-none tracking-wide',
-          accent ? 'text-rojo' : 'text-negro',
-        ].join(' ')}>
+        <p
+          className={[
+            'text-6xl leading-none tracking-wide',
+            accent ? 'text-rojo' : 'text-negro',
+          ].join(' ')}
+          style={{ fontFamily: '"Arial Black", "Helvetica Black", Impact, sans-serif', fontWeight: 900 }}
+        >
           {value === null ? '—' : value}
         </p>
         {hint && (

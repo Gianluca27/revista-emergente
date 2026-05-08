@@ -19,11 +19,11 @@ export default function ArtistCTA() {
         {/* Fanzine-style oversized heading */}
         <div className="relative mb-8">
           <h2 className="font-display text-[14vw] sm:text-[10vw] md:text-[8vw] leading-none uppercase text-negro">
-            ¿Sos
+            <span style={{ fontFamily: '"Arial Black", "Helvetica Black", Impact, sans-serif', fontWeight: 900 }}>¿</span>Sos
           </h2>
           {/* Offset red word — breaks the grid */}
           <h2 className="font-display text-[14vw] sm:text-[10vw] md:text-[8vw] leading-none uppercase text-rojo ml-[10%] sm:ml-[15%] -mt-2 sm:-mt-4">
-            Artista?
+            Artista<span style={{ fontFamily: '"Arial Black", "Helvetica Black", Impact, sans-serif', fontWeight: 900 }}>?</span>
           </h2>
         </div>
 
