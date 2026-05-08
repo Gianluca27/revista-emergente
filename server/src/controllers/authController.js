@@ -2,10 +2,12 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import pool from '../services/db.js';
 
+const isProd = process.env.NODE_ENV === 'production';
+
 const COOKIE_OPTS = {
   httpOnly: true,
-  secure: process.env.NODE_ENV === 'production',
-  sameSite: 'strict',
+  secure: isProd,
+  sameSite: isProd ? 'none' : 'lax',
   maxAge: 7 * 24 * 60 * 60 * 1000,
 };
 
@@ -41,7 +43,7 @@ export async function login(req, res) {
 }
 
 export function logout(req, res) {
-  res.clearCookie('token', { httpOnly: true, sameSite: 'strict' });
+  res.clearCookie('token', { httpOnly: true, secure: isProd, sameSite: isProd ? 'none' : 'lax' });
   res.json({ message: 'Sesión cerrada' });
 }
 
