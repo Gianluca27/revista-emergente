@@ -83,7 +83,7 @@ export default function LatestPublications() {
               <PublicationCard
                 title={pub.title}
                 subtitle={pub.subtitle}
-                category={pub.category_name ?? pub.category}
+                category={pub.category?.name ?? pub.category_name ?? null}
                 coverImage={pub.cover_image}
                 slug={pub.slug}
                 date={pub.published_at}
