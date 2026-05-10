@@ -16,8 +16,12 @@ function ShowCard({ show, large = false }) {
         <img
           src={image}
           alt={show.title}
+          width={large ? 1200 : 600}
+          height={large ? 800 : 400}
+          loading={large ? 'eager' : 'lazy'}
+          fetchPriority={large ? 'high' : 'auto'}
+          decoding="async"
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0"
-          loading="lazy"
         />
       ) : (
         <div className="w-full h-full bg-crema flex items-center justify-center">

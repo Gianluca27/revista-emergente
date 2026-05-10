@@ -2,6 +2,7 @@ import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import Link from '@tiptap/extension-link'
 import Image from '@tiptap/extension-image'
+import Youtube from '@tiptap/extension-youtube'
 import { useCallback, useState } from 'react'
 import api from '../../services/api'
 
@@ -35,6 +36,8 @@ export default function TipTapEditor({ value, onChange }) {
   const [uploading, setUploading] = useState(false)
   const [linkUrl, setLinkUrl] = useState('')
   const [showLinkInput, setShowLinkInput] = useState(false)
+  const [youtubeUrl, setYoutubeUrl] = useState('')
+  const [showYoutubeInput, setShowYoutubeInput] = useState(false)
 
   const editor = useEditor({
     extensions: [
@@ -48,6 +51,11 @@ export default function TipTapEditor({ value, onChange }) {
       }),
       Link.configure({ openOnClick: false }),
       Image.configure({ HTMLAttributes: { class: 'max-w-full my-4' } }),
+      Youtube.configure({
+        controls: true,
+        nocookie: true,
+        HTMLAttributes: { class: 'tiptap-youtube-embed' },
+      }),
     ],
     content: value || '',
     onUpdate: ({ editor }) => onChange(editor.getHTML()),
@@ -85,6 +93,15 @@ export default function TipTapEditor({ value, onChange }) {
     setShowLinkInput(false)
     setLinkUrl('')
   }, [editor, linkUrl])
+
+  const applyYoutube = useCallback(() => {
+    const src = youtubeUrl.trim()
+    if (src) {
+      editor?.chain().focus().setYoutubeVideo({ src }).run()
+    }
+    setShowYoutubeInput(false)
+    setYoutubeUrl('')
+  }, [editor, youtubeUrl])
 
   if (!editor) return null
 
@@ -181,6 +198,37 @@ export default function TipTapEditor({ value, onChange }) {
             disabled={uploading}
           />
         </label>
+
+        <div className="relative">
+          <ToolbarButton
+            onClick={() => setShowYoutubeInput(v => !v)}
+            active={showYoutubeInput}
+            title="Insertar video de YouTube"
+          >YT</ToolbarButton>
+          {showYoutubeInput && (
+            <div className="absolute top-full left-0 z-20 mt-1 flex items-center gap-1 bg-crema border border-gris-mid p-1.5 shadow-xl min-w-[260px]">
+              <input
+                autoFocus
+                type="url"
+                placeholder="https://youtube.com/watch?v=…"
+                value={youtubeUrl}
+                onChange={e => setYoutubeUrl(e.target.value)}
+                onKeyDown={e => e.key === 'Enter' && applyYoutube()}
+                className="flex-1 bg-gris text-negro font-mono text-[11px] px-2 py-1 border border-gris-mid focus:outline-none focus:border-rojo"
+              />
+              <button
+                type="button"
+                onClick={applyYoutube}
+                className="font-ui text-[10px] uppercase tracking-widest px-2 py-1 bg-rojo text-crema"
+              >OK</button>
+              <button
+                type="button"
+                onClick={() => { setShowYoutubeInput(false); setYoutubeUrl('') }}
+                className="font-mono text-[11px] text-negro/90 px-1.5 py-1 hover:text-negro"
+              >✕</button>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Editor area */}
@@ -199,6 +247,8 @@ export default function TipTapEditor({ value, onChange }) {
         .prose-editor ol { padding-left: 1.5rem; }
         .prose-editor code { background: #E8E0D5; padding: 0.1rem 0.3rem; font-size: 0.85em; color: #A8161B; }
         .prose-editor pre { background: #E8E0D5; border: 1px solid #C9BFB1; padding: 1rem; overflow-x: auto; margin: 1rem 0; color: #1A1A1A; }
+        .prose-editor div[data-youtube-video] { position: relative; width: 100%; aspect-ratio: 16 / 9; margin: 1rem 0; background: #000; }
+        .prose-editor div[data-youtube-video] iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
       `}</style>
     </div>
   )

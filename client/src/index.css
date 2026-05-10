@@ -269,3 +269,19 @@
 .prose-dark img:hover {
   filter: contrast(1) saturate(1);
 }
+
+.prose-dark div[data-youtube-video] {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 2rem 0;
+  background: #000;
+}
+
+.prose-dark div[data-youtube-video] iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}

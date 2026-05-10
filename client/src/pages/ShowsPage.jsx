@@ -28,6 +28,10 @@ function ShowCard({ show }) {
         <img
           src={resolveImageUrl(show.cover_image)}
           alt={show.title}
+          width="800"
+          height="600"
+          loading="lazy"
+          decoding="async"
           className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500"
         />
         <div className="absolute inset-0 bg-crema/60 group-hover:bg-crema/40 transition" />

@@ -15,8 +15,11 @@ export default function PublicationCard({ title, subtitle, category, coverImage,
           <img
             src={imgSrc}
             alt={title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 grayscale group-hover:grayscale-0"
+            width="900"
+            height="600"
             loading="lazy"
+            decoding="async"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 grayscale group-hover:grayscale-0"
           />
         ) : (
           <div className="w-full h-full bg-crema flex items-center justify-center">
