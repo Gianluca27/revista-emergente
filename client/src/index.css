@@ -285,3 +285,30 @@
   height: 100%;
   border: 0;
 }
+
+/* ── Admin: fuentes ~+18% sin escalar el resto del layout ── */
+/* Aplicado vía clase .admin-fontscale en AdminLayout y LoginPage. */
+.admin-fontscale {
+  font-size: 1.18rem; /* base para texto sin clase text-* explícita */
+}
+
+.admin-fontscale .text-xs   { font-size: 0.885rem; }
+.admin-fontscale .text-sm   { font-size: 1.033rem; }
+.admin-fontscale .text-base { font-size: 1.18rem; }
+.admin-fontscale .text-lg   { font-size: 1.328rem; }
+.admin-fontscale .text-xl   { font-size: 1.475rem; }
+.admin-fontscale .text-2xl  { font-size: 1.77rem; }
+.admin-fontscale .text-3xl  { font-size: 2.213rem; }
+.admin-fontscale .text-4xl  { font-size: 2.655rem; }
+.admin-fontscale .text-5xl  { font-size: 3.54rem; }
+.admin-fontscale .text-6xl  { font-size: 4.425rem; }
+.admin-fontscale .text-7xl  { font-size: 5.31rem; }
+
+@media (min-width: 640px) {
+  .admin-fontscale .sm\:text-2xl { font-size: 1.77rem; }
+  .admin-fontscale .sm\:text-3xl { font-size: 2.213rem; }
+  .admin-fontscale .sm\:text-4xl { font-size: 2.655rem; }
+  .admin-fontscale .sm\:text-5xl { font-size: 3.54rem; }
+  .admin-fontscale .sm\:text-6xl { font-size: 4.425rem; }
+  .admin-fontscale .sm\:text-7xl { font-size: 5.31rem; }
+}

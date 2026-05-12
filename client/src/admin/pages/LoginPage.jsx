@@ -37,7 +37,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-crema flex overflow-hidden" style={{ zoom: 1.18 }}>
+    <div className="min-h-screen bg-crema flex overflow-hidden admin-fontscale" style={{ zoom: 1.18 }}>
       {/* Left panel — branding */}
       <motion.div
         initial={{ x: -60, opacity: 0 }}

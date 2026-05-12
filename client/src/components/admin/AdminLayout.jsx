@@ -36,7 +36,7 @@ export default function AdminLayout() {
   }
 
   return (
-    <div className="min-h-screen bg-crema flex" style={{ zoom: 1.18 }}>
+    <div className="min-h-screen bg-crema flex admin-fontscale" style={{ zoom: 1.18 }}>
 
       {/* ── Desktop sidebar ─────────────────────────────────── */}
       <aside className="hidden lg:flex flex-col w-56 border-r border-gris-mid bg-gris fixed inset-y-0 left-0 z-30">

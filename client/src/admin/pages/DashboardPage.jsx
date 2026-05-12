@@ -18,7 +18,7 @@ function StatCard({ to, label, value, accent, hint, delay = 0 }) {
           accent ? 'border-rojo/60 hover:border-rojo' : 'border-gris-mid hover:border-negro/40',
         ].join(' ')}
       >
-        <p className="font-ui text-[9px] uppercase tracking-[0.3em] text-negro/90 mb-3">{label}</p>
+        <p className="font-ui text-[11px] uppercase tracking-[0.3em] text-negro/90 mb-3">{label}</p>
         <p
           className={[
             'text-6xl leading-none tracking-wide',
@@ -29,7 +29,7 @@ function StatCard({ to, label, value, accent, hint, delay = 0 }) {
           {value === null ? '—' : value}
         </p>
         {hint && (
-          <p className="font-mono text-[10px] text-negro/90 mt-3">{hint}</p>
+          <p className="font-mono text-[12px] text-negro/90 mt-3">{hint}</p>
         )}
       </Link>
     </motion.div>
@@ -119,8 +119,8 @@ export default function DashboardPage() {
         </motion.div>
       )}
 
-      {/* Stat grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {/* Stat grid — sin el zoom del AdminLayout; el +fuente queda vía .admin-fontscale */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" style={{ zoom: 1 / 1.18 }}>
         <StatCard
           to="/admin/publicaciones"
           label="Publicaciones"
