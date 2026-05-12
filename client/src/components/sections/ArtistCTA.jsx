@@ -51,13 +51,13 @@ export default function ArtistCTA() {
         </div>
       </div>
 
-      {/* Background decorative oversized letter */}
+      {/* Background decorative oversized logo — RE grunge mark (matches admin) */}
       <div
         className="absolute right-0 top-0 bottom-0 flex items-center pr-6 sm:pr-10 pointer-events-none select-none"
         aria-hidden="true"
       >
-        <span className="font-display text-[30vw] sm:text-[22vw] leading-none text-negro/90 uppercase">
-          R
+        <span className="font-grunge text-[26vw] sm:text-[18vw] leading-none text-rojo uppercase">
+          RE
         </span>
       </div>
     </motion.section>

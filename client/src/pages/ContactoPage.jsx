@@ -187,9 +187,9 @@ export default function ContactoPage() {
 
             <motion.div className="space-y-4" variants={stagger}>
               {[
-                "Si hacés música independiente y querés aparecer en la revista, mandanos un mensaje.",
-                "Cubrimos rock, electrónica, folk y todo lo que no entra en ninguna categoría.",
-                "No importa el tamaño de tu proyecto. Importa la honestidad de lo que hacés.",
+                "Si hacés música, arte o tenés un proyecto cultural que sentís que merece ser visto, queremos conocerte.",
+                "En Revista Emergente entrevistamos artistas, cubrimos eventos y mostramos proyectos que forman parte de la escena cultural independiente.",
+                "Nos interesan las historias reales, los procesos creativos y las personas detrás de cada proyecto.",
               ].map((text, i) => (
                 <motion.p
                   key={i}
