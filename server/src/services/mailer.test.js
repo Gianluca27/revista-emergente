@@ -27,6 +27,8 @@ test('sendContactNotification arma el mensaje con to/from/replyTo/subject/text',
 });
 
 test('sendContactNotification muestra "—" cuando faltan campos opcionales', async () => {
+  delete process.env.MAIL_FROM;
+  process.env.SMTP_USER = 'fallback@test.local';
   process.env.NOTIFY_EMAIL = 'destino@test.local';
   const { sendContactNotification } = await import('./mailer.js');
 
@@ -36,6 +38,7 @@ test('sendContactNotification muestra "—" cuando faltan campos opcionales', as
   await sendContactNotification({ name: 'Beto', email: 'beto@example.com', message: 'm' }, fakeTransporter);
   assert.match(captured.text, /Proyecto:\s+—/);
   assert.match(captured.text, /Instagram:\s+—/);
+  assert.equal(captured.from, 'fallback@test.local'); // MAIL_FROM ausente → cae a SMTP_USER
 });
 
 test('getTransporter() devuelve null si SMTP_HOST está vacío', async () => {
@@ -52,4 +55,14 @@ test('sendContactNotification sin SMTP configurado no lanza', async () => {
   const { sendContactNotification } = await import('./mailer.js');
   await sendContactNotification({ name: 'X', email: 'x@e.com', message: 'm' }); // usa getTransporter() => null
   if (original !== undefined) process.env.SMTP_HOST = original;
+});
+
+test('sendContactNotification no envía si falta NOTIFY_EMAIL', async () => {
+  const originalNotify = process.env.NOTIFY_EMAIL;
+  delete process.env.NOTIFY_EMAIL;
+  const { sendContactNotification } = await import('./mailer.js');
+  const throwingTransporter = { sendMail: () => { throw new Error('no debería enviarse'); } };
+  await sendContactNotification({ name: 'X', email: 'x@e.com', message: 'm' }, throwingTransporter);
+  // pasa si no lanza
+  if (originalNotify !== undefined) process.env.NOTIFY_EMAIL = originalNotify;
 });

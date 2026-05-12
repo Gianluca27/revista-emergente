@@ -31,6 +31,12 @@ export async function sendContactNotification(contact, transporter = getTranspor
     return;
   }
 
+  const to = process.env.NOTIFY_EMAIL;
+  if (!to) {
+    console.warn('[mailer] NOTIFY_EMAIL no configurado — se omite la notificación de contacto');
+    return;
+  }
+
   const { name, email, project_name, message, instagram } = contact;
   const text = [
     `Nueva solicitud de contacto — ${new Date().toISOString()}`,
@@ -45,7 +51,7 @@ export async function sendContactNotification(contact, transporter = getTranspor
   ].join('\n');
 
   await transporter.sendMail({
-    to: process.env.NOTIFY_EMAIL,
+    to,
     from: process.env.MAIL_FROM || process.env.SMTP_USER,
     replyTo: email,
     subject: `[Emergente] Nueva solicitud de contacto — ${name}`,
