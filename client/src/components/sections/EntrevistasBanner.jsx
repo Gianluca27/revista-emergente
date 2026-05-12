@@ -72,16 +72,8 @@ export default function EntrevistasBanner() {
           )}
         </div>
 
-        {/* Right: CTA links */}
+        {/* Right: CTA link */}
         <div className="flex flex-col gap-3">
-          {publication?.slug ? (
-            <Link
-              to={`/entrevistas/${publication.slug}`}
-              className="inline-flex items-center gap-3 font-ui text-lg tracking-widest uppercase bg-crema text-negro px-6 py-3 hover:bg-crema/80 transition-colors duration-200"
-            >
-              Leer entrevista →
-            </Link>
-          ) : null}
           <Link
             to="/entrevistas"
             className="font-ui text-xl tracking-widest uppercase font-bold text-negro/90 hover:text-negro transition-colors duration-200"

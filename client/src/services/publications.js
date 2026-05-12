@@ -23,3 +23,6 @@ export const getShowBySlug = (slug) =>
 
 export const getArtistBySlug = (slug) =>
   api.get(`/artists/${slug}`).then(r => r.data)
+
+export const getTeamMembers = () =>
+  api.get('/team').then(r => r.data)
