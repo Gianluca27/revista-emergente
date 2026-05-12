@@ -1,4 +1,5 @@
 import * as Contact from '../models/contact.js';
+import { sendContactNotification } from '../services/mailer.js';
 
 const VALID_STATUSES = ['pending', 'read', 'archived'];
 
@@ -15,6 +16,12 @@ export async function submit(req, res) {
     }
 
     await Contact.create({ name, email, project_name, message, instagram });
+
+    try {
+      await sendContactNotification({ name, email, project_name, message, instagram });
+    } catch (mailErr) {
+      console.error('[contactController] fallo al enviar notificación de contacto:', mailErr);
+    }
 
     return res.status(201).json({
       message: 'Solicitud enviada. Te contactaremos a la brevedad.',
