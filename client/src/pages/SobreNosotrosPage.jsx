@@ -1,5 +1,11 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { getTeamMembers } from "../services/publications";
+
+const UPLOAD_URL = import.meta.env.VITE_API_URL
+  ? import.meta.env.VITE_API_URL.replace("/api", "")
+  : "http://localhost:3001";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -32,24 +38,6 @@ const features = [
   },
 ];
 
-const team = [
-  {
-    name: "VALENTINA HERRERA",
-    role: "Directora & Editora",
-    bio: "Periodista musical con 8 años cubriendo el under porteño",
-  },
-  {
-    name: "LUCAS PEREYRA",
-    role: "Fotografía",
-    bio: "Documentando shows desde el fondo del pozo desde 2019",
-  },
-  {
-    name: "MAR DOMÍNGUEZ",
-    role: "Multimedia & Redes",
-    bio: "Productora de audio, DJ, cronista del caos organizado",
-  },
-];
-
 const manifesto = [
   "Emergente nació del hartazgo de ver a la música independiente argentina ignorada por los medios tradicionales.",
   "No somos un medio de difusión. Somos un archivo vivo. Documentamos lo que sucede antes de que el mercado lo descubra, lo empaquete y lo venda de vuelta.",
@@ -58,6 +46,14 @@ const manifesto = [
 ];
 
 export default function SobreNosotrosPage() {
+  const [team, setTeam] = useState(null); // null = cargando; [] = vacío
+
+  useEffect(() => {
+    getTeamMembers()
+      .then((data) => setTeam(Array.isArray(data) ? data : []))
+      .catch(() => setTeam([]));
+  }, []);
+
   return (
     <div className="min-h-screen bg-crema">
       {/* Hero */}
@@ -175,48 +171,62 @@ export default function SobreNosotrosPage() {
       </section>
 
       {/* Equipo */}
-      <section className="bg-crema py-16 px-6">
-        <div className="max-w-5xl mx-auto">
-          <motion.p
-            className="font-ui text-base tracking-[0.25em] text-rojo uppercase mb-10"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-          >
-            El Equipo
-          </motion.p>
+      {team && team.length > 0 && (
+        <section className="bg-crema py-16 px-6">
+          <div className="max-w-5xl mx-auto">
+            <motion.p
+              className="font-ui text-base tracking-[0.25em] text-rojo uppercase mb-10"
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+            >
+              El Equipo
+            </motion.p>
 
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-px bg-gris-mid"
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
-          >
-            {team.map((member) => (
-              <motion.div
-                key={member.name}
-                className="bg-crema"
-                variants={fadeUp}
-              >
-                <div className="aspect-square w-full bg-gris" />
-                <div className="p-4">
-                  <h3 className="font-display text-xl text-negro uppercase leading-tight mb-1">
-                    {member.name}
-                  </h3>
-                  <p className="font-ui text-base text-rojo uppercase tracking-widest mb-3">
-                    {member.role}
-                  </p>
-                  <p className="font-mono text-base text-negro/90 leading-relaxed">
-                    {member.bio}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-3 gap-px bg-gris-mid"
+              variants={stagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+            >
+              {team.map((member) => (
+                <motion.div
+                  key={member.id}
+                  className="bg-crema"
+                  variants={fadeUp}
+                >
+                  {member.photo ? (
+                    <img
+                      src={member.photo.startsWith("http") ? member.photo : UPLOAD_URL + member.photo}
+                      alt={member.name}
+                      className="aspect-square w-full object-cover"
+                    />
+                  ) : (
+                    <div className="aspect-square w-full bg-gris" />
+                  )}
+                  <div className="p-4">
+                    <h3 className="font-display text-xl text-negro uppercase leading-tight mb-1">
+                      {member.name}
+                    </h3>
+                    {member.role && (
+                      <p className="font-ui text-base text-rojo uppercase tracking-widest mb-3">
+                        {member.role}
+                      </p>
+                    )}
+                    {member.bio && (
+                      <p className="font-mono text-base text-negro/90 leading-relaxed">
+                        {member.bio}
+                      </p>
+                    )}
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+      )}
 
       {/* CTA */}
       <section className="py-16 px-6 text-center bg-rojo">
