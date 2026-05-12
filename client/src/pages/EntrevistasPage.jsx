@@ -94,11 +94,8 @@ export default function EntrevistasPage() {
         </h1>
         <div className="mt-4 h-[2px] w-16 bg-rojo" />
         <p className="font-mono text-lg text-negro/90 mt-4">
-          En Revista Emergente hacemos entrevistas cercanas y auténticas donde
-          buscamos conocer el lado más humano y creativo de cada artista.
-          Hablamos sobre arte, música, procesos creativos y experiencias
-          personales para generar conversaciones reales con artistas emergentes
-          y referentes de la escena cultural argentina.
+          Conversaciones con artistas, sellos y colectivos de la escena
+          emergente.
         </p>
       </div>
 

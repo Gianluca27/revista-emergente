@@ -16,13 +16,13 @@ const features = [
     number: "01",
     title: "ENTREVISTAS",
     description:
-      "Conversaciones largas con artistas independientes del rock, electrónica y folk argentino",
+      "En Revista Emergente hacemos entrevistas cercanas y auténticas donde buscamos conocer el lado más humano y creativo de cada artista. Hablamos sobre arte, música, procesos creativos y experiencias personales para generar conversaciones reales con artistas emergentes y referentes de la escena cultural argentina.",
   },
   {
     number: "02",
     title: "COBERTURAS",
     description:
-      "Documentación fotográfica y textual de shows en vivo en todo el país",
+      "En Revista Emergente realizamos coberturas de eventos culturales, recitales y experiencias artísticas capturando tanto lo que pasa en el escenario como la energía del público y todo lo que sucede detrás de cada evento. Buscamos transmitir la esencia de cada experiencia a través de fotos, videos, entrevistas y contenido dinámico para redes.",
   },
   {
     number: "03",
