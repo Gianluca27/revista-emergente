@@ -156,7 +156,10 @@ export default function SobreNosotrosPage() {
                 className="bg-crema border border-gris-mid p-6 hover:border-rojo transition-colors duration-200 group"
                 variants={fadeUp}
               >
-                <span className="font-display text-5xl text-rojo leading-none block mb-4 group-hover:opacity-80 transition-opacity">
+                <span
+                  className="text-5xl text-rojo leading-none block mb-4 group-hover:opacity-80 transition-opacity"
+                  style={{ fontFamily: '"Arial Black", "Helvetica Black", Impact, sans-serif', fontWeight: 900 }}
+                >
                   {feature.number}
                 </span>
                 <h3 className="font-display text-2xl text-negro uppercase mb-3">
