@@ -78,6 +78,13 @@ export default function ShowsPage() {
           SHOWS
         </h1>
         <div className="mt-3 h-0.5 w-16 bg-rojo" />
+        <p className="font-mono text-lg text-negro/90 mt-4 max-w-3xl">
+          En Revista Emergente realizamos coberturas de eventos culturales,
+          recitales y experiencias artísticas capturando tanto lo que pasa en el
+          escenario como la energía del público y todo lo que sucede detrás de
+          cada evento. Buscamos transmitir la esencia de cada experiencia a
+          través de fotos, videos, entrevistas y contenido dinámico para redes.
+        </p>
       </header>
 
       <main className="px-6 pb-16">

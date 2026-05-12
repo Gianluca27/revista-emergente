@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { getLatestPodcastEpisodes } from "../../services/publications";
+import { getPublications } from "../../services/publications";
+import { formatDate } from "../../utils/formatDate";
 
 const MARQUEE_TEXT =
-  "EMERGENTE PODCAST — MÚSICA INDEPENDIENTE — CONVERSACIONES EN PROFUNDIDAD — ";
+  "EMERGENTE — ENTREVISTAS — MÚSICA INDEPENDIENTE — CONVERSACIONES EN PROFUNDIDAD — ";
 
 function MarqueeTrack({ text, repeat = 4 }) {
   const content = Array.from({ length: repeat }, () => text).join("");
@@ -20,14 +21,14 @@ function MarqueeTrack({ text, repeat = 4 }) {
   );
 }
 
-export default function PodcastBanner() {
-  const [episode, setEpisode] = useState(null);
+export default function EntrevistasBanner() {
+  const [publication, setPublication] = useState(null);
 
   useEffect(() => {
-    getLatestPodcastEpisodes()
+    getPublications({ limit: 1 })
       .then((data) => {
-        const list = Array.isArray(data) ? data : (data.episodes ?? []);
-        if (list.length > 0) setEpisode(list[0]);
+        const list = Array.isArray(data) ? data : (data.data ?? []);
+        if (list.length > 0) setPublication(list[0]);
       })
       .catch(() => {});
   }, []);
@@ -43,59 +44,49 @@ export default function PodcastBanner() {
       <MarqueeTrack text={MARQUEE_TEXT} />
 
       <div className="px-6 sm:px-10 py-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
-        {/* Left: episode info */}
+        {/* Left: latest interview info */}
         <div className="flex-1">
           <p className="font-ui text-base tracking-[0.25em] text-negro/85 uppercase mb-3">
-            Último episodio
+            Última entrevista
           </p>
-          {episode ? (
+          {publication ? (
             <>
-              <p className="font-ui text-base text-negro/85 uppercase tracking-widest mb-1">
-                EP. {episode.episode_number}
-              </p>
               <h3 className="font-display text-3xl sm:text-4xl text-negro uppercase leading-tight">
-                {episode.title}
+                {publication.title}
               </h3>
-              {episode.duration_min && (
+              {publication.subtitle && (
+                <p className="font-mono text-base text-negro/85 mt-2 max-w-xl leading-relaxed">
+                  {publication.subtitle}
+                </p>
+              )}
+              {publication.published_at && (
                 <p className="font-mono text-base text-negro/85 mt-2">
-                  {episode.duration_min} min
+                  {formatDate(publication.published_at)}
                 </p>
               )}
             </>
           ) : (
             <h3 className="font-display text-3xl sm:text-4xl text-negro uppercase leading-tight">
-              Emergente Podcast
+              Entrevistas Emergente
             </h3>
           )}
         </div>
 
         {/* Right: CTA links */}
         <div className="flex flex-col gap-3">
-          {episode?.youtube_url ? (
-            <a
-              href={episode.youtube_url}
-              target="_blank"
-              rel="noreferrer"
+          {publication?.slug ? (
+            <Link
+              to={`/entrevistas/${publication.slug}`}
               className="inline-flex items-center gap-3 font-ui text-lg tracking-widest uppercase bg-crema text-negro px-6 py-3 hover:bg-crema/80 transition-colors duration-200"
             >
-              Ver en YouTube →
-            </a>
-          ) : null}
-          {episode?.spotify_url ? (
-            <a
-              href={episode.spotify_url}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-3 font-ui text-base tracking-widest uppercase text-negro border border-negro/30 px-6 py-3 hover:bg-crema/10 transition-colors duration-200"
-            >
-              Escuchar en Spotify
-            </a>
+              Leer entrevista →
+            </Link>
           ) : null}
           <Link
-            to="/podcast"
+            to="/entrevistas"
             className="font-ui text-xl tracking-widest uppercase font-bold text-negro/90 hover:text-negro transition-colors duration-200"
           >
-            Ver todos los episodios →
+            Ver todas las entrevistas →
           </Link>
         </div>
       </div>

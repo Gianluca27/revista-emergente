@@ -43,7 +43,6 @@ export default function DashboardPage() {
     pubsDraft: null,
     pubsPublished: null,
     artists: null,
-    podcast: null,
     shows: null,
     contactsPending: null,
   })
@@ -53,12 +52,11 @@ export default function DashboardPage() {
     let cancelled = false
     async function load() {
       try {
-        const [allPubs, drafts, published, artists, podcast, shows, pending] = await Promise.all([
+        const [allPubs, drafts, published, artists, shows, pending] = await Promise.all([
           api.get('/admin/publications', { params: { limit: 1 } }),
           api.get('/admin/publications', { params: { status: 'draft', limit: 1 } }),
           api.get('/admin/publications', { params: { status: 'published', limit: 1 } }),
           api.get('/artists'),
-          api.get('/admin/podcast'),
           api.get('/admin/shows'),
           api.get('/admin/contact', { params: { status: 'pending' } }),
         ])
@@ -68,7 +66,6 @@ export default function DashboardPage() {
           pubsDraft:     drafts.data.pagination?.total ?? 0,
           pubsPublished: published.data.pagination?.total ?? 0,
           artists:       artists.data.length,
-          podcast:       podcast.data.length,
           shows:         shows.data.length,
           contactsPending: pending.data.length,
         })
@@ -155,18 +152,11 @@ export default function DashboardPage() {
           delay={0.15}
         />
         <StatCard
-          to="/admin/podcast"
-          label="Podcast"
-          value={loading ? null : stats.podcast}
-          hint={loading ? null : 'Episodios totales'}
-          delay={0.2}
-        />
-        <StatCard
           to="/admin/shows"
           label="Shows"
           value={loading ? null : stats.shows}
           hint={loading ? null : 'Coberturas cargadas'}
-          delay={0.25}
+          delay={0.2}
         />
       </div>
 
@@ -187,12 +177,6 @@ export default function DashboardPage() {
             className="px-4 py-2.5 border border-gris-mid font-ui text-[11px] uppercase tracking-[0.25em] text-negro/90 hover:border-negro hover:text-negro transition-colors duration-150"
           >
             + Cargar artista
-          </Link>
-          <Link
-            to="/admin/podcast"
-            className="px-4 py-2.5 border border-gris-mid font-ui text-[11px] uppercase tracking-[0.25em] text-negro/90 hover:border-negro hover:text-negro transition-colors duration-150"
-          >
-            + Episodio
           </Link>
           <Link
             to="/admin/shows"

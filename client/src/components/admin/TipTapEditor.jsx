@@ -32,12 +32,23 @@ function Divider() {
   return <span className="w-px h-4 bg-gris-mid mx-0.5 shrink-0" />
 }
 
+// Acepta watch?v=, youtu.be/, shorts/, embed/, live/ — con o sin protocolo.
+const YOUTUBE_RE = /^(?:https?:\/\/)?(?:www\.|m\.)?(?:youtube(?:-nocookie)?\.com\/(?:watch\?(?:.*&)?v=[\w-]{6,}|shorts\/[\w-]{6,}|embed\/[\w-]{6,}|live\/[\w-]{6,})|youtu\.be\/[\w-]{6,})/i
+
+function normalizeYoutubeUrl(raw) {
+  const url = raw.trim()
+  if (!url) return null
+  if (!YOUTUBE_RE.test(url)) return null
+  return /^https?:\/\//i.test(url) ? url : `https://${url}`
+}
+
 export default function TipTapEditor({ value, onChange }) {
   const [uploading, setUploading] = useState(false)
   const [linkUrl, setLinkUrl] = useState('')
   const [showLinkInput, setShowLinkInput] = useState(false)
   const [youtubeUrl, setYoutubeUrl] = useState('')
   const [showYoutubeInput, setShowYoutubeInput] = useState(false)
+  const [youtubeError, setYoutubeError] = useState('')
 
   const editor = useEditor({
     extensions: [
@@ -95,13 +106,22 @@ export default function TipTapEditor({ value, onChange }) {
   }, [editor, linkUrl])
 
   const applyYoutube = useCallback(() => {
-    const src = youtubeUrl.trim()
-    if (src) {
-      editor?.chain().focus().setYoutubeVideo({ src }).run()
+    const src = normalizeYoutubeUrl(youtubeUrl)
+    if (!src) {
+      setYoutubeError('Pegá un link válido de YouTube (youtube.com/watch?v=… o youtu.be/…)')
+      return
     }
+    editor?.chain().focus().setYoutubeVideo({ src }).run()
     setShowYoutubeInput(false)
     setYoutubeUrl('')
+    setYoutubeError('')
   }, [editor, youtubeUrl])
+
+  const closeYoutubeInput = useCallback(() => {
+    setShowYoutubeInput(false)
+    setYoutubeUrl('')
+    setYoutubeError('')
+  }, [])
 
   if (!editor) return null
 
@@ -201,31 +221,39 @@ export default function TipTapEditor({ value, onChange }) {
 
         <div className="relative">
           <ToolbarButton
-            onClick={() => setShowYoutubeInput(v => !v)}
+            onClick={() => (showYoutubeInput ? closeYoutubeInput() : setShowYoutubeInput(true))}
             active={showYoutubeInput}
             title="Insertar video de YouTube"
           >YT</ToolbarButton>
           {showYoutubeInput && (
-            <div className="absolute top-full left-0 z-20 mt-1 flex items-center gap-1 bg-crema border border-gris-mid p-1.5 shadow-xl min-w-[260px]">
-              <input
-                autoFocus
-                type="url"
-                placeholder="https://youtube.com/watch?v=…"
-                value={youtubeUrl}
-                onChange={e => setYoutubeUrl(e.target.value)}
-                onKeyDown={e => e.key === 'Enter' && applyYoutube()}
-                className="flex-1 bg-gris text-negro font-mono text-[11px] px-2 py-1 border border-gris-mid focus:outline-none focus:border-rojo"
-              />
-              <button
-                type="button"
-                onClick={applyYoutube}
-                className="font-ui text-[10px] uppercase tracking-widest px-2 py-1 bg-rojo text-crema"
-              >OK</button>
-              <button
-                type="button"
-                onClick={() => { setShowYoutubeInput(false); setYoutubeUrl('') }}
-                className="font-mono text-[11px] text-negro/90 px-1.5 py-1 hover:text-negro"
-              >✕</button>
+            <div className="absolute top-full left-0 z-20 mt-1 bg-crema border border-gris-mid p-1.5 shadow-xl min-w-[280px]">
+              <div className="flex items-center gap-1">
+                <input
+                  autoFocus
+                  type="url"
+                  placeholder="https://youtube.com/watch?v=…"
+                  value={youtubeUrl}
+                  onChange={e => { setYoutubeUrl(e.target.value); if (youtubeError) setYoutubeError('') }}
+                  onKeyDown={e => e.key === 'Enter' && applyYoutube()}
+                  className={[
+                    'flex-1 bg-gris text-negro font-mono text-[11px] px-2 py-1 border focus:outline-none',
+                    youtubeError ? 'border-rojo' : 'border-gris-mid focus:border-rojo',
+                  ].join(' ')}
+                />
+                <button
+                  type="button"
+                  onClick={applyYoutube}
+                  className="font-ui text-[10px] uppercase tracking-widest px-2 py-1 bg-rojo text-crema"
+                >OK</button>
+                <button
+                  type="button"
+                  onClick={closeYoutubeInput}
+                  className="font-mono text-[11px] text-negro/90 px-1.5 py-1 hover:text-negro"
+                >✕</button>
+              </div>
+              {youtubeError && (
+                <p className="font-mono text-[10px] text-rojo mt-1 leading-snug">{youtubeError}</p>
+              )}
             </div>
           )}
         </div>

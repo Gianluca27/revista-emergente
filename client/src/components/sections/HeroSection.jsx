@@ -138,10 +138,10 @@ export default function HeroSection() {
             <span className="text-rojo group-hover:text-crema">→</span>
           </Link>
           <Link
-            to="/podcast"
+            to="/shows"
             className="font-ui text-lg tracking-widest uppercase text-negro/90 hover:text-rojo transition-colors duration-200"
           >
-            Podcast
+            Shows
           </Link>
         </motion.div>
       </div>

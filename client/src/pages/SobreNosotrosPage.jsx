@@ -26,9 +26,9 @@ const features = [
   },
   {
     number: "03",
-    title: "PODCAST",
+    title: "ARCHIVO",
     description:
-      "Episodios semanales con artistas, productores y actores del under",
+      "Un archivo vivo de la música independiente argentina, antes de que el mercado la descubra",
   },
 ];
 
@@ -45,7 +45,7 @@ const team = [
   },
   {
     name: "MAR DOMÍNGUEZ",
-    role: "Podcast & Audio",
+    role: "Multimedia & Redes",
     bio: "Productora de audio, DJ, cronista del caos organizado",
   },
 ];

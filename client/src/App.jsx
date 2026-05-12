@@ -5,7 +5,6 @@ import EntrevistasPage from './pages/EntrevistasPage'
 import PublicationDetailPage from './pages/PublicationDetailPage'
 import ShowsPage from './pages/ShowsPage'
 import ShowDetailPage from './pages/ShowDetailPage'
-import PodcastPage from './pages/PodcastPage'
 import SobreNosotrosPage from './pages/SobreNosotrosPage'
 import ArtistPage from './pages/ArtistPage'
 import NotFoundPage from './pages/NotFoundPage'
@@ -18,7 +17,6 @@ import NuevaPublicacionPage from './admin/pages/NuevaPublicacionPage'
 import EditarPublicacionPage from './admin/pages/EditarPublicacionPage'
 import DashboardPage from './admin/pages/DashboardPage'
 import ArtistasPage from './admin/pages/ArtistasPage'
-import PodcastAdminPage from './admin/pages/PodcastAdminPage'
 import ShowsAdminPage from './admin/pages/ShowsAdminPage'
 import ContactoAdminPage from './admin/pages/ContactoAdminPage'
 
@@ -33,7 +31,6 @@ export default function App() {
           <Route path="/entrevistas/:slug" element={<PublicationDetailPage />} />
           <Route path="/shows" element={<ShowsPage />} />
           <Route path="/shows/:slug" element={<ShowDetailPage />} />
-          <Route path="/podcast" element={<PodcastPage />} />
           <Route path="/artistas/:slug" element={<ArtistPage />} />
           <Route path="/sobre-nosotros" element={<SobreNosotrosPage />} />
           <Route path="/contacto" element={<ContactoPage />} />
@@ -51,7 +48,6 @@ export default function App() {
             <Route path="publicaciones/nueva" element={<NuevaPublicacionPage />} />
             <Route path="publicaciones/:id/editar" element={<EditarPublicacionPage />} />
             <Route path="artistas" element={<ArtistasPage />} />
-            <Route path="podcast" element={<PodcastAdminPage />} />
             <Route path="shows" element={<ShowsAdminPage />} />
             <Route path="contacto" element={<ContactoAdminPage />} />
           </Route>

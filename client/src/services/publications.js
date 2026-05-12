@@ -12,12 +12,6 @@ export const getPublicationBySlug = (slug) =>
 export const getCategories = () =>
   api.get('/categories').then(r => r.data)
 
-export const getLatestPodcastEpisodes = (params = {}) =>
-  api.get('/podcast', { params }).then(r => r.data)
-
-export const getPodcastEpisodes = (params = {}) =>
-  api.get('/podcast', { params }).then(r => r.data)
-
 export const getRecentShows = (params = {}) =>
   api.get('/shows', { params }).then(r => r.data)
 

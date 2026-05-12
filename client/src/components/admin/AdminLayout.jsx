@@ -8,7 +8,6 @@ const NAV = [
   { label: 'Dashboard',     path: '/admin/dashboard',     mark: '◆' },
   { label: 'Publicaciones', path: '/admin/publicaciones', mark: '▬' },
   { label: 'Artistas',      path: '/admin/artistas',      mark: '◈' },
-  { label: 'Podcast',       path: '/admin/podcast',       mark: '◉' },
   { label: 'Shows',         path: '/admin/shows',         mark: '◎' },
   { label: 'Mensajes',      path: '/admin/contacto',      mark: '◻' },
 ]

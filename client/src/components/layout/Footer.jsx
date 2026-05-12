@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 const NAV_LINKS = [
   { to: '/entrevistas', label: 'Entrevistas' },
   { to: '/shows', label: 'Shows' },
-  { to: '/podcast', label: 'Podcast' },
   { to: '/sobre-nosotros', label: 'Sobre Nosotras' },
   { to: '/contacto', label: 'Contacto' },
 ]
@@ -24,7 +23,7 @@ export default function Footer() {
               EMERGENTE
             </p>
             <p className="font-mono text-base text-negro/90 leading-relaxed max-w-xs">
-              Cobertura independiente de la escena musical argentina. Entrevistas, shows y podcast desde adentro.
+              Cobertura independiente de la escena musical argentina. Entrevistas y shows desde adentro.
             </p>
           </div>
 

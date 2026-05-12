@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 const LINKS = [
   { to: '/entrevistas', label: 'Entrevistas' },
   { to: '/shows', label: 'Shows' },
-  { to: '/podcast', label: 'Podcast' },
   { to: '/sobre-nosotros', label: 'Nosotros' },
   { to: '/contacto', label: 'Contacto' },
 ]
