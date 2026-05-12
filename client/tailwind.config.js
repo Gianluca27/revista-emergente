@@ -21,6 +21,7 @@ export default {
         ui:      ['"Barlow Condensed"', 'sans-serif'],
         grunge:  ['"Dirty Rock"', '"Rubik Wet Paint"', '"Bebas Neue"', 'sans-serif'],
         marker:  ['"Permanent Marker"', 'cursive'],
+        arialblack: ['"Arial Black"', '"Arial Bold"', 'Gadget', 'sans-serif'],
       },
     },
   },

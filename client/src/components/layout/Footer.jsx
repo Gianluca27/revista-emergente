@@ -1,17 +1,16 @@
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const NAV_LINKS = [
-  { to: '/entrevistas', label: 'Entrevistas' },
-  { to: '/shows', label: 'Shows' },
-  { to: '/sobre-nosotros', label: 'Sobre Nosotras' },
-  { to: '/contacto', label: 'Contacto' },
-]
+  { to: "/entrevistas", label: "Entrevistas" },
+  { to: "/shows", label: "Shows" },
+  { to: "/sobre-nosotros", label: "Sobre Nosotros" },
+  { to: "/contacto", label: "Contacto" },
+];
 
 const SOCIAL_LINKS = [
-  { href: '#', label: 'Instagram' },
-  { href: '#', label: 'Twitter / X' },
-  { href: '#', label: 'Spotify' },
-]
+  { href: "https://www.instagram.com/revistaemergente_/", label: "Instagram" },
+  { href: "https://open.spotify.com/show/2yeAOtWzzg2b9qdc8rTwU0?si=8095943ceee944d0", label: "Spotify" },
+];
 
 export default function Footer() {
   return (
@@ -23,7 +22,8 @@ export default function Footer() {
               EMERGENTE
             </p>
             <p className="font-mono text-base text-negro/90 leading-relaxed max-w-xs">
-              Cobertura independiente de la escena musical argentina. Entrevistas y shows desde adentro.
+              Cobertura independiente de la escena musical argentina.
+              Entrevistas y shows desde adentro.
             </p>
           </div>
 
@@ -68,7 +68,8 @@ export default function Footer() {
 
         <div className="border-t border-gris-mid pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
           <p className="font-mono text-base text-negro/90">
-            © {new Date().getFullYear()} Revista Emergente — Todos los derechos reservados
+            © {new Date().getFullYear()} Revista Emergente — Todos los derechos
+            reservados
           </p>
           <p className="font-mono text-base text-negro/90 uppercase tracking-widest">
             revistaemergente.ar
@@ -76,5 +77,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

@@ -230,7 +230,7 @@ export default function SobreNosotrosPage() {
             className="font-display text-5xl sm:text-6xl text-negro uppercase leading-none mb-4"
             variants={fadeUp}
           >
-            ¿HACÉS MÚSICA?
+            <span className="font-arialblack">¿</span>TENÉS UN PROYECTO<span className="font-arialblack">?</span>
           </motion.h2>
 
           <motion.p
