@@ -54,6 +54,13 @@ export default function SobreNosotrosPage() {
       .catch(() => setTeam([]));
   }, []);
 
+  // Columnas del equipo según cantidad de miembros (literales completos para que Tailwind las detecte)
+  const teamCount = team?.length ?? 0;
+  const teamColsClass =
+    teamCount >= 3 ? "md:grid-cols-3" : teamCount === 2 ? "md:grid-cols-2" : "md:grid-cols-1";
+  const teamWidthClass =
+    teamCount >= 3 ? "" : teamCount === 2 ? "md:max-w-3xl md:mx-auto" : "md:max-w-md md:mx-auto";
+
   return (
     <div className="min-h-screen bg-crema">
       {/* Hero */}
@@ -185,7 +192,7 @@ export default function SobreNosotrosPage() {
             </motion.p>
 
             <motion.div
-              className="grid grid-cols-1 md:grid-cols-3 gap-px bg-gris-mid"
+              className={`grid grid-cols-1 ${teamColsClass} ${teamWidthClass} gap-px bg-gris-mid`}
               variants={stagger}
               initial="hidden"
               whileInView="visible"

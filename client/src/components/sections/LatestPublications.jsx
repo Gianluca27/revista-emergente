@@ -22,7 +22,7 @@ export default function LatestPublications() {
   useEffect(() => {
     getPublications({ limit: 6 })
       .then((data) =>
-        setPublications(Array.isArray(data) ? data : (data.publications ?? [])),
+        setPublications(Array.isArray(data) ? data : (data.data ?? [])),
       )
       .catch(() => setPublications([]))
       .finally(() => setLoading(false));
