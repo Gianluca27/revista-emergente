@@ -17,6 +17,7 @@ import NuevaPublicacionPage from './admin/pages/NuevaPublicacionPage'
 import EditarPublicacionPage from './admin/pages/EditarPublicacionPage'
 import DashboardPage from './admin/pages/DashboardPage'
 import ArtistasPage from './admin/pages/ArtistasPage'
+import EquipoAdminPage from './admin/pages/EquipoAdminPage'
 import ShowsAdminPage from './admin/pages/ShowsAdminPage'
 import ContactoAdminPage from './admin/pages/ContactoAdminPage'
 
@@ -48,6 +49,7 @@ export default function App() {
             <Route path="publicaciones/nueva" element={<NuevaPublicacionPage />} />
             <Route path="publicaciones/:id/editar" element={<EditarPublicacionPage />} />
             <Route path="artistas" element={<ArtistasPage />} />
+            <Route path="equipo" element={<EquipoAdminPage />} />
             <Route path="shows" element={<ShowsAdminPage />} />
             <Route path="contacto" element={<ContactoAdminPage />} />
           </Route>
